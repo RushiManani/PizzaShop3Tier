@@ -1,0 +1,80 @@
+<div class="sidebar bg-white d-block">
+    <div class="container-fluid">
+        <div class="row pt-3 mx-auto">
+            <div class="col-4 align-self-center text-end">
+                <img src="~/images/logos/pizzashop_logo.png" alt="" class="shop-logo-img">
+            </div>
+            <div class="col-8 align-self-center">
+                <span class="pizza-shop-title h4 fw-bold ps-2 gloabal-color">PIZZASHOP</span>
+            </div>
+        </div>
+        <div class="row sidebar-items">
+            <div class="col  bg-white">
+                <ul class="list-unstyled mt-4">
+                    <li class="list-item active">
+                        <a asp-action="Index" asp-controller="Dashboard" class="text-decoration-none text-reset" alt="">
+                            <i class="bi bi-border-all"></i>
+                            <span class="sidebar-list-title ms-3">Dashboard</span>
+                        </a>
+                    </li>
+                    </a>
+                    <li class="list-item">
+                        <a asp-action="User_ListView" asp-controller="UserCrud" class="text-decoration-none text-reset"
+                            alt="">
+                            <i class="bi bi-people"></i>
+                            <span class="sidebar-list-title ms-3">Users</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" onclick="roleAndPermissions()" class="text-decoration-none text-reset" alt="">
+                            <i class="bi bi-person-plus"></i>
+                            <span class="sidebar-list-title ms-3">Roles and Permissions</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" onclick="menu()" class="text-decoration-none text-reset" alt="">
+                            <i class="bi bi-list"></i>
+                            <span class="sidebar-list-title ms-3">Menu</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none text-reset" alt="">
+                            <i class="bi bi-table"></i>
+                            <span class="sidebar-list-title ms-3">Table and Sections</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none text-reset" alt="">
+                            <i class="bi bi-receipt"></i>
+                            <span class="sidebar-list-title ms-3">Taxes and Fees</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none text-reset" alt="">
+                            <i class="bi bi-box"></i>
+                            <span class="sidebar-list-title ms-3">Orders</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none text-reset" alt="">
+                            <i class="bi bi-person-circle"></i>
+                            <span class="sidebar-list-title ms-3">Customers</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('ul.list-unstyled > li')
+            .click(function (e) {
+                $('ul.list-unstyled > li')
+                    .removeClass('active');
+                $(this).addClass('active');
+            });
+    });
+</script>

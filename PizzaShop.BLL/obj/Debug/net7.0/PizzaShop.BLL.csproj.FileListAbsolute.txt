@@ -1,0 +1,15 @@
+D:\Project\PizzaShop.BLL\bin\Debug\net7.0\PizzaShop.BLL.deps.json
+D:\Project\PizzaShop.BLL\bin\Debug\net7.0\PizzaShop.BLL.dll
+D:\Project\PizzaShop.BLL\bin\Debug\net7.0\PizzaShop.BLL.pdb
+D:\Project\PizzaShop.BLL\bin\Debug\net7.0\PizzaShop.DAL.dll
+D:\Project\PizzaShop.BLL\bin\Debug\net7.0\PizzaShop.DAL.pdb
+D:\Project\PizzaShop.BLL\obj\Debug\net7.0\PizzaShop.BLL.csproj.AssemblyReference.cache
+D:\Project\PizzaShop.BLL\obj\Debug\net7.0\PizzaShop.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\PizzaShop.BLL\obj\Debug\net7.0\PizzaShop.BLL.AssemblyInfoInputs.cache
+D:\Project\PizzaShop.BLL\obj\Debug\net7.0\PizzaShop.BLL.AssemblyInfo.cs
+D:\Project\PizzaShop.BLL\obj\Debug\net7.0\PizzaShop.BLL.csproj.CoreCompileInputs.cache
+D:\Project\PizzaShop.BLL\obj\Debug\net7.0\PizzaShop.BLL.csproj.CopyComplete
+D:\Project\PizzaShop.BLL\obj\Debug\net7.0\PizzaShop.BLL.dll
+D:\Project\PizzaShop.BLL\obj\Debug\net7.0\refint\PizzaShop.BLL.dll
+D:\Project\PizzaShop.BLL\obj\Debug\net7.0\PizzaShop.BLL.pdb
+D:\Project\PizzaShop.BLL\obj\Debug\net7.0\ref\PizzaShop.BLL.dll

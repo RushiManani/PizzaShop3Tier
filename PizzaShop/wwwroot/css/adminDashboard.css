@@ -1,0 +1,348 @@
+.gloabal-bg-color{
+    background-color: #0565A0 !important;
+}
+.gloabal-color{
+    color: #0565A0 !important;
+}
+
+.gloabl-border-color{
+    border-left: 2px solid #0565A0;
+}
+
+.menu-itemtype-icon{
+    height: 15px !important;
+}
+
+.width-max{
+    width: max-content;
+}
+
+.sidebar-menu-res{
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(221,221,221,1) 100%);
+}
+
+.sidebar-border-color{
+    border: 1px solid #0565A0 !important;
+}
+
+.user-active{
+    background-color: #45d132;
+    color: white;
+}
+
+.user-name{
+    font-size: medium !important;
+}
+
+.my-profile-header-none{
+    background-color: #0565A0;
+}
+
+/* .my-profile-box{
+    box-shadow: #fff;
+} */
+
+
+
+@media only screen and (max-width:992px) {
+    .pagination{
+        justify-content: center;  
+        margin-top: 10px;
+    }    
+}
+
+@media only screen and (min-width:993px) {
+    .pagination{
+        justify-content: end;
+        margin-top: 10px;
+    }    
+}
+
+.sidebar {
+    height: 100vh;
+    float: left;
+}
+
+.sidebar-mobile {
+    /* height: 100vh; */
+    float: left;
+}
+
+.list-item {
+    align-content: center;
+    /* background-color: aliceblue; */
+    height: 40px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.list-item>a:hover>span {
+    color: #0565A0;
+}
+
+.active{
+    background-color: aliceblue;
+}
+
+/*code to change background color*/
+.list-unstyled>.active>a, .list-unstyled>.active>a>span {
+    background-color: aliceblue;
+    color: #0565A0;
+    font-weight: bold;
+}
+
+.shop-logo-img {
+    height: 10vh;
+}
+
+.shop-logo-img-res {
+    height: 4vh;
+    background-color: white;
+}
+
+.navbar {
+    height: 7vh;
+    background-color: #0565A0;
+}
+
+.profile-img {
+    height: 5vh;
+    float: right;
+    padding-bottom: 5px;
+}
+
+.myprofile-img {
+    height: 7vh;
+    float: left;
+    padding-bottom: 5px;
+}
+
+.dropdown {
+    position: relative;
+    right: 0;
+}
+
+.dropdown-item-title {
+    font-size: x-small;
+}
+
+.dropdown-menu {
+    inset: 0px auto auto 0px;
+}
+
+/* Users */
+
+.btn-add-user {
+    display: flex;
+    align-items: center;
+}
+
+.btn-add-user i{
+    margin-right: 8px;
+}
+
+.add-user {
+    font-size: medium;
+}
+
+.table-data{
+    font-size: small;
+    
+}
+
+.form-floating>.form-select {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.form-floating>.form-control,
+.form-floating>.form-control-plaintext,
+.form-floating>.form-select {
+  height: calc(2.3rem + 9px) !important;
+}
+
+.form-floating>label {
+    top: -15% !important;
+}
+
+
+.form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label {
+    opacity: 1;
+    transform: scale(.85) translateY(-0.7rem) translateX(.15rem) !important;
+    /* background-color: white; */
+}
+
+.form-check-input:checked[type="checkbox"] {
+    background-color: #0565A0;
+}
+
+
+/* Menu */
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-color: #fff #fff #0565A0 !important;
+}
+
+.list-item-menu{
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(221,221,221,1) 100%);
+}
+
+.sidebar-menu{
+    float: left;
+    width: 400px;
+    /* position: sticky; */
+    /* display: block !important; */
+    overflow-y: auto;
+}
+
+
+.menu-list{
+    height: 400px;
+}
+
+.menu-item-body{
+    width: inherit;
+}
+
+/* .dining-menu-img{
+    height: 40px !important;
+    width: 30px !important;
+} */
+
+
+/* Media Query */
+
+@media only screen and (max-width:1200px) {
+
+    .pizza-shop-title,
+    .sidebar-list-title {
+        display: none;
+    }
+
+    .sidebar {
+        width: 100px;
+    }
+
+    .sidebar-menu{
+        display: none;
+    }
+   
+
+    .shop-logo-img {
+        height: 5vh;
+    }
+
+    .dropdown-item-title {
+        font-size: x-small;
+    }
+
+}
+
+@media only screen and (min-width:1201px) {
+
+    .pizza-shop-title,
+    .sidebar-list-title {
+        display: inline-block;
+    }
+
+    .sidebar {
+        width: 300px;
+    }
+    .shop-logo-img {
+        height: 7vh;
+    }
+
+}
+
+@media only screen and (max-width:992px){
+    .sidebar {
+        display: none;
+    }
+    .sidebar-mobile {
+        display: inline-block;
+    }
+    
+}
+
+@media only screen and (min-width:993px){
+    .sidebar-mobile{
+        display: none;
+    }
+}
+
+@media only screen and (max-width:720px) {
+    
+
+
+    .logo-res {
+        float: left;
+    }
+
+    .dropdown-menu[data-bs-popper] {
+        top: 5%;
+        left: 10%;
+        margin-top: .125rem;
+    }
+    
+
+    
+}
+
+@media only screen and (max-width:700px){
+    /* .dining-menu-img{
+        display: none;
+    } */
+    .abc{
+        display: none;
+    }
+}
+
+@media only screen and (min-width:721px) {
+    
+
+    .dropdown-menu[data-bs-popper] {
+        top: 100%;
+        left: 0;
+        margin-top: .125rem;
+    }
+    .abc{
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width:512px) {
+    .pizza-shop-title-res {
+        display: none;
+    }
+    .sidebar-list-title-res{
+        display: none;
+    }
+    
+    .sidebar-res{
+        width: 200px !important;
+    }
+}
+
+@media only screen and (min-width:513px) {
+    .sidebar-res{
+        width: 300px;
+    }
+    .sidebar-list-title-res{
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width:568px) {
+    .user-button-name{
+        display: none;
+        width: max-content;
+    }
+    
+}
+
+@media only screen and (min-width:569px) {
+    .user-button-name{
+        display: inline-block;
+    }
+    
+}
