@@ -14,10 +14,17 @@ public class AuthRepository : IAuthRepository
         _dbContext = dbContext;
     }
 
-    public AuthViewModel Login(int userID)
-    {
-        AuthViewModel au = new AuthViewModel();
-        return au;
-    }
-
+    // public async Task<AuthViewModel> LoginAsync(int userID)
+    // {
+    //     if(userID!=0){
+    //         var users = await _dbContext.Users.FindAsync(userID);
+    //         AuthViewModel model = new AuthViewModel{
+    //             UserId = users.UserId,
+    //             Email = users.Email,
+    //             Password = users.Password
+    //         };
+    //         return model;
+    //     }
+    //     return null;
+    // }
 }

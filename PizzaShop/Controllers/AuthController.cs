@@ -17,17 +17,17 @@ public class AuthController : Controller
         return View();
     }
 
-    [HttpPost]
-    public IActionResult Login(int userId)
-    {
-        try
-        {
-            AuthViewModel model = _authRepository.Login(userId);
-            return View("User_Login",model);
-        }
-        catch
-        {
-            return View("User_Login");
-        }
-    }
+    // [HttpPost]
+    // public IActionResult Login(int userId)
+    // {
+    //     try
+    //     {
+    //         AuthViewModel model = _authRepository.LoginAsync(userId);
+    //         return View("User_Login",model);
+    //     }
+    //     catch
+    //     {
+    //         return View("User_Login");
+    //     }
+    // }
 }

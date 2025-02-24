@@ -7,8 +7,7 @@ public class AuthViewModel
 
     public int UserId{get;set;}
     [Required]
-    public int Email{get;set;}
-    
+    public string Email{get;set;}
     [Required]
     public string? Password{get;set;}
 }

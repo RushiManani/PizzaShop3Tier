@@ -4,5 +4,5 @@ namespace PizzaShop.BLL.Interfaces;
 
 public interface IAuthRepository
 {
-    AuthViewModel Login(int UserId);
+    // Task<AuthViewModel> LoginAsync(int UserId);
 }
