@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using PizzaShop.BLL.Interfaces;
 using PizzaShop.DAL.Data;
 using PizzaShop.DAL.Models;
@@ -48,8 +50,54 @@ public class AuthRepository : IAuthRepository
 
     public async Task<User> ForgotPasswordAsync(string email)
     {
-        var user = await _dbContext.Users.FindAsync(email);
+        var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+        Console.WriteLine(user);
         return user!;
+    }
+
+    public void ResetPasswordAsync(string email, string newPassword)
+    {
+        User user = _dbContext.Users.FirstOrDefault(u => u.Email == email)!;
+        user.Password = Encrypt(newPassword);
+        _dbContext.SaveChanges();
+    }
+
+    [HttpPost]
+    public async Task<bool> SendEmailAsync(string toEmail, string subject, string body)
+    {
+        try
+        {
+            var users = _dbContext.Users.FirstOrDefault(u => u.Email == toEmail);
+            if (users != null)
+            {
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("Pizza Shop", "test.dotnet@etatvasoft.com"));
+                message.To.Add(new MailboxAddress("PizzaShop User", toEmail));
+                message.Subject = subject;
+
+                var bodyBuilder = new BodyBuilder();
+                bodyBuilder.HtmlBody = body;
+
+                message.Body = bodyBuilder.ToMessageBody();
+
+                using (var client = new MailKit.Net.Smtp.SmtpClient())
+                {
+                    await client.ConnectAsync("mail.etatvasoft.com", 587, false);
+                    await client.AuthenticateAsync("test.dotnet@etatvasoft.com", "P}N^{z-]7Ilp");
+                    await client.SendAsync(message);
+                    await client.DisconnectAsync(true);
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.ToString());
+        }
     }
 
     public async Task<string> GetRoleAsync(int roleID)

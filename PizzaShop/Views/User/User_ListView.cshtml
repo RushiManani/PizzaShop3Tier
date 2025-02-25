@@ -1,0 +1,194 @@
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@{
+    int currentPage = ViewBag.CurrentPage;
+    int totalPages = ViewBag.TotalPages;
+    int pageSize = ViewBag.PageSize;
+}
+@model IEnumerable<PizzaShop.DAL.ViewModel.UserViewModel>
+
+<div class="container-fluid mt-4" id="userList">
+    <div class="row ps-4">
+        <div class="col-8 h2 fw-bold gloabal-color">Users</div>
+        <div class="col-4 d-flex">
+            <form asp-action="User_ListView" asp-controller="UserCrud" method="get">
+                <div class="input-group h-75" style="width: 300px;">
+                    <input type="search" class="form-control border-end-0" value="@ViewData["CurrentFilter"]"
+                        name="searchString" placeholder="Search User" aria-controls="sample_1" id="sample_1">
+                    <button type="submit" class="input-group-text bg-white border-start-0">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="input-group ms-3 h-75">
+                <button type="button" class="btn text-white gloabal-bg-color btn-add-user">
+                    <i class="bi bi-plus"></i>
+                    Add User
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 ps-4">
+        <div class="col">
+            <div class="table-responsive bg-white shadow-lg rounded"
+                style="border: 1px solid lightgray; border-radius: 0.25rem;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <div class="d-flex">
+                                    <span class="ms-3">Name</span>
+                                    <a asp-action="User_ListView" asp-controller="UserCrud"
+                                        asp-route-sortorder="@ViewData["NameSortParm"]"
+                                        asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                        asp-route-page="@currentPage" asp-route-pageSize="@pageSize"
+                                        class="text-decoration-none text-reset ms-1" alt="">
+                                        <i class="bi bi-arrow-up"></i>
+                                    </a>
+                                    <a asp-action="User_ListView" asp-controller="UserCrud"
+                                        asp-route-sortorder="@ViewData["NameSortParm"]"
+                                        asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                        asp-route-page="@currentPage" asp-route-pageSize="@pageSize"
+                                        class="text-decoration-none text-reset ms-1" alt="">
+                                        <i class="bi bi-arrow-down"></i>
+                                    </a>
+                                </div>
+                            </th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">
+                                <div class="d-flex">
+                                    <span class="ms-3">Role</span>
+                                    <a asp-action="User_ListView" asp-controller="UserCrud"
+                                        asp-route-sortorder="@ViewData["RoleSortParm"]"
+                                        asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                        asp-route-page="@currentPage" asp-route-pageSize="@pageSize" 
+                                        class="text-decoration-none text-reset ms-1" alt="">
+                                        <i class="bi bi-arrow-up"></i>
+                                    </a>
+                                    <a asp-action="User_ListView" asp-controller="UserCrud"
+                                        asp-route-sortorder="@ViewData["RoleSortParm"]"
+                                        asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                        asp-route-page="@currentPage" asp-route-pageSize="@pageSize"
+                                        class="text-decoration-none text-reset ms-1" alt="">
+                                        <i class="bi bi-arrow-down"></i>
+                                    </a>
+
+                                </div>
+                            </th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-data" id="sample_2">
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex flex-start">
+                                        <img src="~/images/Default_pfp.svg.png" alt="" class="profile-img ms-1">
+                                        <span class="ms-2 align-self-center">@user.UserName</span>
+                                    </div>
+                                </td>
+                                <td>@user.Email</td>
+                                <td>@user.MobileNumber</td>
+                                <td>@user.RoleName</td>
+                                @* @if(user.Isactive[0]==true) *@
+                                <td><span class="p-1 rounded-pill fw-bold user-active">Active</span></td>
+                                <td>
+                                    <div class="d-flex flex-center">
+                                        <button type="button" class="btn  pe-2" alt="" onclick="addUser()">
+                                            <i class="bi bi-pen h6"></i>
+                                        </button>
+                                        <button type="button" class="btn  ps-2" alt="" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop">
+                                            <i class="bi bi-trash h6"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td colspan="6">
+                                <div class="container">
+                                    <div class="row justify-content-end">
+                                        <div class="col-md-12 col-lg-8 mt-2 pagination flex-md-row ">
+                                            <span class="align-self-center me-2">Items
+                                                Per
+                                                page :</span>
+                                            <div class="">
+                                                <select class="form-select h-100" id="pageSize"
+                                                    onchange="changePageSize()" aria-label="Default select example">
+                                                    <option value="5" selected="@(pageSize == 5 ? "selected" : null)" )>
+                                                        5
+                                                    </option>
+                                                    <option value="10" selected="@(pageSize == 10 ? "selected" : null)"
+                                                        )>10
+                                                    </option>
+                                                    <option value="15" selected="@(pageSize == 15 ? "selected" : null)"
+                                                        )>15
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-4 mt-2 pagination flex-md-row">
+                                            <span class="align-self-center ms-2">Showing 1 - 5 of 13</span>
+                                                <div>
+                                                    <button class="btn border ms-2" onclick="navigatePage(@(currentPage - 1), @(pageSize))"
+                                                        asp-route-sortorder="@ViewData["CurrentSort"]"
+                                                        asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                                        <i class="bi bi-chevron-left"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div>
+                                                    <button class="btn border ms-2" onclick="navigatePage(@(currentPage + 1), @(pageSize))"
+                                                        asp-route-sortorder="@ViewData["CurrentSort"]"
+                                                        asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                                        <i class="bi bi-chevron-right"></i>
+                                                    </button>
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function searchUser() {
+        let userdata = document.getElementById("sample_1").value;
+        console.log(userdata);
+        $.ajax({
+            url: "/Filter/GetUserListByUserName",
+            type: "POST",
+            data: { "name": userdata },
+            success: function (res) {
+                console.log("success fully get data")
+                @* $('#sample_1').empty(); *@
+                    userdata.value = '';
+            },
+            error: function (res) {
+                console.log("failedddd")
+            }
+        });
+    }
+
+    function changePageSize() {
+        var selectedPageSize = document.getElementById("pageSize").value;
+        window.location.href = "?page=1&pageSize=" + selectedPageSize;
+    }
+
+    function navigatePage(page, pageSize) {
+        window.location.href = `?page=${page}&pageSize=${pageSize}`;
+    }
+</script>

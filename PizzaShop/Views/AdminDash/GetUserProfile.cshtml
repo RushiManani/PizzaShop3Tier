@@ -1,0 +1,163 @@
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model PizzaShop.DAL.ViewModel.MyProfileViewModel
+
+<div class="container-fluid m-0">
+    <div class="ms-4 pt-3">
+        <h1 class="fw-bold gloabal-color">My Profile</h1>
+    </div>
+    <div class="container-fluid my-profile-box shadow-lg rounded p-0" style="position: relative;">
+        <div class="row m-0 ">
+            <div class="col p-0">
+                <div class="" style="height: 50px; width: auto;">
+                    <img src="~/images/profile_div_bg.jpg" alt="" style="height: 100%; width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="row m-0 bg-white">
+            <form method="post" asp-action="UpdateUserProfile" asp-controller="AdminDash">
+                <input type="hidden" asp-for="Email">
+                <input type="hidden" asp-for="UserId">
+                <div class="row mt-2">
+                    <div class="col-1 align-self-center">
+                        <img src="~/images/Default_pfp.svg.png" alt="" class="myprofile-img ms-4"
+                            style="position: absolute; top: 30px; height: 70px;">
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="col"><span class="h4">@ViewData["UserName"]</span></div>
+                        </div>
+                        <div class="row pt-1">
+                            <div class="col"><span class="">@ViewData["RoleName"]</span></div>
+                        </div>
+                    </div>
+                    <div class="col-2 text-end">@ViewData["UserEmail"]</div>
+                </div>
+                
+                <div class="row mt-3 ms-0">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
+                                asp-for="FirstName">
+                            <label for="floatingInput" class="p-2 text-secondary">FirstName</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
+                                asp-for="LastName">
+                            <label for="floatingInput" class="p-2 text-secondary">LastName</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 ms-0">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
+                                asp-for="UserName">
+                            <label for="floatingInput" class="p-2 text-secondary">UserName</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
+                                asp-for="MobileNumber">
+                            <label for="floatingInput" class="p-2 text-secondary">Phone</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-3 ms-0">
+                    <div class="col-md-4 col-sm-12">
+                        <select class="form-select" aria-label="Default select example" asp-for="CountryId"
+                            id="countrydropdown">
+                            <option value="">Select Country</option>
+                            @foreach (var country in Model.CountryList)
+                            {
+                                <option value="@country.CountryId">@country.CountryName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <select class="form-select" aria-label="Default select example" asp-for="StateId"
+                            id="statedropdown">
+                            <option value="">Select State</option>
+                            @foreach (var state in Model.StateList)
+                            {
+                                <option value="@state.StateId">@state.StateName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <select class="form-select" aria-label="Default select example" asp-for="CityId"
+                            id="citydropdown" >
+                            <option value="">Select City</option>
+                            @foreach (var city in Model.CityList)
+                            {
+                                <option value="@city.CityId">@city.CityName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3 ms-0">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
+                                asp-for="Address">
+                            <label for="floatingInput" class="p-2 text-secondary">Address</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
+                                asp-for="Zipcode">
+                            <label for="floatingInput" class="p-2 text-secondary">ZipCode</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-3 text-end">
+                    <div class="col">
+                        <button class="btn text-white gloabal-bg-color" type="submit">Update</button>
+                        <button class="btn gloabal-color ms-2"
+                            style="background-color: white; border-color: #0565A0;">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    @* $(document).ready(function(){
+        $('#countrydropdown').change(function(){
+            var countryId = $(this).val();
+            $('#statedropdown').empty().append('<option value="">Select State</option>');
+            $('#citydropdown').empty().append('<option value="">Select City</option>');
+
+            if(countryId){
+                $.getJSON('/User/GetStates',{countryId:countryId},function(states){
+                    $.each(states,function(i,state){
+                        console.log(state)
+                        $('#statedropdown').append('<option value="' + state.stateId + '">'+state.stateName+'</option>')
+                    })
+                });
+            }
+        });
+
+        $('#statedropdown').change(function () {
+            var stateId = $(this).val();
+            $('#citydropdown').empty().append('<option value="">Select City</option>');
+            if (stateId) {
+                console.log("callled")
+                $.getJSON('/User/GetCities', { stateId: stateId }, function (cities) {
+                    $.each(cities, function (i, city) {
+                        $('#citydropdown').append('<option value="' + city.cityId + '">' + city.cityName + '</option>');
+                    });
+                });
+            }
+        });
+    }); *@
+</script>
+
+

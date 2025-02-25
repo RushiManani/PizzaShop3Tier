@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\PizzaShop\\PizzaShop.csproj": {}
+    "d:\\Project\\PizzaShop\\PizzaShop.csproj": {}
   },
   "projects": {
-    "D:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj": {
+    "d:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj",
+        "projectUniqueName": "d:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj",
         "projectName": "PizzaShop.BLL",
-        "projectPath": "D:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj",
+        "projectPath": "d:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj",
         "packagesPath": "C:\\Users\\pci43\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\PizzaShop.BLL\\obj\\",
+        "outputPath": "d:\\Project\\PizzaShop.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pci43\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj": {
-                "projectPath": "D:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj"
+              "d:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj": {
+                "projectPath": "d:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj"
               }
             }
           }
@@ -41,6 +41,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.10.0, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.10.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,14 +71,14 @@
         }
       }
     },
-    "D:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj": {
+    "d:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj",
+        "projectUniqueName": "d:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj",
         "projectName": "PizzaShop.DAL",
-        "projectPath": "D:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj",
+        "projectPath": "d:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj",
         "packagesPath": "C:\\Users\\pci43\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\PizzaShop.DAL\\obj\\",
+        "outputPath": "d:\\Project\\PizzaShop.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pci43\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -148,14 +158,14 @@
         }
       }
     },
-    "D:\\Project\\PizzaShop\\PizzaShop.csproj": {
+    "d:\\Project\\PizzaShop\\PizzaShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\PizzaShop\\PizzaShop.csproj",
+        "projectUniqueName": "d:\\Project\\PizzaShop\\PizzaShop.csproj",
         "projectName": "PizzaShop",
-        "projectPath": "D:\\Project\\PizzaShop\\PizzaShop.csproj",
+        "projectPath": "d:\\Project\\PizzaShop\\PizzaShop.csproj",
         "packagesPath": "C:\\Users\\pci43\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\PizzaShop\\obj\\",
+        "outputPath": "d:\\Project\\PizzaShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pci43\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -170,11 +180,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj": {
-                "projectPath": "D:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj"
+              "d:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj": {
+                "projectPath": "d:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj"
               },
-              "D:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj": {
-                "projectPath": "D:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj"
+              "d:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj": {
+                "projectPath": "d:\\Project\\PizzaShop.DAL\\PizzaShop.DAL.csproj"
               }
             }
           }
@@ -189,6 +199,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.10.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[7.0.1, )"
@@ -204,6 +218,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.1, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.10.0, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

@@ -13,6 +13,7 @@ builder.Services.AddDbContext<PizzaShopDbContext>();
 builder.Services.AddScoped<IAuthRepository,AuthRepository>();
 builder.Services.AddScoped<IAdminDashRepository,AdminDashRepository>();
 builder.Services.AddScoped<IJWTRepository,JWTRepository>();
+builder.Services.AddScoped<IUserRepository,UserRepository>();
 
 builder.Services.AddHttpContextAccessor();
 
