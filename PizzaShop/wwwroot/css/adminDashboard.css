@@ -43,11 +43,13 @@
     background-color: #0565A0;
 }
 
+/* input#floatinginput{
+    padding-left: 0.854rem;
+} */
+
 /* .my-profile-box{
     box-shadow: #fff;
 } */
-
-
 
 @media only screen and (max-width:992px) {
     .pagination{

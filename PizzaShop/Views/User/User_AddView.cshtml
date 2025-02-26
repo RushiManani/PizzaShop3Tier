@@ -1,0 +1,206 @@
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model PizzaShop.DAL.Models.User
+
+<div class="container-fluid mt-4">
+    <div class="row ps-4">
+        <div class="col-4 h2 fw-bold" style="color: #0565A0;">Add New User</div>
+        <div class="col-8">
+            <a asp-action="User_ListView" asp-controller="User" class="btn btn-add text-center text-white" type="button"
+                style="background-color: white; border-color: #0565A0; float: right;">
+                <i class="bi bi-chevron-compact-left" style="color: #0565A0;"></i>
+                <span class="user-button-name" style="color: #0565A0;">Back</span>
+            </a>
+        </div>
+    </div>
+    <div class="row mt-3 ps-4">
+        <div class="col">
+            <form method="post" asp-action="AddUser" asp-controller="User">
+                <div class="container-fluid bg-white pt-4 pb-4"
+                    style="border: 1px solid lightgray; border-radius: 0.25rem;">
+                    <div class="row mb-3">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
+                                    asp-for="FirstName">
+                                <label for="floatingInput" class="p-2 p-3">First Name</label>
+                            </div>
+                            <div>
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
+                                    asp-for="LastName">
+                                <label for="floatingInput" class="p-2 p-3">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
+                                    asp-for="UserName">
+                                <label for="floatingInput" class="p-2 p-3">User Name</label>
+                            </div>
+                            <div>
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-floating">
+                                <select class="form-select" aria-label="Default select example" asp-for="RoleId">
+                                    <option selected>Select Role</option>
+                                    @foreach (var role in ViewBag.RoleList!)
+                                    {
+                                        <option value="@role.RoleId">@role.RoleName</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="RoleId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control ps-2" id="floatingInput" placeholder=""
+                                    asp-for="Email">
+                                <label for="floatingInput" class="p-2 p-3">Email</label>
+                            </div>
+                            <div>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control ps-2" id="floatingInput" placeholder=""
+                                    asp-for="Password">
+                                <label for="floatingInput" class="p-2 p-3">Password</label>
+                            </div>
+                            <div>
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="fileUpload" class="btn w-100 p-4"
+                                style=" border: 1px solid #ced4da; border-style: dashed; ">
+                                <i class="bi bi-cloud-arrow-up h3"></i><br>Browse File
+                                <input type="file" id="fileUpload" class="d-none" asp-for="ProfilePicture">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 col-md-12">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" aria-label="Default select example" asp-for="CountryId"
+                                    id="countrydropdown">
+                                    <option value="" selected>Select Country</option>
+                                    @foreach (var country in ViewBag.CountryList!)
+                                    {
+                                        <option value="@country.CountryId">@country.CountryName</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="CountryId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" aria-label="Default select example" asp-for="StateId"
+                                    id="statedropdown">
+                                    <option selected>Select State</option>
+
+                                </select>
+                                <span asp-validation-for="StateId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" aria-label="Default select example" asp-for="CityId"
+                                    id="citydropdown">
+                                    <option selected>Select City</option>
+
+                                </select>
+                                <span asp-validation-for="CityId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 col-md-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
+                                    asp-for="Zipcode">
+                                <label for="floatingInput" class="p-2 p-3">Zipcode</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
+                                    asp-for="Address">
+                                <label for="floatingInput" class="p-2 p-3">Address</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
+                                    asp-for="MobileNumber">
+                                <label for="floatingInput" class="p-2 p-3">Phone</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-auto">
+                            <button class="btn text-white" style="background-color: #0565A0;" type="submit">Create
+                                User</button>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn"
+                                style="background-color: white; border-color: #0565A0; color: #0565A0;">Cancel</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function () {
+            $('#countrydropdown').change(function () {
+                var countryId = $(this).val();
+                console.log("countryid: " + countryId)
+                $('#statedropdown').empty().append('<option value="">Select State</option>');
+                $('#citydropdown').empty().append('<option value="">Select City</option>');
+
+                if (countryId) {
+                    $.getJSON('/User/GetStates', { countryId: countryId }, function (states) {
+                        $.each(states, function (i, state) {
+                            console.log(state)
+                            $('#statedropdown').append('<option value="' + state.stateId + '">' + state.stateName + '</option>')
+                        })
+                    });
+                }
+            });
+
+            $('#statedropdown').change(function () {
+                var stateId = $(this).val();
+                $('#citydropdown').empty().append('<option value="">Select City</option>');
+                if (stateId) {
+                    console.log("callled")
+                    $.getJSON('/User/GetCities', { stateId: stateId }, function (cities) {
+                        $.each(cities, function (i, city) {
+                            $('#citydropdown').append('<option value="' + city.cityId + '">' + city.cityName + '</option>');
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+}

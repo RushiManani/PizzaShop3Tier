@@ -60,6 +60,16 @@ public class AdminDashRepository : IAdminDashRepository
         await _dbContext.SaveChangesAsync();
     }
 
+    public List<Country> GetCountries()
+    {
+        return _dbContext.Countries.ToList();
+    }
+
+    public List<Role> GetRoles()
+    {
+        return _dbContext.Roles.ToList();
+    }
+
     public List<State> GetStates(int CountryId)
     {
         return _dbContext.States.Where(s=>s.CountryId==CountryId).ToList();

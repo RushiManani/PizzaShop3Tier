@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PizzaShop.BLL.Interfaces;
+using PizzaShop.DAL.Models;
 using PizzaShop.DAL.ViewModel;
 
 namespace PizzaShop.Controllers;
@@ -8,10 +9,14 @@ public class UserController : Controller
 {
 
     private readonly IUserRepository _userRepository;
+    private readonly IAdminDashRepository _adminDashRepository;
+    private readonly IAuthRepository _authRepository;
 
-    public UserController(IUserRepository userRepository)
+    public UserController(IUserRepository userRepository, IAdminDashRepository adminDashRepository, IAuthRepository authRepository)
     {
         _userRepository = userRepository;
+        _adminDashRepository = adminDashRepository;
+        _authRepository = authRepository;
     }
 
     public IActionResult User_ListView(string? sortorder, string searchString, string currentFilter, int page = 1, int pageSize = 5)
@@ -25,9 +30,19 @@ public class UserController : Controller
         List<UserViewModel> users = _userRepository.GetUserAsync(page, pageSize);
         int totalItems = users.Count();
         int totalPages = (int)System.Math.Ceiling((double)totalItems / pageSize);
+        ViewBag.TotalRecord = totalItems;
         ViewBag.CurrentPage = page;
         ViewBag.TotalPages = totalPages;
         ViewBag.PageSize = pageSize;
+        ViewBag.StartCount = (page - 1) * pageSize + 1;
+        if (totalItems > pageSize)
+        {
+            ViewBag.EndCount = pageSize;
+        }
+        else
+        {
+            ViewBag.EndCount = totalItems;
+        }
 
         if (!String.IsNullOrEmpty(searchString))
         {
@@ -67,5 +82,61 @@ public class UserController : Controller
         }
 
         return View("User_ListView");
+    }
+
+    public IActionResult User_AddView()
+    {
+        ViewBag.CountryList = _adminDashRepository.GetCountries().ToList();
+        ViewBag.RoleList = _adminDashRepository.GetRoles().ToList();
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult AddUser(User model)
+    {
+        string subject = "Reset Your Password";
+        string body = $"<p>Email : {model.Email}</p></br><p>Password : {model.Password}</p>;";
+        model.Password = _authRepository.Encrypt(model.Password);
+        model.CreatedBy = "Super Admin";
+        _userRepository.AddUserAsync(model);
+        _authRepository.SendEmailAsync(model.Email,subject,body);
+        return RedirectToAction("User_ListView");
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> User_EditView(int userID)
+    {
+        var user = await _userRepository.GetUserByIDAsync(userID);
+        return View(user);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateUser(NewUserModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            
+            await _userRepository.UpdateUserAsync(model);
+            TempData["ToastrMessage"] = "User Updated Successfully";
+            TempData["ToastrType"] = "success";
+            return RedirectToAction("User_ListView", "User");
+        }
+        return View("User_EditView");
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetStates(int countryid)
+    {
+        var states = _adminDashRepository.GetStates(countryid);
+        ViewBag.StateList = states.ToList();
+        return Json(states);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetCities(int Stateid)
+    {
+        var cities = _adminDashRepository.GetCities(Stateid);
+        ViewBag.CityList = cities.ToList();
+        return Json(cities);
     }
 }

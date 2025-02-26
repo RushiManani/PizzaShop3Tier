@@ -6,6 +6,9 @@
     int currentPage = ViewBag.CurrentPage;
     int totalPages = ViewBag.TotalPages;
     int pageSize = ViewBag.PageSize;
+    int totalRecords = ViewBag.TotalRecord;
+    int startCount = ViewBag.StartCount;
+    int endCount = ViewBag.EndCount;
 }
 @model IEnumerable<PizzaShop.DAL.ViewModel.UserViewModel>
 
@@ -15,18 +18,19 @@
         <div class="col-4 d-flex">
             <form asp-action="User_ListView" asp-controller="User" method="get">
                 <div class="input-group h-75" style="width: 300px;">
-                    <input type="search" class="form-control border-end-0" value="@ViewData["CurrentFilter"]"
-                        name="searchString" placeholder="Search User" aria-controls="sample_1" id="sample_1">
+                    <input type="search" class="form-control border-end-0" value="@ViewData["CurrentFilter"]" using
+                        Microsoft.EntityFrameworkCore.Metadata.Internal; name="searchString" placeholder="Search User"
+                        aria-controls="sample_1" id="sample_1">
                     <button type="submit" class="input-group-text bg-white border-start-0">
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
             </form>
             <div class="input-group ms-3 h-75">
-                <button type="button" class="btn text-white gloabal-bg-color btn-add-user">
+                <a asp-action="User_AddView" asp-controller="User" type="button" class="btn text-white gloabal-bg-color btn-add-user">
                     <i class="bi bi-plus"></i>
                     Add User
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -106,9 +110,9 @@
                                 }
                                 <td>
                                     <div class="d-flex flex-center">
-                                        <button type="button" class="btn  pe-2" alt="" onclick="addUser()">
+                                        <a type="button" class="btn  pe-2" alt="" asp-route-userID="@user.UserId" asp-action="User_EditView" asp-controller="User">
                                             <i class="bi bi-pen h6"></i>
-                                        </button>
+                                        </a>
                                         <button type="button" class="btn ps-2 delete-user" alt="" data-bs-toggle="modal"
                                             data-bs-target="#staticBackdropDlt" data-id="@user.UserId">
                                             <i class="bi bi-trash h6"></i>
@@ -141,7 +145,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-lg-4 mt-2 pagination flex-md-row">
-                                            <span class="align-self-center ms-2">Showing 1 - 5 of 13</span>
+                                            <span class="align-self-center ms-2">Showing @startCount - @endCount of
+                                                @totalRecords</span>
                                             <div>
                                                 <button class="btn border ms-2"
                                                     onclick="navigatePage(@(currentPage - 1), @(pageSize))"
@@ -210,7 +215,7 @@
         // When the delete button is clicked, set the user ID in the modal
         $('.delete-user').on('click', function () {
             var userId = $(this).data('id');
-            console.log("useriD: "+userId)
+            console.log("useriD: " + userId)
             $('#deleteUserId').val(userId);
         });
 
@@ -218,7 +223,7 @@
         $('#confirmDelete').on('click', function () {
             console.log("delete clicked")
             var userId = $('#deleteUserId').val();
-            console.log("ssss: "+userId)
+            console.log("ssss: " + userId)
             $.ajax({
                 url: '/User/User_Delete', // Adjust the URL to match your controller action
                 type: 'POST',

@@ -1,3 +1,6 @@
+using System.ComponentModel.DataAnnotations;
+using PizzaShop.DAL.Models;
+
 namespace PizzaShop.DAL.ViewModel;
 
 public class UserViewModel
@@ -8,13 +11,35 @@ public class UserViewModel
     public bool? Isactive {get;set;}
     public string? MobileNumber { get; set; }
     public string? RoleName { get; set; }
-    public Role? Role { get; set; }
-    public int pageSize { get; set; }
-    public int pageNumber { get; set; }
 }
 
-public class Role
+// public class Role
+// {
+//     public int RoleId{get;set;}
+//     public string? RoleName{get;set;}
+// }
+
+public class NewUserModel
 {
+    public int UserId{get;set;}
+    [Required]
+    public string? FirstName{get;set;}
+    public string? LastName{get;set;} = null;
+    [Required]
+    public string? UserName{get;set;}
     public int RoleId{get;set;}
-    public string? RoleName{get;set;}
+    [Required]
+    public string? Email{get;set;}
+    public string? ProfilePicture{get;set;}=null;
+    public int CountryId{get;set;}
+    public int StateId{get;set;}
+    public int CityId{get;set;}
+    public string? Zipcode{get;set;}=null;
+    public string? Phone{get;set;}=null;
+    public string? Address{get;set;}=null;
+    public bool? Isactive{get;set;}
+    public List<Country>? CountryList { get; set; }=null;
+    public List<State>? StateList { get; set; }=null;
+    public List<City>? CityList { get; set; }=null;
+    public List<Role>? RoleList {get;set;}=null;
 }

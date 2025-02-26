@@ -34,13 +34,16 @@
                     </div>
                     <div class="col-xl-3 col-lg-2 col-md-4 text-end">@ViewData["UserEmail"]</div>
                 </div>
-                
+
                 <div class="row mt-3 ms-0">
                     <div class="col-lg-6 col-md-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
                                 asp-for="FirstName">
                             <label for="floatingInput" class="p-2 text-secondary">FirstName</label>
+                        </div>
+                        <div>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
@@ -57,6 +60,9 @@
                             <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
                                 asp-for="UserName">
                             <label for="floatingInput" class="p-2 text-secondary">UserName</label>
+                        </div>
+                        <div>
+                            <span asp-validation-for="UserName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
@@ -77,6 +83,8 @@
                                 <option value="@country.CountryId">@country.CountryName</option>
                             }
                         </select>
+                        <span asp-validation-for="CountryId" class="text-danger"></span>
+
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <select class="form-select" aria-label="Default select example" asp-for="StateId"
@@ -87,16 +95,18 @@
                                 <option value="@state.StateId">@state.StateName</option>
                             }
                         </select>
+                        <span asp-validation-for="StateId" class="text-danger"></span>
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <select class="form-select" aria-label="Default select example" asp-for="CityId"
-                            id="citydropdown" >
+                            id="citydropdown">
                             <option value="">Select City</option>
                             @foreach (var city in Model.CityList!)
                             {
                                 <option value="@city.CityId">@city.CityName</option>
                             }
                         </select>
+                        <span asp-validation-for="CityId" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="row mt-3 ms-0">
@@ -127,19 +137,20 @@
     </div>
 </div>
 
+<partial name="_ValidationScriptsPartial" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $('#countrydropdown').change(function(){
+    $(document).ready(function () {
+        $('#countrydropdown').change(function () {
             var countryId = $(this).val();
             $('#statedropdown').empty().append('<option value="">Select State</option>');
             $('#citydropdown').empty().append('<option value="">Select City</option>');
 
-            if(countryId){
-                $.getJSON('/AdminDash/GetStates',{countryId:countryId},function(states){
-                    $.each(states,function(i,state){
+            if (countryId) {
+                $.getJSON('/AdminDash/GetStates', { countryId: countryId }, function (states) {
+                    $.each(states, function (i, state) {
                         console.log(state)
-                        $('#statedropdown').append('<option value="' + state.stateId + '">'+state.stateName+'</option>')
+                        $('#statedropdown').append('<option value="' + state.stateId + '">' + state.stateName + '</option>')
                     })
                 });
             }
@@ -159,5 +170,3 @@
         });
     });
 </script>
-
-

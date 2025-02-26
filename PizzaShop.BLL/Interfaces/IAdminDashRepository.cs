@@ -9,7 +9,9 @@ public interface IAdminDashRepository
 
     Task UpdateUserProfileAsync(MyProfileViewModel model);
 
+    List<Role> GetRoles();
+    List<Country> GetCountries();
     List<State> GetStates(int countryId);
     List<City> GetCities(int stateId);
-    Task UpdatePasswordAsync(string email,string currentPassword,string newPassword);
+    Task UpdatePasswordAsync(string email, string currentPassword, string newPassword);
 }
