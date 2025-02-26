@@ -45,8 +45,43 @@ public class AdminDashController : Controller
         if (ModelState.IsValid)
         {
             await _adminDashRepository.UpdateUserProfileAsync(model);
+            TempData["ToastrMessage"] = "Profile Updated Successfully";
+            TempData["ToastrType"] = "success";
             return RedirectToAction("Index", "AdminDash");
         }
         return View("GetUserProfile");
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetStates(int countryid)
+    {
+        var states = _adminDashRepository.GetStates(countryid);
+        return Json(states);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetCities(int Stateid)
+    {
+        var cities = _adminDashRepository.GetCities(Stateid);
+        return Json(cities);
+    }
+
+    public IActionResult ChangePassword()
+    {
+        return View();
+    }
+
+    public IActionResult UpdatePassword(ChangePassword model)
+    {
+        if (ModelState.IsValid)
+        {
+            List<string> jwtlist = _jwtRepository.ReadJWTToken();
+            var email = jwtlist[0];
+            _adminDashRepository.UpdatePasswordAsync(email, model.CurrentPassword, model.NewPassword);
+            TempData["ToastrMessage"] = "Password Changed Successfully";
+            TempData["ToastrType"] = "success";
+            return RedirectToAction("Index");
+        }
+        return RedirectToAction("User_Login","Auth");
     }
 }

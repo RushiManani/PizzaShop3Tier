@@ -12,10 +12,12 @@ public class AdminDashRepository : IAdminDashRepository
 {
 
     private readonly PizzaShopDbContext _dbContext;
+    private readonly IAuthRepository _authrepository;
 
-    public AdminDashRepository(PizzaShopDbContext dbContext)
+    public AdminDashRepository(PizzaShopDbContext dbContext,IAuthRepository authRepository)
     {
         _dbContext = dbContext;
+        _authrepository = authRepository;
     }
 
     public async Task<MyProfileViewModel> GetUserProfileAsync(string email)
@@ -56,5 +58,31 @@ public class AdminDashRepository : IAdminDashRepository
         users.CityId = model.CityId;
         _dbContext.Update(users);
         await _dbContext.SaveChangesAsync();
+    }
+
+    public List<State> GetStates(int CountryId)
+    {
+        return _dbContext.States.Where(s=>s.CountryId==CountryId).ToList();
+    }
+
+    public List<City> GetCities(int StateId)
+    {
+        return _dbContext.Cities.Where(c=>c.StateId==StateId).ToList();
+    }
+
+    public async Task UpdatePasswordAsync(string email,string currentPassword,string newPassword)
+    {
+        var users = _dbContext.Users.FirstOrDefaultAsync(u=>u.Email==email);
+        if(users!=null)
+        {
+            var user = _dbContext.Users.FirstOrDefault(u => u.Password == _authrepository.Encrypt(currentPassword));
+            if(user!=null)
+            {
+                string newPasswordHash = _authrepository.Encrypt(newPassword);
+                user.Password = newPasswordHash;
+                _dbContext.Update(user);
+                await _dbContext.SaveChangesAsync();
+            }
+        }
     }
 }

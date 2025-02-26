@@ -1,4 +1,4 @@
-<div class="sidebar bg-white d-block">
+<div class="sidebar bg-white">
     <div class="container-fluid">
         <div class="row pt-3 mx-auto">
             <div class="col-4 align-self-center text-end">
@@ -59,6 +59,81 @@
                         <a href="#" class="text-decoration-none text-reset" alt="">
                             <i class="bi bi-person-circle"></i>
                             <span class="sidebar-list-title ms-3">Customers</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar Res -->
+
+<div class="sidebar-res offcanvas offcanvas-start bg-white d-lg-none" tabindex="-1" id="offcanvasExample"
+    aria-labelledby="offcanvasExampleLabel">
+    <div class="container-fluid">
+        <div class="row pt-3 mx-auto">
+            <div class="col-3 align-self-center ">
+                <img src="~/images/logos/pizzashop_logo.png" alt="" class="shop-logo-img">
+            </div>
+            <div class="col-7 align-self-center">
+                <span class="pizza-shop-title-res h4 fw-bold ps-2 gloabal-color">PIZZASHOP</span>
+            </div>
+            <div class="col-1 align-self-center me-1">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="row sidebar-items">
+            <div class="col">
+                <ul class="list-unstyled mt-4">
+                    <li class="list-item bg-light">
+                        <a asp-action="Index" asp-controller="AdminDash" class="btn text-decoration-none" alt="">
+                            <i class="bi bi-border-all res-icon"></i>
+                            <span class="sidebar-list-title-res ms-3 fw-bold">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="list-item bg-white">
+                        <a asp-action="User_ListView" asp-controller="User" class="btn text-decoration-none text-reset" alt="">
+                            <i class="bi bi-people res-icon"></i>
+                            <span class="sidebar-list-title-res ms-3">Users</span>
+                        </a>
+
+                    </li>
+                    <li class="list-item bg-white">
+                        <a href="#" onclick="roleAndPermissions()" class="btn text-decoration-none text-reset" alt="">
+                            <i class="bi bi-person-plus res-icon"></i>
+                            <span class="sidebar-list-title-res ms-3">Roles and Permissions</span>
+                        </a>
+                    </li>
+                    <li class="list-item bg-white">
+                        <a href="#" class="btn text-decoration-none text-reset" alt="">
+                            <i class="bi bi-list res-icon"></i>
+                            <span class="sidebar-list-title-res ms-3">Menu</span>
+                        </a>
+                    </li>
+                    <li class="list-item bg-white">
+                        <a href="#" class="btn text-decoration-none text-reset" alt="">
+                            <i class="bi bi-table res-icon"></i>
+                            <span class="sidebar-list-title-res ms-3">Table and Sections</span>
+                        </a>
+                    </li>
+                    <li class="list-item bg-white">
+                        <a href="#" class="btn text-decoration-none text-reset" alt="">
+                            <i class="bi bi-receipt res-icon"></i>
+                            <span class="sidebar-list-title-res ms-3">Taxes and Fees</span>
+                        </a>
+                    </li>
+                    <li class="list-item bg-white">
+                        <a href="#" class="btn text-decoration-none text-reset" alt="">
+                            <i class="bi bi-box res-icon"></i>
+                            <span class="sidebar-list-title-res ms-3">Orders</span>
+                        </a>
+                    </li>
+                    <li class="list-item bg-white">
+                        <a href="#" class="btn text-decoration-none  text-reset" alt="">
+                            <i class="bi bi-person-circle res-icon"></i>
+                            <span class="sidebar-list-title-res ms-3">Customers</span>
                         </a>
                     </li>
                 </ul>

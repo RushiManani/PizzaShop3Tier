@@ -20,11 +20,11 @@
                 <input type="hidden" asp-for="Email">
                 <input type="hidden" asp-for="UserId">
                 <div class="row mt-2">
-                    <div class="col-1 align-self-center">
+                    <div class="col-xl-1 col-lg-2 col-md-4 align-self-center">
                         <img src="~/images/Default_pfp.svg.png" alt="" class="myprofile-img ms-4"
-                            style="position: absolute; top: 30px; height: 70px;">
+                            style="position: absolute; top: 30px; height: 85px;">
                     </div>
-                    <div class="col-8">
+                    <div class="col-xl-8 col-lg-7 col-md-4">
                         <div class="row">
                             <div class="col"><span class="h4">@ViewData["UserName"]</span></div>
                         </div>
@@ -32,7 +32,7 @@
                             <div class="col"><span class="">@ViewData["RoleName"]</span></div>
                         </div>
                     </div>
-                    <div class="col-2 text-end">@ViewData["UserEmail"]</div>
+                    <div class="col-xl-3 col-lg-2 col-md-4 text-end">@ViewData["UserEmail"]</div>
                 </div>
                 
                 <div class="row mt-3 ms-0">
@@ -72,7 +72,7 @@
                         <select class="form-select" aria-label="Default select example" asp-for="CountryId"
                             id="countrydropdown">
                             <option value="">Select Country</option>
-                            @foreach (var country in Model.CountryList)
+                            @foreach (var country in Model.CountryList!)
                             {
                                 <option value="@country.CountryId">@country.CountryName</option>
                             }
@@ -82,7 +82,7 @@
                         <select class="form-select" aria-label="Default select example" asp-for="StateId"
                             id="statedropdown">
                             <option value="">Select State</option>
-                            @foreach (var state in Model.StateList)
+                            @foreach (var state in Model.StateList!)
                             {
                                 <option value="@state.StateId">@state.StateName</option>
                             }
@@ -92,7 +92,7 @@
                         <select class="form-select" aria-label="Default select example" asp-for="CityId"
                             id="citydropdown" >
                             <option value="">Select City</option>
-                            @foreach (var city in Model.CityList)
+                            @foreach (var city in Model.CityList!)
                             {
                                 <option value="@city.CityId">@city.CityName</option>
                             }
@@ -129,14 +129,14 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    @* $(document).ready(function(){
+    $(document).ready(function(){
         $('#countrydropdown').change(function(){
             var countryId = $(this).val();
             $('#statedropdown').empty().append('<option value="">Select State</option>');
             $('#citydropdown').empty().append('<option value="">Select City</option>');
 
             if(countryId){
-                $.getJSON('/User/GetStates',{countryId:countryId},function(states){
+                $.getJSON('/AdminDash/GetStates',{countryId:countryId},function(states){
                     $.each(states,function(i,state){
                         console.log(state)
                         $('#statedropdown').append('<option value="' + state.stateId + '">'+state.stateName+'</option>')
@@ -150,14 +150,14 @@
             $('#citydropdown').empty().append('<option value="">Select City</option>');
             if (stateId) {
                 console.log("callled")
-                $.getJSON('/User/GetCities', { stateId: stateId }, function (cities) {
+                $.getJSON('/AdminDash/GetCities', { stateId: stateId }, function (cities) {
                     $.each(cities, function (i, city) {
                         $('#citydropdown').append('<option value="' + city.cityId + '">' + city.cityName + '</option>');
                     });
                 });
             }
         });
-    }); *@
+    });
 </script>
 
 

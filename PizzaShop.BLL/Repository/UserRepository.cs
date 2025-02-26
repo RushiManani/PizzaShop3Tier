@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using PizzaShop.BLL.Interfaces;
 using PizzaShop.DAL.Data;
 using PizzaShop.DAL.ViewModel;
@@ -15,6 +16,7 @@ public class UserRepository : IUserRepository
     public List<UserViewModel> GetUserAsync(int page=1,int pageSize=5)
     {
         List<UserViewModel> users = (from user in _dbContext.Users join role in _dbContext.Roles on user.RoleId equals role.RoleId
+                    where user.Isactive==true
                     select new UserViewModel
                     {
                         Email = user.Email,
@@ -22,10 +24,22 @@ public class UserRepository : IUserRepository
                         MobileNumber = user.MobileNumber,
                         RoleName = role.RoleName,
                         UserName = user.UserName,
+                        UserId = user.UserId
                     }).ToList();
         
         users = users.Skip((page - 1) * pageSize).Take(pageSize).ToList();
         
         return users;
     } 
+
+    public async Task DeleteUserAsync(int userId)
+    {
+        var user = _dbContext.Users.FirstOrDefault(u=>u.UserId==userId);
+        if(user!=null)
+        {
+            user.Isdeleted=true;
+            _dbContext.Update(user);
+            await _dbContext.SaveChangesAsync();
+        }
+    }
 }
