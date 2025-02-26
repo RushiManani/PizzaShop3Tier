@@ -53,6 +53,7 @@ public class UserRepository : IUserRepository
         {
             model.Isadmin=true;
         }
+        
         await _dbContext.Users.AddAsync(model);
         await _dbContext.SaveChangesAsync();
     }
