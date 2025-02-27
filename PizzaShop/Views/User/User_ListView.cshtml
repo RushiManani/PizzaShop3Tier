@@ -18,8 +18,7 @@
         <div class="col-4 d-flex">
             <form asp-action="User_ListView" asp-controller="User" method="get">
                 <div class="input-group h-75" style="width: 300px;">
-                    <input type="search" class="form-control border-end-0" value="@ViewData["CurrentFilter"]" using
-                        Microsoft.EntityFrameworkCore.Metadata.Internal; name="searchString" placeholder="Search User"
+                    <input type="search" class="form-control border-end-0" value="@ViewData["CurrentFilter"]" name="searchString" placeholder="Search User"
                         aria-controls="sample_1" id="sample_1">
                     <button type="submit" class="input-group-text bg-white border-start-0">
                         <i class="bi bi-search"></i>
@@ -110,7 +109,6 @@
                                 @if (user.Isactive == true)
                                 {
                                     <td><span class="p-1 rounded-pill fw-bold user-active">Active</span></td>
-
                                 }
                                 else
                                 {

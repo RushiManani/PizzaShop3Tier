@@ -35,7 +35,6 @@ public class AdminDashController : Controller
         ViewData["UserEmail"] = jwtlist[0];
         ViewData["UserName"] = jwtlist[1];
         ViewData["RoleName"] = jwtlist[2];
-        ViewData["ProfilePhoto"] = jwtlist[3];
         var user = await _adminDashRepository.GetUserProfileAsync(ViewData["UserEmail"]?.ToString()!);
         return View(user);
     }

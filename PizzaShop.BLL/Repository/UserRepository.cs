@@ -53,37 +53,47 @@ public class UserRepository : IUserRepository
         }
     }
 
-    public async Task AddUserAsync(NewUserModel model)
+    public async Task<bool> AddUserAsync(NewUserModel model)
     {
         try
         {
-            var role = _dbContext.Roles.FirstOrDefault(r => r.RoleId == model.RoleId);
-            bool isAdmin = false;
-            if (role!.RoleName == "Admin")
+            var userExist = _dbContext.Users.SingleOrDefaultAsync(u => u.Email == model.Email);
+            if (userExist!=null)
             {
-                isAdmin = true;
+                return false;
             }
-            var user = new User
+            else
             {
-                UserName = model.UserName!,
-                FirstName = model.FirstName!,
-                LastName = model.LastName,
-                Email = model.Email!,
-                Password = model.Password!,
-                CountryId = model.CountryId,
-                StateId = model.StateId,
-                CityId = model.CityId,
-                RoleId = model.RoleId,
-                Address = model.Address,
-                MobileNumber = model.Phone,
-                ProfilePicture = await UploadPhotoAsync(model.ProfilePicture!),
-                CreatedAt = DateTime.Now,
-                CreatedBy = "Super Admin",
-                Isadmin = isAdmin
-            };
+                var role = _dbContext.Roles.FirstOrDefault(r => r.RoleId == model.RoleId);
+                bool isAdmin = false;
+                if (role!.RoleName == "Admin")
+                {
+                    isAdmin = true;
+                }
+                var user = new User
+                {
+                    UserName = model.UserName!,
+                    FirstName = model.FirstName!,
+                    LastName = model.LastName,
+                    Email = model.Email!,
+                    Password = model.Password!,
+                    CountryId = model.CountryId,
+                    StateId = model.StateId,
+                    CityId = model.CityId,
+                    RoleId = model.RoleId,
+                    Address = model.Address,
+                    MobileNumber = model.Phone,
+                    ProfilePicture = await UploadPhotoAsync(model.ProfilePicture!),
+                    CreatedAt = DateTime.Now,
+                    CreatedBy = "Super Admin",
+                    Isadmin = isAdmin
+                };
 
-            _dbContext.Users.Add(user);
-            await _dbContext.SaveChangesAsync();
+                _dbContext.Users.Add(user);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+
         }
         catch (Exception e)
         {
@@ -93,10 +103,10 @@ public class UserRepository : IUserRepository
 
     }
 
-    public async Task<NewUserModel?> GetUserByIDAsync(int userID)
+    public async Task<EditUserModel?> GetUserByIDAsync(int userID)
     {
         var user = await _dbContext.Users.SingleOrDefaultAsync(u => u.UserId == userID);
-        var edituser = new NewUserModel
+        var edituser = new EditUserModel
         {
             UserId = user!.UserId,
             FirstName = user.FirstName,
@@ -119,7 +129,7 @@ public class UserRepository : IUserRepository
         return edituser;
     }
 
-    public async Task UpdateUserAsync(NewUserModel model)
+    public async Task UpdateUserAsync(EditUserModel model)
     {
         var users = _dbContext.Users.FirstOrDefault(u => u.UserId == model.UserId);
         users!.FirstName = model.FirstName!;

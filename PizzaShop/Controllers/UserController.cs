@@ -56,6 +56,7 @@ public class UserController : Controller
             case "role_desc":
                 users = users.OrderByDescending(u => u.RoleName).ToList();
                 break;
+
             default:
                 users = users.OrderBy(u => u.UserName).ToList();
                 break;
@@ -93,9 +94,16 @@ public class UserController : Controller
         string body = $"<p>Email : {model.Email}</p></br><p>Password : {model.Password}</p>;";
         model.Password = _authRepository.Encrypt(model.Password!);
         // model.CreatedBy = "Super Admin";
-        await _userRepository.AddUserAsync(model);
-        await _authRepository.SendEmailAsync(model.Email!, subject, body);
-        return RedirectToAction("User_ListView");
+        bool isAdded = await _userRepository.AddUserAsync(model);
+        if (isAdded)
+        {
+            await _authRepository.SendEmailAsync(model.Email!, subject, body);
+            return RedirectToAction("User_ListView");
+        }
+        TempData["ToastrMessage"] = "Account Already Exists with this Email";
+        TempData["ToastrType"] = "error";
+        return RedirectToAction("User_AddView");
+
     }
 
     [HttpGet]
@@ -106,11 +114,10 @@ public class UserController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> UpdateUser(NewUserModel model)
+    public async Task<IActionResult> UpdateUser(EditUserModel model)
     {
         if (ModelState.IsValid)
         {
-
             await _userRepository.UpdateUserAsync(model);
             TempData["ToastrMessage"] = "User Updated Successfully";
             TempData["ToastrType"] = "success";

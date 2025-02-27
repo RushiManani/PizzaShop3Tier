@@ -7,8 +7,8 @@ public interface IUserRepository
 {
     List<UserViewModel> GetUserAsync(int page, int pageSize);
     Task DeleteUserAsync(int userId);
-    Task AddUserAsync(NewUserModel model);
-    Task<NewUserModel?> GetUserByIDAsync(int userID);
-    Task UpdateUserAsync(NewUserModel model);
+    Task<bool> AddUserAsync(NewUserModel model);
+    Task<EditUserModel?> GetUserByIDAsync(int userID);
+    Task UpdateUserAsync(EditUserModel model);
     Task<string?> UploadPhotoAsync(IFormFile photo);
 }

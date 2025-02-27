@@ -23,7 +23,6 @@ public class AuthRepository : IAuthRepository
     {
         if (email != null)
         {
-
             var users = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
             if (users != null)
             {

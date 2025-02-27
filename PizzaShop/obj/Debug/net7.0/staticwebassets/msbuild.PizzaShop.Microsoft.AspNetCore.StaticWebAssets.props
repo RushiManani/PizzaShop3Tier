@@ -1456,6 +1456,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\03c954f6-5b2e-4f9a-8692-6497165cb456_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\0f83bf4b-a015-403e-b9b2-cfa924f17cc4_dining-menu.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>PizzaShop</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PizzaShop</BasePath>
+      <RelativePath>user/photos/0f83bf4b-a015-403e-b9b2-cfa924f17cc4_dining-menu.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\0f83bf4b-a015-403e-b9b2-cfa924f17cc4_dining-menu.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\1e61e27c-9b56-41a2-9500-871e04d1ca3d_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250))">
       <SourceType>Package</SourceType>
       <SourceId>PizzaShop</SourceId>
@@ -1552,6 +1568,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\5cd959dd-cb24-40c5-8829-93847163a5f3_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\806b2066-b5ee-4e93-b8b9-29e0712ebc0a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>PizzaShop</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PizzaShop</BasePath>
+      <RelativePath>user/photos/806b2066-b5ee-4e93-b8b9-29e0712ebc0a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\806b2066-b5ee-4e93-b8b9-29e0712ebc0a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\acea3533-a17f-4d2c-9b6b-c70de81c0ac1_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png))">
       <SourceType>Package</SourceType>
       <SourceId>PizzaShop</SourceId>
@@ -1599,6 +1631,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\b0261b10-d2f8-4a50-b4ba-a19d9b505e48_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\b238473c-e3c7-481c-9680-bbcefbc0285a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>PizzaShop</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PizzaShop</BasePath>
+      <RelativePath>user/photos/b238473c-e3c7-481c-9680-bbcefbc0285a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\user\photos\b238473c-e3c7-481c-9680-bbcefbc0285a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

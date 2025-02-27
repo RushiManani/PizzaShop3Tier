@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GT/sBmlrg7ijjqyKpfJc5L49BDM29vX90iBcP5jPMb0=",
+  "Hash": "DhdP5cG3+URCHxshFvg4WyYCxzi3sfJNqkTTroZMrnc=",
   "Source": "PizzaShop",
   "BasePath": "_content/PizzaShop",
   "Mode": "Default",
@@ -17,10 +17,10 @@
   ],
   "Assets": [
     {
-      "Identity": "D:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\bundle\\PizzaShop.styles.css",
+      "Identity": "d:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\bundle\\PizzaShop.styles.css",
       "SourceId": "PizzaShop",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "d:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/PizzaShop",
       "RelativePath": "PizzaShop.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\bundle\\PizzaShop.styles.css"
+      "OriginalItemSpec": "d:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\bundle\\PizzaShop.styles.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PizzaShop.bundle.scp.css",
+      "Identity": "d:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PizzaShop.bundle.scp.css",
       "SourceId": "PizzaShop",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "d:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/PizzaShop",
       "RelativePath": "PizzaShop.bundle.scp.css",
       "AssetKind": "All",
@@ -48,10 +48,10 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PizzaShop.bundle.scp.css"
+      "OriginalItemSpec": "d:\\Project\\PizzaShop\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PizzaShop.bundle.scp.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\css\\adminDashboard.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\css\\adminDashboard.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -68,7 +68,7 @@
       "OriginalItemSpec": "wwwroot\\css\\adminDashboard.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\css\\forgotPasswordPage.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\css\\forgotPasswordPage.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -85,7 +85,7 @@
       "OriginalItemSpec": "wwwroot\\css\\forgotPasswordPage.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\css\\Login.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\css\\Login.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -102,7 +102,7 @@
       "OriginalItemSpec": "wwwroot\\css\\Login.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\css\\resetPasswordPage.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\css\\resetPasswordPage.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -119,7 +119,7 @@
       "OriginalItemSpec": "wwwroot\\css\\resetPasswordPage.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\css\\site.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\css\\site.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -136,7 +136,7 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\favicon.ico",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\favicon.ico",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -153,7 +153,7 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\Default_pfp.svg.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\Default_pfp.svg.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -170,7 +170,7 @@
       "OriginalItemSpec": "wwwroot\\images\\Default_pfp.svg.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\dining-menu.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\dining-menu.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -187,7 +187,7 @@
       "OriginalItemSpec": "wwwroot\\images\\dining-menu.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\dominos_background.jpg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\dominos_background.jpg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -204,7 +204,7 @@
       "OriginalItemSpec": "wwwroot\\images\\dominos_background.jpg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\customer.svg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\customer.svg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -221,7 +221,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\customer.svg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\dinner-table.svg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\dinner-table.svg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -238,7 +238,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\dinner-table.svg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\eye.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\eye.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -255,7 +255,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\eye.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\non-veg-icon.svg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\non-veg-icon.svg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -272,7 +272,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\non-veg-icon.svg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\order-value.svg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\order-value.svg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -289,7 +289,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\order-value.svg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\total-orders.svg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\total-orders.svg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -306,7 +306,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\total-orders.svg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\total-sales.svg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\total-sales.svg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -323,7 +323,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\total-sales.svg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\user.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\user.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -340,7 +340,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\user.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\veg-icon.svg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\veg-icon.svg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -357,7 +357,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\veg-icon.svg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\vegan-icon.svg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\vegan-icon.svg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -374,7 +374,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\vegan-icon.svg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\waiting-list.svg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\waiting-list.svg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -391,7 +391,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\waiting-list.svg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\icons\\waiting-time.svg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\icons\\waiting-time.svg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -408,7 +408,7 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\waiting-time.svg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\logos\\icons8-facebook-48.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\logos\\icons8-facebook-48.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -425,7 +425,7 @@
       "OriginalItemSpec": "wwwroot\\images\\logos\\icons8-facebook-48.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\logos\\icons8-github-48.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\logos\\icons8-github-48.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -442,7 +442,7 @@
       "OriginalItemSpec": "wwwroot\\images\\logos\\icons8-github-48.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\logos\\icons8-google-48.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\logos\\icons8-google-48.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -459,7 +459,7 @@
       "OriginalItemSpec": "wwwroot\\images\\logos\\icons8-google-48.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\logos\\pizzashop_logo.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\logos\\pizzashop_logo.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -476,7 +476,7 @@
       "OriginalItemSpec": "wwwroot\\images\\logos\\pizzashop_logo.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\profile_div_bg.jpg",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\profile_div_bg.jpg",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -493,7 +493,7 @@
       "OriginalItemSpec": "wwwroot\\images\\profile_div_bg.jpg"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\qr-code.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\qr-code.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -510,7 +510,7 @@
       "OriginalItemSpec": "wwwroot\\images\\qr-code.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\QR.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\QR.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -527,7 +527,7 @@
       "OriginalItemSpec": "wwwroot\\images\\QR.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\toppng.com-warning-icon-2400x2400.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\toppng.com-warning-icon-2400x2400.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -544,7 +544,7 @@
       "OriginalItemSpec": "wwwroot\\images\\toppng.com-warning-icon-2400x2400.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\images\\transperent-pizza.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\images\\transperent-pizza.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -561,7 +561,7 @@
       "OriginalItemSpec": "wwwroot\\images\\transperent-pizza.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\js\\site.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\js\\site.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -578,7 +578,7 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\js\\toaster.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\js\\toaster.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -595,7 +595,7 @@
       "OriginalItemSpec": "wwwroot\\js\\toaster.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -612,7 +612,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -629,7 +629,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -646,7 +646,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -663,7 +663,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -680,7 +680,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -697,7 +697,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -714,7 +714,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -731,7 +731,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -748,7 +748,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -765,7 +765,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -782,7 +782,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -799,7 +799,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -816,7 +816,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -833,7 +833,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -850,7 +850,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -867,7 +867,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -884,7 +884,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -901,7 +901,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -918,7 +918,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -935,7 +935,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -952,7 +952,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -969,7 +969,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -986,7 +986,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1003,7 +1003,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1020,7 +1020,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1037,7 +1037,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1054,7 +1054,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1071,7 +1071,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1088,7 +1088,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1105,7 +1105,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1122,7 +1122,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1139,7 +1139,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1156,7 +1156,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1173,7 +1173,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1190,7 +1190,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1207,7 +1207,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1224,7 +1224,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1241,7 +1241,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1258,7 +1258,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1275,7 +1275,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1292,7 +1292,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1309,7 +1309,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1326,7 +1326,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1343,7 +1343,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1360,7 +1360,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1377,7 +1377,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1394,7 +1394,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1411,7 +1411,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1428,7 +1428,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1445,7 +1445,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1462,7 +1462,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1479,7 +1479,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1496,7 +1496,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1513,7 +1513,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1530,7 +1530,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1547,7 +1547,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1564,7 +1564,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\03c954f6-5b2e-4f9a-8692-6497165cb456_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\03c954f6-5b2e-4f9a-8692-6497165cb456_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1581,7 +1581,24 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\03c954f6-5b2e-4f9a-8692-6497165cb456_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\1e61e27c-9b56-41a2-9500-871e04d1ca3d_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\0f83bf4b-a015-403e-b9b2-cfa924f17cc4_dining-menu.png",
+      "SourceId": "PizzaShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
+      "BasePath": "_content/PizzaShop",
+      "RelativePath": "user/photos/0f83bf4b-a015-403e-b9b2-cfa924f17cc4_dining-menu.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\user\\photos\\0f83bf4b-a015-403e-b9b2-cfa924f17cc4_dining-menu.png"
+    },
+    {
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\1e61e27c-9b56-41a2-9500-871e04d1ca3d_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1598,7 +1615,7 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\1e61e27c-9b56-41a2-9500-871e04d1ca3d_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\433d4aea-7a0d-4279-9d46-69a193868ad7_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\433d4aea-7a0d-4279-9d46-69a193868ad7_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1615,7 +1632,7 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\433d4aea-7a0d-4279-9d46-69a193868ad7_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\52780531-ac51-462d-af50-c605476e7e8a_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\52780531-ac51-462d-af50-c605476e7e8a_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1632,7 +1649,7 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\52780531-ac51-462d-af50-c605476e7e8a_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\53245a56-a0dc-49c4-a831-0b231bea0f1c_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\53245a56-a0dc-49c4-a831-0b231bea0f1c_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1649,7 +1666,7 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\53245a56-a0dc-49c4-a831-0b231bea0f1c_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\550ae9e5-2a32-4e19-abb1-9535e98ae49f_dining-menu.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\550ae9e5-2a32-4e19-abb1-9535e98ae49f_dining-menu.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1666,7 +1683,7 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\550ae9e5-2a32-4e19-abb1-9535e98ae49f_dining-menu.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\5cd959dd-cb24-40c5-8829-93847163a5f3_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\5cd959dd-cb24-40c5-8829-93847163a5f3_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1683,7 +1700,24 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\5cd959dd-cb24-40c5-8829-93847163a5f3_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\acea3533-a17f-4d2c-9b6b-c70de81c0ac1_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\806b2066-b5ee-4e93-b8b9-29e0712ebc0a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "SourceId": "PizzaShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
+      "BasePath": "_content/PizzaShop",
+      "RelativePath": "user/photos/806b2066-b5ee-4e93-b8b9-29e0712ebc0a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\user\\photos\\806b2066-b5ee-4e93-b8b9-29e0712ebc0a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
+    },
+    {
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\acea3533-a17f-4d2c-9b6b-c70de81c0ac1_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1700,7 +1734,7 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\acea3533-a17f-4d2c-9b6b-c70de81c0ac1_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\ae4f3ec5-7648-4283-9696-d2435c759ae3_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\ae4f3ec5-7648-4283-9696-d2435c759ae3_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1717,7 +1751,7 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\ae4f3ec5-7648-4283-9696-d2435c759ae3_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
     },
     {
-      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\b0261b10-d2f8-4a50-b4ba-a19d9b505e48_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\b0261b10-d2f8-4a50-b4ba-a19d9b505e48_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
@@ -1732,6 +1766,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\user\\photos\\b0261b10-d2f8-4a50-b4ba-a19d9b505e48_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
+    },
+    {
+      "Identity": "d:\\Project\\PizzaShop\\wwwroot\\user\\photos\\b238473c-e3c7-481c-9680-bbcefbc0285a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "SourceId": "PizzaShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
+      "BasePath": "_content/PizzaShop",
+      "RelativePath": "user/photos/b238473c-e3c7-481c-9680-bbcefbc0285a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\user\\photos\\b238473c-e3c7-481c-9680-bbcefbc0285a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
     }
   ]
 }
