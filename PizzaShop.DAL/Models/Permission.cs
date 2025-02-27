@@ -3,11 +3,13 @@ using System.Collections.Generic;
 
 namespace PizzaShop.DAL.Models;
 
-public partial class Role
+public partial class Permission
 {
-    public int RoleId { get; set; }
+    public int PermissionId { get; set; }
 
-    public string RoleName { get; set; } = null!;
+    public string PermissionName { get; set; } = null!;
+
+    public int RoleId { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
@@ -15,11 +17,9 @@ public partial class Role
 
     public DateTime? UpdatedAt { get; set; }
 
-    public string? UpdatedBy { get; set; }
-
-    public virtual ICollection<Permission> Permissions { get; } = new List<Permission>();
+    public string UpdatedBy { get; set; } = null!;
 
     public virtual ICollection<Permissiontype> Permissiontypes { get; } = new List<Permissiontype>();
 
-    public virtual ICollection<User> Users { get; } = new List<User>();
+    public virtual Role Role { get; set; } = null!;
 }
