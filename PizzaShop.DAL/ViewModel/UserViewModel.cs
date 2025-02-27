@@ -24,12 +24,13 @@ public class UserViewModel
 public class NewUserModel
 {
     public int? UserId{get;set;}
-    public string? Password{get;set;}
     [Required]
+    public string? Password{get;set;}
     public string? FirstName{get;set;}
     public string? LastName{get;set;} = null;
     [Required]
     public string? UserName{get;set;}
+    [Required]
     public int RoleId{get;set;}
     [Required]
     public string? Email{get;set;}

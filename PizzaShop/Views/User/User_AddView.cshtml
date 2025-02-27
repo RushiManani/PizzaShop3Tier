@@ -22,9 +22,8 @@
                     style="border: 1px solid lightgray; border-radius: 0.25rem;">
                     <div class="row mb-3">
                         <div class="col-lg-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
-                                    asp-for="FirstName">
+                            <div class="form-floating form-floating-user mb-3">
+                                <input type="text" class="form-control ps-2" placeholder="" asp-for="FirstName">
                                 <label for="floatingInput" class="p-2 p-3">First Name</label>
                             </div>
                             <div>
@@ -32,18 +31,16 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
-                                    asp-for="LastName">
+                            <div class="form-floating form-floating-user mb-3">
+                                <input type="text" class="form-control  ps-2" placeholder="" asp-for="LastName">
                                 <label for="floatingInput" class="p-2 p-3">Last Name</label>
                             </div>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-lg-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
-                                    asp-for="UserName">
+                        <div class="col-lg-6 mb-3">
+                            <div class="form-floating form-floating-user">
+                                <input type="text" class="form-control ps-2" placeholder="" asp-for="UserName">
                                 <label for="floatingInput" class="p-2 p-3">User Name</label>
                             </div>
                             <div>
@@ -64,20 +61,18 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-lg-6">
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control ps-2" id="floatingInput" placeholder=""
-                                    asp-for="Email">
+                        <div class="col-lg-6 mb-3">
+                            <div class="form-floating ">
+                                <input type="email" class="form-control ps-2" placeholder="" asp-for="Email">
                                 <label for="floatingInput" class="p-2 p-3">Email</label>
                             </div>
                             <div>
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control ps-2" id="floatingInput" placeholder=""
-                                    asp-for="Password">
+                        <div class="col-lg-6 mb-3">
+                            <div class="form-floating ">
+                                <input type="password" class="form-control ps-2" placeholder="" asp-for="Password">
                                 <label for="floatingInput" class="p-2 p-3">Password</label>
                             </div>
                             <div>
@@ -86,7 +81,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col" >
+                        <div class="col">
                             <label for="fileUpload" class="btn w-100 p-4" id="profilePicture"
                                 style=" border: 1px solid #ced4da; border-style: dashed; ">
                                 <i class="bi bi-cloud-arrow-up h3"></i><br>Browse File
@@ -94,8 +89,8 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-lg-4 col-md-12">
-                            <div class="form-floating mb-3">
+                        <div class="col-lg-4 col-md-12 mb-3">
+                            <div class="form-floating">
                                 <select class="form-select" aria-label="Default select example" asp-for="CountryId"
                                     id="countrydropdown">
                                     <option value="" selected>Select Country</option>
@@ -131,22 +126,19 @@
                     <div class="row mb-3">
                         <div class="col-lg-4 col-md-12">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
-                                    asp-for="Zipcode">
+                                <input type="text" class="form-control ps-2" placeholder="" asp-for="Zipcode">
                                 <label for="floatingInput" class="p-2 p-3">Zipcode</label>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
-                                    asp-for="Address">
+                                <input type="text" class="form-control ps-2" placeholder="" asp-for="Address">
                                 <label for="floatingInput" class="p-2 p-3">Address</label>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
-                                    asp-for="Phone">
+                                <input type="text" class="form-control ps-2" placeholder="" asp-for="Phone">
                                 <label for="floatingInput" class="p-2 p-3">Phone</label>
                             </div>
                         </div>
@@ -157,8 +149,8 @@
                                 User</button>
                         </div>
                         <div class="col-auto">
-                            <button class="btn"
-                                style="background-color: white; border-color: #0565A0; color: #0565A0;">Cancel</button>
+                            <a type="button" class="btn" asp-action="User_ListView" asp-controller="User"
+                                style="background-color: white; border-color: #0565A0; color: #0565A0;">Cancel</a>
                         </div>
                     </div>
 
@@ -203,13 +195,15 @@
             });
         });
 
-        document.getElementById("fileUpload").addEventListener('change',function(){
+        document.getElementById("fileUpload").addEventListener('change', function () {
             var container = document.getElementById('profilePicture');
-            if(this.files && this.files.length>0)
-            {
+            if (this.files && this.files.length > 0) {
                 container.style.backgroundColor = "#18c04a"
                 container.style.color = "white"
             }
         })
+
+        var countryid = document.getElementById('countrydropdown');
+        console.log(countryid);
     </script>
 }

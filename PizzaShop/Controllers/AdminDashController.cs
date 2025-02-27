@@ -69,6 +69,8 @@ public class AdminDashController : Controller
 
     public IActionResult ChangePassword()
     {
+        List<string> jwtlist = _jwtRepository.ReadJWTToken();
+        ViewData["UserEmail"] = jwtlist[0];
         return View();
     }
 

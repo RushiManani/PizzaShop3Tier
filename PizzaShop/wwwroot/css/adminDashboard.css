@@ -43,6 +43,10 @@
     background-color: #0565A0;
 }
 
+.form-control{
+    padding-left: 15px !important;
+}
+
 /* input#floatinginput{
     padding-left: 0.854rem;
 } */
@@ -175,7 +179,14 @@
 
 .form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label {
     opacity: 1;
-    transform: scale(.85) translateY(0rem) translateX(.15rem) !important;
+    transform: scale(.85) translateY(-0.20rem) translateX(.55rem) !important;
+    /* background-color: white; */
+}
+
+
+.form-floating-user>.form-control:focus~label, .form-floating-user>.form-control:not(:placeholder-shown)~label, .form-floating-user>.form-select~label {
+    opacity: 1;
+    transform: scale(.85) translateY(-0.35rem) translateX(.15rem) !important;
     /* background-color: white; */
 }
 

@@ -88,10 +88,10 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="fileUpload" class="btn w-100 p-4"
+                            <label for="fileUpload" class="btn w-100 p-4" id="profilePicture"
                                 style=" border: 1px solid #ced4da; border-style: dashed; ">
                                 <i class="bi bi-cloud-arrow-up h3"></i><br>Browse File
-                                <input type="file" id="fileUpload" class="form-control" asp-for="ProfilePicture">
+                                <input type="file" id="fileUpload" class="form-control d-none" asp-for="ProfilePicture">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -164,8 +164,8 @@
                                 User</button>
                         </div>
                         <div class="col-auto">
-                            <button class="btn"
-                                style="background-color: white; border-color: #0565A0; color: #0565A0;">Cancel</button>
+                            <a class="btn" type="button" asp-action="User_ListView" asp-controller="User"
+                                style="background-color: white; border-color: #0565A0; color: #0565A0;">Cancel</a>
                         </div>
                     </div>
 
@@ -209,5 +209,13 @@
                 }
             });
         });
+
+        document.getElementById("fileUpload").addEventListener('change', function () {
+            var container = document.getElementById('profilePicture');
+            if (this.files && this.files.length > 0) {
+                container.style.backgroundColor = "#18c04a"
+                container.style.color = "white"
+            }
+        })
     </script>
 }

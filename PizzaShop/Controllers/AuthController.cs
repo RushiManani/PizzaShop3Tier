@@ -34,7 +34,7 @@ public class AuthController : Controller
             if (user != null)
             {
                 string role = await _authRepository.GetRoleAsync(user.RoleId);
-                var token = _jwtRepository.GenerateJwtToken(user.UserName, user.Email, role,user.ProfilePicture!);
+                var token = _jwtRepository.GenerateJwtToken(user.UserName, user.Email, role, user.ProfilePicture!);
                 Response.Cookies.Append("JWT", token);
                 TempData["ToastrMessage"] = "Login Successfull";
                 TempData["ToastrType"] = "success";
@@ -107,6 +107,8 @@ public class AuthController : Controller
     {
         Response.Cookies.Delete("JWT");
         Response.Cookies.Delete("UserEmail");
+        TempData["ToastrMessage"] = "Logout Successfully";
+        TempData["ToastrType"] = "success";
         return View("User_Login");
     }
 }

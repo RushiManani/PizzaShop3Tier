@@ -34,7 +34,7 @@ public class JWTRepository : IJWTRepository
             issuer: "AuthenticationDemo",
             audience: "AuthenticationDemoUsers",
             claims: claims,
-            expires: DateTime.Now.AddMinutes(30),
+            expires: DateTime.Now.AddDays(1),
             signingCredentials: creds);
         return new JwtSecurityTokenHandler().WriteToken(token);
     }

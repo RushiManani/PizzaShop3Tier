@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using PizzaShop.BLL.Helpers;
 using PizzaShop.BLL.Interfaces;
 using PizzaShop.BLL.Repository;
 using PizzaShop.DAL.Data;
@@ -52,7 +53,7 @@ builder.Services.AddAuthorization();
 // Add session services
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout
+    options.IdleTimeout = TimeSpan.FromDays(1); // Set session timeout
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
@@ -74,6 +75,8 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSession();
+
+app.UseMiddleware<JWTExpirationMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

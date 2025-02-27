@@ -34,18 +34,14 @@ public class UserController : Controller
         ViewBag.TotalPages = totalPages;
         ViewBag.PageSize = pageSize;
         ViewBag.StartCount = (page - 1) * pageSize + 1;
-        if (totalItems > pageSize)
-        {
-            ViewBag.EndCount = pageSize;
-        }
-        else
-        {
-            ViewBag.EndCount = totalItems;
-        }
+        ViewBag.EndCount = page * pageSize;
+
+        page = page < 1 ? 1 : page;
+        page = page > totalPages ? totalPages : page;
 
         if (!String.IsNullOrEmpty(searchString))
         {
-            users = users.Where(s => s.UserName.Contains(searchString)).ToList();
+            users = users.Where(s => s.UserName!.Contains(searchString)).ToList();
             users = users.Skip((page - 1) * pageSize).Take(pageSize).ToList();
         }
 
@@ -95,10 +91,10 @@ public class UserController : Controller
     {
         string subject = "Reset Your Password";
         string body = $"<p>Email : {model.Email}</p></br><p>Password : {model.Password}</p>;";
-        model.Password = _authRepository.Encrypt(model.Password);
+        model.Password = _authRepository.Encrypt(model.Password!);
         // model.CreatedBy = "Super Admin";
         await _userRepository.AddUserAsync(model);
-        await _authRepository.SendEmailAsync(model.Email,subject,body);
+        await _authRepository.SendEmailAsync(model.Email!, subject, body);
         return RedirectToAction("User_ListView");
     }
 
@@ -114,7 +110,7 @@ public class UserController : Controller
     {
         if (ModelState.IsValid)
         {
-            
+
             await _userRepository.UpdateUserAsync(model);
             TempData["ToastrMessage"] = "User Updated Successfully";
             TempData["ToastrType"] = "success";

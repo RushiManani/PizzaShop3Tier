@@ -63,7 +63,6 @@ public class UserRepository : IUserRepository
             {
                 isAdmin = true;
             }
-            // model.ProfilePicture = await UploadPhotoAsync(photo);
             var user = new User
             {
                 UserName = model.UserName!,
@@ -99,7 +98,7 @@ public class UserRepository : IUserRepository
         var user = await _dbContext.Users.SingleOrDefaultAsync(u => u.UserId == userID);
         var edituser = new NewUserModel
         {
-            UserId = user.UserId,
+            UserId = user!.UserId,
             FirstName = user.FirstName,
             LastName = user.LastName,
             UserName = user.UserName,
@@ -112,7 +111,6 @@ public class UserRepository : IUserRepository
             Phone = user.MobileNumber,
             Zipcode = user.Zipcode,
             Isactive = user.Isactive,
-            // ProfilePicture = await UploadPhotoAsync(user.ProfilePicture),
             CountryList = await _dbContext.Countries.ToListAsync(),
             StateList = await _dbContext.States.Where(u => u.CountryId == user.CountryId).ToListAsync(),
             CityList = await _dbContext.Cities.Where(u => u.StateId == user.StateId).ToListAsync(),
@@ -124,11 +122,11 @@ public class UserRepository : IUserRepository
     public async Task UpdateUserAsync(NewUserModel model)
     {
         var users = _dbContext.Users.FirstOrDefault(u => u.UserId == model.UserId);
-        users.FirstName = model.FirstName!;
+        users!.FirstName = model.FirstName!;
         users.LastName = model.LastName;
         users.UserName = model.UserName!;
         users.RoleId = model.RoleId;
-        users.Email = model.Email;
+        users.Email = model.Email!;
         users.Isactive = model.Isactive;
         users.MobileNumber = model.Phone;
         users.Address = model.Address;
@@ -136,7 +134,7 @@ public class UserRepository : IUserRepository
         users.CountryId = model.CountryId;
         users.StateId = model.StateId;
         users.CityId = model.CityId;
-        users.ProfilePicture = await UploadPhotoAsync(model.ProfilePicture);
+        users.ProfilePicture = await UploadPhotoAsync(model.ProfilePicture!);
         _dbContext.Update(users);
         await _dbContext.SaveChangesAsync();
     }

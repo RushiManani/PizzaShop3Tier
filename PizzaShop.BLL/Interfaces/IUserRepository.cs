@@ -10,5 +10,5 @@ public interface IUserRepository
     Task AddUserAsync(NewUserModel model);
     Task<NewUserModel?> GetUserByIDAsync(int userID);
     Task UpdateUserAsync(NewUserModel model);
-    Task<string> UploadPhotoAsync(IFormFile photo);
+    Task<string?> UploadPhotoAsync(IFormFile photo);
 }
