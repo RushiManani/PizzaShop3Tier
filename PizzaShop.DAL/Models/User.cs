@@ -47,6 +47,8 @@ public partial class User
 
     public string? UpdatedBy { get; set; }
 
+    public bool IsLoginFirstTime { get; set; }
+
     public virtual City City { get; set; } = null!;
 
     public virtual Country Country { get; set; } = null!;

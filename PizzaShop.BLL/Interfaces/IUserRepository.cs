@@ -9,6 +9,6 @@ public interface IUserRepository
     Task DeleteUserAsync(int userId);
     Task<bool> AddUserAsync(NewUserModel model);
     Task<EditUserModel?> GetUserByIDAsync(int userID);
-    Task UpdateUserAsync(EditUserModel model);
+    Task<bool> UpdateUserAsync(EditUserModel model);
     Task<string?> UploadPhotoAsync(IFormFile photo);
 }

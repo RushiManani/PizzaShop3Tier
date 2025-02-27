@@ -118,10 +118,16 @@ public class UserController : Controller
     {
         if (ModelState.IsValid)
         {
-            await _userRepository.UpdateUserAsync(model);
-            TempData["ToastrMessage"] = "User Updated Successfully";
-            TempData["ToastrType"] = "success";
-            return RedirectToAction("User_ListView", "User");
+            bool isupdated = await _userRepository.UpdateUserAsync(model);
+            if (isupdated)
+            {
+                TempData["ToastrMessage"] = "User Updated Successfully";
+                TempData["ToastrType"] = "success";
+                return RedirectToAction("User_ListView", "User");
+            }
+            TempData["ToastrMessage"] = "Account Already Exists with this Username";
+            TempData["ToastrType"] = "error";
+            return RedirectToAction("User_EditView",new{userID=model.UserId});
         }
         return View("User_EditView");
     }

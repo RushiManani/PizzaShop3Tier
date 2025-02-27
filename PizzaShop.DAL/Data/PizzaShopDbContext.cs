@@ -28,7 +28,7 @@ public partial class PizzaShopDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Database=pizzashop;Username=postgres; password=Tatva@123");
+        => optionsBuilder.UseNpgsql("Host=localhost;Database=pizzashop;Username=postgres;Password=Tatva@123");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -174,6 +174,7 @@ public partial class PizzaShopDbContext : DbContext
             entity.Property(e => e.FirstName)
                 .HasMaxLength(100)
                 .HasColumnName("first_name");
+            entity.Property(e => e.IsLoginFirstTime).HasColumnName("isLoginFirstTime");
             entity.Property(e => e.Isactive)
                 .IsRequired()
                 .HasDefaultValueSql("true")
@@ -190,7 +191,7 @@ public partial class PizzaShopDbContext : DbContext
                 .HasMaxLength(255)
                 .HasColumnName("password");
             entity.Property(e => e.ProfilePicture)
-                .HasMaxLength(300)
+                .HasMaxLength(500)
                 .HasColumnName("profile_picture");
             entity.Property(e => e.RoleId).HasColumnName("role_id");
             entity.Property(e => e.StateId).HasColumnName("state_id");

@@ -33,12 +33,20 @@ public class AuthController : Controller
             var user = await _authRepository.LoginAsync(model.Email!, model.Password!, model.RememberMe);
             if (user != null)
             {
-                string role = await _authRepository.GetRoleAsync(user.RoleId);
-                var token = _jwtRepository.GenerateJwtToken(user.UserName, user.Email, role);
-                Response.Cookies.Append("JWT", token);
-                TempData["ToastrMessage"] = "Login Successfull";
-                TempData["ToastrType"] = "success";
-                return RedirectToAction("Index", "AdminDash");
+                if (user.IsLoginFirstTime == true)
+                {
+                    TempData["Email"] = user.Email;
+                    return RedirectToAction("User_ResetPassword");
+                }
+                else
+                {
+                    string role = await _authRepository.GetRoleAsync(user.RoleId);
+                    var token = _jwtRepository.GenerateJwtToken(user.UserName, user.Email, role);
+                    Response.Cookies.Append("JWT", token);
+                    TempData["ToastrMessage"] = "Login Successfull";
+                    TempData["ToastrType"] = "success";
+                    return RedirectToAction("Index", "AdminDash");
+                }
             }
             TempData["ToastrMessage"] = "Invalid Username or Password";
             TempData["ToastrType"] = "error";

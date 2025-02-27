@@ -15,6 +15,7 @@ builder.Services.AddScoped<IAuthRepository,AuthRepository>();
 builder.Services.AddScoped<IAdminDashRepository,AdminDashRepository>();
 builder.Services.AddScoped<IJWTRepository,JWTRepository>();
 builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IRoleAndPermissionRepository,RoleAndPermissionRepository>();
 
 builder.Services.AddHttpContextAccessor();
 

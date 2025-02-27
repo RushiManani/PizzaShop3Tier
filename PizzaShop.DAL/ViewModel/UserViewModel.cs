@@ -42,6 +42,7 @@ public class NewUserModel
     public string? Phone{get;set;}=null;
     public string? Address{get;set;}=null;
     public bool? Isactive{get;set;}
+    public bool? IsLoginFirstTime{get;set;}
     public List<Country>? CountryList { get; set; }=null;
     public List<State>? StateList { get; set; }=null;
     public List<City>? CityList { get; set; }=null;

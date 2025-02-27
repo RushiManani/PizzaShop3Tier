@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj": {}
+    "D:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj": {}
   },
   "projects": {
-    "d:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj": {
+    "D:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj",
+        "projectUniqueName": "D:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj",
         "projectName": "PizzaShop.BLL",
-        "projectPath": "d:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj",
+        "projectPath": "D:\\Project\\PizzaShop.BLL\\PizzaShop.BLL.csproj",
         "packagesPath": "C:\\Users\\pci43\\.nuget\\packages\\",
-        "outputPath": "d:\\Project\\PizzaShop.BLL\\obj\\",
+        "outputPath": "D:\\Project\\PizzaShop.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pci43\\AppData\\Roaming\\NuGet\\NuGet.Config"

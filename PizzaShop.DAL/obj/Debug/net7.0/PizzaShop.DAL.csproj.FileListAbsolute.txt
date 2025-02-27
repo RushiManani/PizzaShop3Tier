@@ -1,6 +1,8 @@
 D:\Project\PizzaShop.DAL\bin\Debug\net7.0\PizzaShop.DAL.deps.json
+D:\Project\PizzaShop.DAL\bin\Debug\net7.0\PizzaShop.DAL.runtimeconfig.json
 D:\Project\PizzaShop.DAL\bin\Debug\net7.0\PizzaShop.DAL.dll
 D:\Project\PizzaShop.DAL\bin\Debug\net7.0\PizzaShop.DAL.pdb
+D:\Project\PizzaShop.DAL\obj\Debug\net7.0\PizzaShop.DAL.csproj.AssemblyReference.cache
 D:\Project\PizzaShop.DAL\obj\Debug\net7.0\PizzaShop.DAL.GeneratedMSBuildEditorConfig.editorconfig
 D:\Project\PizzaShop.DAL\obj\Debug\net7.0\PizzaShop.DAL.AssemblyInfoInputs.cache
 D:\Project\PizzaShop.DAL\obj\Debug\net7.0\PizzaShop.DAL.AssemblyInfo.cs
@@ -8,7 +10,5 @@ D:\Project\PizzaShop.DAL\obj\Debug\net7.0\PizzaShop.DAL.csproj.CoreCompileInputs
 D:\Project\PizzaShop.DAL\obj\Debug\net7.0\PizzaShop.DAL.dll
 D:\Project\PizzaShop.DAL\obj\Debug\net7.0\refint\PizzaShop.DAL.dll
 D:\Project\PizzaShop.DAL\obj\Debug\net7.0\PizzaShop.DAL.pdb
-D:\Project\PizzaShop.DAL\obj\Debug\net7.0\ref\PizzaShop.DAL.dll
-D:\Project\PizzaShop.DAL\bin\Debug\net7.0\PizzaShop.DAL.runtimeconfig.json
 D:\Project\PizzaShop.DAL\obj\Debug\net7.0\PizzaShop.DAL.genruntimeconfig.cache
-D:\Project\PizzaShop.DAL\obj\Debug\net7.0\PizzaShop.DAL.csproj.AssemblyReference.cache
+D:\Project\PizzaShop.DAL\obj\Debug\net7.0\ref\PizzaShop.DAL.dll

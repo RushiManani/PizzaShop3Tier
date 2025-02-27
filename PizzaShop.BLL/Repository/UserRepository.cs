@@ -57,8 +57,8 @@ public class UserRepository : IUserRepository
     {
         try
         {
-            var userExist = _dbContext.Users.SingleOrDefaultAsync(u => u.Email == model.Email);
-            if (userExist!=null)
+            var userExist = _dbContext.Users.SingleOrDefaultAsync(u => u.Email == model.Email || u.UserName == model.UserName);
+            if (userExist != null)
             {
                 return false;
             }
@@ -86,7 +86,8 @@ public class UserRepository : IUserRepository
                     ProfilePicture = await UploadPhotoAsync(model.ProfilePicture!),
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Super Admin",
-                    Isadmin = isAdmin
+                    Isadmin = isAdmin,
+                    IsLoginFirstTime = true
                 };
 
                 _dbContext.Users.Add(user);
@@ -129,24 +130,33 @@ public class UserRepository : IUserRepository
         return edituser;
     }
 
-    public async Task UpdateUserAsync(EditUserModel model)
+    public async Task<bool> UpdateUserAsync(EditUserModel model)
     {
-        var users = _dbContext.Users.FirstOrDefault(u => u.UserId == model.UserId);
-        users!.FirstName = model.FirstName!;
-        users.LastName = model.LastName;
-        users.UserName = model.UserName!;
-        users.RoleId = model.RoleId;
-        users.Email = model.Email!;
-        users.Isactive = model.Isactive;
-        users.MobileNumber = model.Phone;
-        users.Address = model.Address;
-        users.Zipcode = model.Zipcode;
-        users.CountryId = model.CountryId;
-        users.StateId = model.StateId;
-        users.CityId = model.CityId;
-        users.ProfilePicture = await UploadPhotoAsync(model.ProfilePicture!);
-        _dbContext.Update(users);
-        await _dbContext.SaveChangesAsync();
+        // var userExist = _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == model.UserName && u.Isdeleted!=true && u.UserId!=model.UserId );
+        // if (userExist != null)
+        // {
+        //     return false;
+        // }
+        // else
+        // {
+            var users = _dbContext.Users.FirstOrDefault(u => u.UserId == model.UserId);
+            users!.FirstName = model.FirstName!;
+            users.LastName = model.LastName;
+            users.UserName = model.UserName!;
+            users.RoleId = model.RoleId;
+            users.Email = model.Email!;
+            users.Isactive = model.Isactive;
+            users.MobileNumber = model.Phone;
+            users.Address = model.Address;
+            users.Zipcode = model.Zipcode;
+            users.CountryId = model.CountryId;
+            users.StateId = model.StateId;
+            users.CityId = model.CityId;
+            users.ProfilePicture = await UploadPhotoAsync(model.ProfilePicture!);
+            _dbContext.Update(users);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        // }
     }
 
     public async Task<string?> UploadPhotoAsync(IFormFile photo)

@@ -2,6 +2,6 @@ namespace PizzaShop.DAL.ViewModel;
 
 public class RoleViewModel
 {
-    int RoleId {get;set;}
-    int RoleName {get;set;}
+    public int RoleId {get;set;}
+    public string RoleName {get;set;}
 }

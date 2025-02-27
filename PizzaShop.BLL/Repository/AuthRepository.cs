@@ -58,6 +58,7 @@ public class AuthRepository : IAuthRepository
     {
         User user = _dbContext.Users.FirstOrDefault(u => u.Email == email)!;
         user.Password = Encrypt(newPassword);
+        user.IsLoginFirstTime = false;
         _dbContext.SaveChanges();
     }
 

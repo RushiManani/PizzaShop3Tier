@@ -1,0 +1,240 @@
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid mt-4" id="permissions">
+    <div class="row ps-4">
+        <div class="col-4 h2 fw-bold gloabal-color">Permissions</div>
+        <div class="col-8">
+            <a asp-action="RoleView" asp-controller="RoleAndPermission" type="button" class="btn btn-add text-center text-white"
+                style="background-color: white; border-color: #0565A0; float: right;">
+                <i class="bi bi-chevron-compact-left gloabal-color"></i>
+                <span class="user-button-name gloabal-color">Back</span>
+            </a>
+        </div>
+    </div>
+    <div class="row mt-3 ps-4">
+        <div class="col">
+            <div class="container-fluid bg-white pt-4 pb-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3 w-25">
+                            <input type="text" class="form-control ps-2 bg-light" placeholder="">
+                            <label for="floatingInput" class="ps-2 pb-3 p-3">Role</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input main-check" type="checkbox" value=""
+                                                    checked>
+
+                                            </div>
+                                        </th>
+                                        <th scope="col">Permissions</th>
+                                        <th scope="col">Can View</th>
+                                        <th scope="col">Can Add/Edit</th>
+                                        <th scope="col">Can Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input inner-check" type="checkbox" value=""
+                                                    checked>
+
+                                            </div>
+                                        </th>
+                                        <td>Users</td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input inner-check" type="checkbox" value=""
+                                                    checked>
+
+                                            </div>
+                                        </th>
+                                        <td>RoleAndPermission</td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" disabled>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" disabled>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" disabled>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input inner-check" type="checkbox" value=""
+                                                    checked>
+
+                                            </div>
+                                        </th>
+                                        <td>Menu</td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input inner-check" type="checkbox" value=""
+                                                    checked>
+
+                                            </div>
+                                        </th>
+                                        <td>Table and Section</td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input inner-check" type="checkbox" value=""
+                                                    checked>
+
+                                            </div>
+                                        </th>
+                                        <td>Tax and Fees</td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input inner-check" type="checkbox" value=""
+                                                    checked>
+
+                                            </div>
+                                        </th>
+                                        <td>Order</td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input inner-check" type="checkbox" value=""
+                                                    checked>
+
+                                            </div>
+                                        </th>
+                                        <td>Customer</td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-end ">
+                                            <button class="btn text-white gloabal-bg-color" type="submit">
+                                                Save</button>
+                                            <button class="btn gloabal-color"
+                                                style="background-color: white; border-color: #0565A0;"
+                                                type="submit">Cancel</button>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
