@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using PizzaShop.BLL.Interfaces;
 using PizzaShop.DAL.Data;
@@ -10,59 +12,94 @@ public class UserRepository : IUserRepository
 {
     private readonly PizzaShopDbContext _dbContext;
     private readonly IAuthRepository _authRepository;
+    private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public UserRepository(PizzaShopDbContext dbContext,IAuthRepository authRepository)
+    public UserRepository(PizzaShopDbContext dbContext, IAuthRepository authRepository, IWebHostEnvironment webHostEnvironment)
     {
         _dbContext = dbContext;
         _authRepository = authRepository;
+        _webHostEnvironment = webHostEnvironment;
     }
-    public List<UserViewModel> GetUserAsync(int page=1,int pageSize=5)
+
+    public List<UserViewModel> GetUserAsync(int page = 1, int pageSize = 5)
     {
-        List<UserViewModel> users = (from user in _dbContext.Users join role in _dbContext.Roles on user.RoleId equals role.RoleId
-                    where user.Isdeleted==false
-                    select new UserViewModel
-                    {
-                        Email = user.Email,
-                        Isactive = user.Isactive,
-                        MobileNumber = user.MobileNumber,
-                        RoleName = role.RoleName,
-                        UserName = user.UserName,
-                        UserId = user.UserId
-                    }).ToList();
-        
+        List<UserViewModel> users = (from user in _dbContext.Users
+                                     join role in _dbContext.Roles on user.RoleId equals role.RoleId
+                                     where user.Isdeleted == false
+                                     select new UserViewModel
+                                     {
+                                         Email = user.Email,
+                                         Isactive = user.Isactive,
+                                         MobileNumber = user.MobileNumber,
+                                         RoleName = role.RoleName,
+                                         UserName = user.UserName,
+                                         UserId = user.UserId,
+                                         ProfilePicture = user.ProfilePicture
+                                     }).ToList();
+
         users = users.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-        
+
         return users;
-    } 
+    }
 
     public async Task DeleteUserAsync(int userId)
     {
-        var user = _dbContext.Users.FirstOrDefault(u=>u.UserId==userId);
-        if(user!=null)
+        var user = _dbContext.Users.FirstOrDefault(u => u.UserId == userId);
+        if (user != null)
         {
-            user.Isdeleted=true;
+            user.Isdeleted = true;
             _dbContext.Update(user);
             await _dbContext.SaveChangesAsync();
         }
     }
 
-    public async Task AddUserAsync(User model)
+    public async Task AddUserAsync(NewUserModel model)
     {
-        var role = _dbContext.Roles.FirstOrDefault(r=>r.RoleId==model.RoleId);
-        if(role.RoleName=="Admin")
+        try
         {
-            model.Isadmin=true;
+            var role = _dbContext.Roles.FirstOrDefault(r => r.RoleId == model.RoleId);
+            bool isAdmin = false;
+            if (role!.RoleName == "Admin")
+            {
+                isAdmin = true;
+            }
+            // model.ProfilePicture = await UploadPhotoAsync(photo);
+            var user = new User
+            {
+                UserName = model.UserName!,
+                FirstName = model.FirstName!,
+                LastName = model.LastName,
+                Email = model.Email!,
+                Password = model.Password!,
+                CountryId = model.CountryId,
+                StateId = model.StateId,
+                CityId = model.CityId,
+                RoleId = model.RoleId,
+                Address = model.Address,
+                MobileNumber = model.Phone,
+                ProfilePicture = await UploadPhotoAsync(model.ProfilePicture!),
+                CreatedAt = DateTime.Now,
+                CreatedBy = "Super Admin",
+                Isadmin = isAdmin
+            };
+
+            _dbContext.Users.Add(user);
+            await _dbContext.SaveChangesAsync();
         }
-        
-        await _dbContext.Users.AddAsync(model);
-        await _dbContext.SaveChangesAsync();
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            throw new Exception(e.Message);
+        }
+
     }
 
     public async Task<NewUserModel?> GetUserByIDAsync(int userID)
     {
-        var user = await _dbContext.Users.SingleOrDefaultAsync(u=>u.UserId==userID);
-        var edituser = new NewUserModel{
-            UserId=user.UserId,
+        var user = await _dbContext.Users.SingleOrDefaultAsync(u => u.UserId == userID);
+        var edituser = new NewUserModel
+        {
+            UserId = user.UserId,
             FirstName = user.FirstName,
             LastName = user.LastName,
             UserName = user.UserName,
@@ -75,13 +112,13 @@ public class UserRepository : IUserRepository
             Phone = user.MobileNumber,
             Zipcode = user.Zipcode,
             Isactive = user.Isactive,
-            ProfilePicture = user.ProfilePicture,
+            // ProfilePicture = await UploadPhotoAsync(user.ProfilePicture),
             CountryList = await _dbContext.Countries.ToListAsync(),
-            StateList = await _dbContext.States.Where(u=>u.CountryId==user.CountryId).ToListAsync(),
-            CityList = await _dbContext.Cities.Where(u=>u.StateId==user.StateId).ToListAsync(),
+            StateList = await _dbContext.States.Where(u => u.CountryId == user.CountryId).ToListAsync(),
+            CityList = await _dbContext.Cities.Where(u => u.StateId == user.StateId).ToListAsync(),
             RoleList = await _dbContext.Roles.ToListAsync()
         };
-        return edituser; 
+        return edituser;
     }
 
     public async Task UpdateUserAsync(NewUserModel model)
@@ -99,7 +136,25 @@ public class UserRepository : IUserRepository
         users.CountryId = model.CountryId;
         users.StateId = model.StateId;
         users.CityId = model.CityId;
+        users.ProfilePicture = await UploadPhotoAsync(model.ProfilePicture);
         _dbContext.Update(users);
         await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<string?> UploadPhotoAsync(IFormFile photo)
+    {
+        if (photo == null || photo.Length == 0)
+            return null;
+
+        string folder = "user/photos/";
+        string uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+        string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder, uniqueFileName);
+
+        using (var fileStream = new FileStream(serverFolder, FileMode.Create))
+        {
+            await photo.CopyToAsync(fileStream);
+        }
+
+        return "/" + folder + uniqueFileName;
     }
 }

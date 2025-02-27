@@ -8,20 +8,20 @@
         <h1 class="fw-bold gloabal-color">My Profile</h1>
     </div>
     <div class="container-fluid my-profile-box shadow-lg rounded p-0" style="position: relative;">
-        <div class="row m-0 ">
-            <div class="col p-0">
-                <div class="" style="height: 50px; width: auto;">
-                    <img src="~/images/profile_div_bg.jpg" alt="" style="height: 100%; width: 100%;">
+        <form method="post" asp-action="UpdateUserProfile" asp-controller="AdminDash">
+            <div class="row m-0 ">
+                <div class="col p-0">
+                    <div class="" style="height: 50px; width: auto;">
+                        <img src="~/images/profile_div_bg.jpg" alt="" style="height: 100%; width: 100%;">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row m-0 bg-white">
-            <form method="post" asp-action="UpdateUserProfile" asp-controller="AdminDash">
+            <div class="row m-0 bg-white">
                 <input type="hidden" asp-for="Email">
                 <input type="hidden" asp-for="UserId">
                 <div class="row mt-2">
                     <div class="col-xl-1 col-lg-2 col-md-4 align-self-center">
-                        <img src="~/images/Default_pfp.svg.png" alt="" class="myprofile-img ms-4"
+                        <img src="@Url.Content(Model.ProfilePicture)" alt="" class="myprofile-img ms-4"
                             style="position: absolute; top: 30px; height: 85px;">
                     </div>
                     <div class="col-xl-8 col-lg-7 col-md-4">
@@ -132,8 +132,8 @@
                             style="background-color: white; border-color: #0565A0;">Cancel</button>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
 

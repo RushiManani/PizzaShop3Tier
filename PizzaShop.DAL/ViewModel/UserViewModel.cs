@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 using PizzaShop.DAL.Models;
 
 namespace PizzaShop.DAL.ViewModel;
@@ -11,6 +12,7 @@ public class UserViewModel
     public bool? Isactive {get;set;}
     public string? MobileNumber { get; set; }
     public string? RoleName { get; set; }
+    public string? ProfilePicture{get;set;}
 }
 
 // public class Role
@@ -21,7 +23,8 @@ public class UserViewModel
 
 public class NewUserModel
 {
-    public int UserId{get;set;}
+    public int? UserId{get;set;}
+    public string? Password{get;set;}
     [Required]
     public string? FirstName{get;set;}
     public string? LastName{get;set;} = null;
@@ -30,7 +33,7 @@ public class NewUserModel
     public int RoleId{get;set;}
     [Required]
     public string? Email{get;set;}
-    public string? ProfilePicture{get;set;}=null;
+    public IFormFile? ProfilePicture{get;set;}=null;
     public int CountryId{get;set;}
     public int StateId{get;set;}
     public int CityId{get;set;}

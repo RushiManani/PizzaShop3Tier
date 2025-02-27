@@ -17,13 +17,14 @@ public class JWTRepository : IJWTRepository
         _httpContextAccessor = httpContextAccessor;
     }
 
-    public string GenerateJwtToken(string username, string email, string role)
+    public string GenerateJwtToken(string username, string email, string role,string profilePicture)
     {
         var claims = new[]
         {
                 new Claim(ClaimTypes.Name, username),
                 new Claim(ClaimTypes.Email, email),
-                new Claim(ClaimTypes.Role, role)
+                new Claim(ClaimTypes.Role, role),
+                new Claim("ProfilePicture", profilePicture)
             };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SuperSecretKey@2024#JWTAuth!$%^&*()"));
@@ -49,9 +50,11 @@ public class JWTRepository : IJWTRepository
             var email = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
             var username = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
             var role = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            var profilePicture = jwtToken.Claims.FirstOrDefault(c=>c.Type=="ProfilePicture")?.Value;
             list.Add(email!);
             list.Add(username!);
             list.Add(role!);
+            list.Add(profilePicture!);
             return list!;
         }
         return list;

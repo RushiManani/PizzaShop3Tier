@@ -361,6 +361,42 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\03c954f6-5b2e-4f9a-8692-6497165cb456_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "PackagePath": "staticwebassets\\user\\photos\\03c954f6-5b2e-4f9a-8692-6497165cb456_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
+    },
+    {
+      "Id": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\1e61e27c-9b56-41a2-9500-871e04d1ca3d_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "PackagePath": "staticwebassets\\user\\photos\\1e61e27c-9b56-41a2-9500-871e04d1ca3d_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
+    },
+    {
+      "Id": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\433d4aea-7a0d-4279-9d46-69a193868ad7_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "PackagePath": "staticwebassets\\user\\photos\\433d4aea-7a0d-4279-9d46-69a193868ad7_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
+    },
+    {
+      "Id": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\52780531-ac51-462d-af50-c605476e7e8a_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "PackagePath": "staticwebassets\\user\\photos\\52780531-ac51-462d-af50-c605476e7e8a_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
+    },
+    {
+      "Id": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\53245a56-a0dc-49c4-a831-0b231bea0f1c_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "PackagePath": "staticwebassets\\user\\photos\\53245a56-a0dc-49c4-a831-0b231bea0f1c_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
+    },
+    {
+      "Id": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\550ae9e5-2a32-4e19-abb1-9535e98ae49f_dining-menu.png",
+      "PackagePath": "staticwebassets\\user\\photos\\550ae9e5-2a32-4e19-abb1-9535e98ae49f_dining-menu.png"
+    },
+    {
+      "Id": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\5cd959dd-cb24-40c5-8829-93847163a5f3_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "PackagePath": "staticwebassets\\user\\photos\\5cd959dd-cb24-40c5-8829-93847163a5f3_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
+    },
+    {
+      "Id": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\acea3533-a17f-4d2c-9b6b-c70de81c0ac1_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "PackagePath": "staticwebassets\\user\\photos\\acea3533-a17f-4d2c-9b6b-c70de81c0ac1_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
+    },
+    {
+      "Id": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\b0261b10-d2f8-4a50-b4ba-a19d9b505e48_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
+      "PackagePath": "staticwebassets\\user\\photos\\b0261b10-d2f8-4a50-b4ba-a19d9b505e48_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.PizzaShop.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -2,7 +2,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@model PizzaShop.DAL.Models.User
+@model PizzaShop.DAL.ViewModel.NewUserModel
 
 <div class="container-fluid mt-4">
     <div class="row ps-4">
@@ -17,7 +17,7 @@
     </div>
     <div class="row mt-3 ps-4">
         <div class="col">
-            <form method="post" asp-action="AddUser" asp-controller="User">
+            <form method="post" asp-action="AddUser" asp-controller="User" enctype="multipart/form-data">
                 <div class="container-fluid bg-white pt-4 pb-4"
                     style="border: 1px solid lightgray; border-radius: 0.25rem;">
                     <div class="row mb-3">
@@ -86,11 +86,11 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col">
-                            <label for="fileUpload" class="btn w-100 p-4"
+                        <div class="col" >
+                            <label for="fileUpload" class="btn w-100 p-4" id="profilePicture"
                                 style=" border: 1px solid #ced4da; border-style: dashed; ">
                                 <i class="bi bi-cloud-arrow-up h3"></i><br>Browse File
-                                <input type="file" id="fileUpload" class="d-none" asp-for="ProfilePicture">
+                                <input type="file" id="fileUpload" class="form-control d-none" asp-for="ProfilePicture">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -146,7 +146,7 @@
                         <div class="col-lg-4 col-md-12">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control ps-2" id="floatingInput" placeholder=""
-                                    asp-for="MobileNumber">
+                                    asp-for="Phone">
                                 <label for="floatingInput" class="p-2 p-3">Phone</label>
                             </div>
                         </div>
@@ -202,5 +202,14 @@
                 }
             });
         });
+
+        document.getElementById("fileUpload").addEventListener('change',function(){
+            var container = document.getElementById('profilePicture');
+            if(this.files && this.files.length>0)
+            {
+                container.style.backgroundColor = "#18c04a"
+                container.style.color = "white"
+            }
+        })
     </script>
 }

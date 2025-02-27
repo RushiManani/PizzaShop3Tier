@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using PizzaShop.BLL.Interfaces;
-using PizzaShop.DAL.Models;
 using PizzaShop.DAL.ViewModel;
 
 namespace PizzaShop.Controllers;
@@ -92,14 +91,14 @@ public class UserController : Controller
     }
 
     [HttpPost]
-    public IActionResult AddUser(User model)
+    public async Task<IActionResult> AddUser([FromForm] NewUserModel model)
     {
         string subject = "Reset Your Password";
         string body = $"<p>Email : {model.Email}</p></br><p>Password : {model.Password}</p>;";
         model.Password = _authRepository.Encrypt(model.Password);
-        model.CreatedBy = "Super Admin";
-        _userRepository.AddUserAsync(model);
-        _authRepository.SendEmailAsync(model.Email,subject,body);
+        // model.CreatedBy = "Super Admin";
+        await _userRepository.AddUserAsync(model);
+        await _authRepository.SendEmailAsync(model.Email,subject,body);
         return RedirectToAction("User_ListView");
     }
 
