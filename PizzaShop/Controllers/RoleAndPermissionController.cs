@@ -20,9 +20,17 @@ public class RoleAndPermissionController : Controller
         return View(roles);
     }
 
-    public IActionResult PermissionView()
+    public IActionResult PermissionView(int roleId)
     {
-        return View();
+        List<PermissionTypeViewModel> list = _roleAndPermissionRepository.PermissionByRoleAsync(roleId);
+        ViewData["RoleName"] = _roleAndPermissionRepository.GetRoleByRoleIdAsync(roleId);
+        return View(list);
     }
+
+    // [HttpPost]
+    // public IActionResult UpdatePermission(List<PermissionTypeViewModel> model)
+    // {
+
+    // }
 
 }

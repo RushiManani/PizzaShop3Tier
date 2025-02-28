@@ -9,17 +9,13 @@ public partial class Permission
 
     public string PermissionName { get; set; } = null!;
 
-    public int RoleId { get; set; }
-
     public DateTime CreatedAt { get; set; }
 
     public string CreatedBy { get; set; } = null!;
 
     public DateTime? UpdatedAt { get; set; }
 
-    public string UpdatedBy { get; set; } = null!;
+    public string? UpdatedBy { get; set; }
 
     public virtual ICollection<Permissiontype> Permissiontypes { get; } = new List<Permissiontype>();
-
-    public virtual Role Role { get; set; } = null!;
 }

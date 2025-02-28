@@ -635,16 +635,10 @@ public partial class PizzaShopDbContext : DbContext
             entity.Property(e => e.PermissionName)
                 .HasMaxLength(100)
                 .HasColumnName("permission_name");
-            entity.Property(e => e.RoleId).HasColumnName("role_id");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
             entity.Property(e => e.UpdatedBy)
                 .HasMaxLength(100)
                 .HasColumnName("updated_by");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.Permissions)
-                .HasForeignKey(d => d.RoleId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("permissions_role_id_fkey");
         });
 
         modelBuilder.Entity<Permissiontype>(entity =>
@@ -655,16 +649,16 @@ public partial class PizzaShopDbContext : DbContext
 
             entity.Property(e => e.PermissiontypeId).HasColumnName("permissiontype_id");
             entity.Property(e => e.CanAddEdit)
-                .HasDefaultValueSql("(0)::bit(1)")
-                .HasColumnType("bit(1)")
+                .IsRequired()
+                .HasDefaultValueSql("true")
                 .HasColumnName("can_add_edit");
             entity.Property(e => e.CanDelete)
-                .HasDefaultValueSql("(0)::bit(1)")
-                .HasColumnType("bit(1)")
+                .IsRequired()
+                .HasDefaultValueSql("true")
                 .HasColumnName("can_delete");
             entity.Property(e => e.CanView)
-                .HasDefaultValueSql("(1)::bit(1)")
-                .HasColumnType("bit(1)")
+                .IsRequired()
+                .HasDefaultValueSql("true")
                 .HasColumnName("can_view");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
@@ -672,15 +666,15 @@ public partial class PizzaShopDbContext : DbContext
             entity.Property(e => e.CreatedBy)
                 .HasMaxLength(100)
                 .HasColumnName("created_by");
-            entity.Property(e => e.PermisssionId).HasColumnName("permisssion_id");
+            entity.Property(e => e.PermissionId).HasColumnName("permission_id");
             entity.Property(e => e.RoleId).HasColumnName("role_id");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
             entity.Property(e => e.UpdatedBy)
                 .HasMaxLength(100)
                 .HasColumnName("updated_by");
 
-            entity.HasOne(d => d.Permisssion).WithMany(p => p.Permissiontypes)
-                .HasForeignKey(d => d.PermisssionId)
+            entity.HasOne(d => d.Permission).WithMany(p => p.Permissiontypes)
+                .HasForeignKey(d => d.PermissionId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("permissiontype_permisssion_id_fkey");
 

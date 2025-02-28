@@ -24,4 +24,29 @@ public class RoleAndPermissionRepository : IRoleAndPermissionRepository
                      }).ToList();
         return roles;
     }
+
+    public List<PermissionTypeViewModel> PermissionByRoleAsync(int roleId)
+    {
+        var permissions = (from role in _dbContext.Roles
+                           join permissionType in _dbContext.Permissiontypes on role.RoleId equals permissionType.RoleId
+                           join permission in _dbContext.Permissions on permissionType.PermissionId equals permission.PermissionId
+                           where permissionType.RoleId == roleId
+                           select new PermissionTypeViewModel
+                           {
+                               roleName = role.RoleName,
+                               permissionName = permission.PermissionName,
+                               canView = permissionType.CanView,
+                               canAddEdit = permissionType.CanAddEdit,
+                               canDelete = permissionType.CanDelete
+                           }).ToList();
+        return permissions;
+
+    }
+
+    public string GetRoleByRoleIdAsync(int roleId)
+    {
+        var roles = _dbContext.Roles.SingleOrDefault(r=>r.RoleId==roleId);
+        string roleName = roles.RoleName;
+        return roleName;
+    }
 }

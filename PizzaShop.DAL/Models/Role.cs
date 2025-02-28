@@ -17,8 +17,6 @@ public partial class Role
 
     public string? UpdatedBy { get; set; }
 
-    public virtual ICollection<Permission> Permissions { get; } = new List<Permission>();
-
     public virtual ICollection<Permissiontype> Permissiontypes { get; } = new List<Permissiontype>();
 
     public virtual ICollection<User> Users { get; } = new List<User>();

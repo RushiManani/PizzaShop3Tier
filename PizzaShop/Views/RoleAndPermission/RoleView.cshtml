@@ -22,7 +22,7 @@
                             {
                                 <tr>
                                     <td>@role.RoleName</td>
-                                    <td><a asp-action="PermissionView" asp-controller="RoleAndPermission"><i class="bi bi-pen"></i></a></td>
+                                    <td><a asp-action="PermissionView" asp-controller="RoleAndPermission" asp-route-roleId="@role.RoleId"><i class="bi bi-pen"></i></a></td>
                                 </tr>
                             }
                         </tbody>

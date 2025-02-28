@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace PizzaShop.DAL.Models;
@@ -8,15 +7,9 @@ public partial class Permissiontype
 {
     public int PermissiontypeId { get; set; }
 
-    public int PermisssionId { get; set; }
+    public int PermissionId { get; set; }
 
     public int RoleId { get; set; }
-
-    public BitArray CanView { get; set; } = null!;
-
-    public BitArray CanAddEdit { get; set; } = null!;
-
-    public BitArray CanDelete { get; set; } = null!;
 
     public DateTime CreatedAt { get; set; }
 
@@ -24,9 +17,15 @@ public partial class Permissiontype
 
     public DateTime? UpdatedAt { get; set; }
 
-    public string UpdatedBy { get; set; } = null!;
+    public string? UpdatedBy { get; set; }
 
-    public virtual Permission Permisssion { get; set; } = null!;
+    public bool? CanView { get; set; }
+
+    public bool? CanAddEdit { get; set; }
+
+    public bool? CanDelete { get; set; }
+
+    public virtual Permission Permission { get; set; } = null!;
 
     public virtual Role Role { get; set; } = null!;
 }
