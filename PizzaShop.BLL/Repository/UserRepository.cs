@@ -38,7 +38,6 @@ public class UserRepository : IUserRepository
                                      }).ToList();
 
         users = users.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-
         return users;
     }
 

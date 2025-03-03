@@ -18,13 +18,17 @@
     </div>
     <div class="row mt-3 ps-4">
         <div class="col">
-            <form>
+            <form method="post" asp-action="UpdatePermission" asp-controller="RoleAndPermission">
+                @* <input type="hidden" asp-for="@Model.ElementAt(0).permissionId"> *@
+                @* <input type="hidden" asp-for="@Model.ElementAt(0).roleName"> *@
+                <input type="hidden" name="@ViewData["RoleId"]">
                 <div class="container-fluid bg-white pt-4 pb-4">
                     <div class="row">
                         <div class="col">
                             <div class="form-floating mb-3 w-25">
-                                <input type="text" class="form-control ps-2 bg-light" placeholder="" disabled>
-                                <label for="floatingInput" class="ps-2 pb-3 p-3">@ViewData["RoleName"]</label>
+                                <input type="text" class="form-control ps-2 bg-light" placeholder=""
+                                    value="@ViewData["RoleName"]" readonly>
+                                <label for="floatingInput" class="ps-2 pb-3 p-3">Role</label>
                             </div>
                         </div>
                     </div>
@@ -36,8 +40,8 @@
                                         <tr>
                                             <th scope="row">
                                                 <div class="form-check">
-                                                    <input class="form-check-input main-check" type="checkbox" value=""
-                                                        checked>
+                                                    <input class="form-check-input main-check" id="selectAllPermissions"
+                                                        type="checkbox" value="" checked>
                                                 </div>
                                             </th>
                                             <th scope="col">Permissions</th>
@@ -47,64 +51,56 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        @foreach (var i in Model)
+                                        @for (int i = 0; i < Model.Count(); i++)
                                         {
-                                            <tr>
+                                            var permission = Model.ElementAt(i);
+                                            <tr class="permission-row">
                                                 <th scope="row">
                                                     <div class="form-check">
-                                                        <input class="form-check-input inner-check" type="checkbox" value=""
-                                                            checked>
+                                                        <input class="form-check-input inner-check select-permission"
+                                                            type="checkbox" value="" checked>
                                                     </div>
                                                 </th>
-                                                <td>@i.permissionName</td>
-                                                <input type="hidden" asp-for="@i.permissionId">
-                                                <input type="hidden" asp-for="@i.permissionName">
+                                                <td>@permission.permissionName</td>
+                                                <input type="hidden" name="[@i].permissionName"
+                                                    value="@permission.permissionName" />
+                                                <input type="hidden" name="[@i].permissionId"
+                                                    value="@permission.permissionId" />
+                                                <input type="hidden" name="[@i].roleId" value="@permission.roleId" />
+                                                <input type="hidden" name="[@i].permissionTypeId" value="@permission.permissionTypeId" />
                                                 <td>
                                                     <div class="form-check form-switch">
-                                                        @if (i.canView == true)
-                                                        {
-                                                            <input class="form-check-input switch" type="checkbox" checked>
-                                                        }
-                                                        else
-                                                        {
-                                                            <input class="form-check-input switch" type="checkbox">
-                                                        }
+                                                        <input type="checkbox" class="form-check-input switch can-view"
+                                                            name="[@i].canView" value="true" @(permission.canView ?
+                                                        "checked" : "") />
+                                                        <input type="hidden" name="[@i].canView" value="false" />
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="form-check form-switch">
-                                                        @if (i.canAddEdit == true)
-                                                        {
-                                                            <input class="form-check-input switch" type="checkbox" checked>
-                                                        }
-                                                        else
-                                                        {
-                                                            <input class="form-check-input switch" type="checkbox">
-                                                        }
+                                                        <input type="checkbox" class="form-check-input switch can-addedit"
+                                                            name="[@i].canAddEdit" value="true" @(permission.canAddEdit ?
+                                                        "checked" : "") />
+                                                        <input type="hidden" name="[@i].canAddEdit" value="false" />
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="form-check form-switch">
-                                                        @if (i.canDelete == true)
-                                                        {
-                                                            <input class="form-check-input switch" type="checkbox" checked>
-                                                        }
-                                                        else
-                                                        {
-                                                            <input class="form-check-input switch" type="checkbox">
-                                                        }
+                                                        <input type="checkbox" class="form-check-input switch can-delete"
+                                                            name="[@i].canDelete" value="true" @(permission.canDelete ?
+                                                        "checked" : "") />
+                                                        <input type="hidden" name="[@i].canDelete" value="false" />
                                                     </div>
                                                 </td>
                                             </tr>
                                         }
                                         <tr>
                                             <td colspan="5" class="text-end ">
-                                                <button class="btn text-white gloabal-bg-color" type="submit">
+                                                <button class="btn text-white gloabal-bg-color" id="saveButton"
+                                                    type="submit">
                                                     Save</button>
                                                 <button class="btn gloabal-color"
-                                                    style="background-color: white; border-color: #0565A0;"
-                                                    type="submit">Cancel</button>
+                                                    style="background-color: white; border-color: #0565A0;">Cancel</button>
 
                                             </td>
                                         </tr>

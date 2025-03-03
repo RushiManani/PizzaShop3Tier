@@ -90,6 +90,7 @@ public partial class PizzaShopDbContext : DbContext
                 .HasColumnName("category_name");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.CreatedBy)
                 .HasMaxLength(100)
@@ -98,10 +99,11 @@ public partial class PizzaShopDbContext : DbContext
                 .HasMaxLength(200)
                 .HasColumnName("description");
             entity.Property(e => e.Isdeleted)
-                .HasDefaultValueSql("(0)::bit(1)")
-                .HasColumnType("bit(1)")
+                .HasDefaultValueSql("false")
                 .HasColumnName("isdeleted");
-            entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
+            entity.Property(e => e.UpdatedAt)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("updated_at");
             entity.Property(e => e.UpdatedBy)
                 .HasMaxLength(100)
                 .HasColumnName("updated_by");

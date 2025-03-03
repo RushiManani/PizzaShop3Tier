@@ -1,5 +1,5 @@
-<div class="sidebar bg-white">
-    <div class="container-fluid">
+<div class="sidebar">
+    <div class="container-fluid ps-0 pe-0">
         <div class="row pt-3 mx-auto">
             <div class="col-4 align-self-center text-end">
                 <img src="~/images/logos/pizzashop_logo.png" alt="" class="shop-logo-img">
@@ -8,7 +8,7 @@
                 <span class="pizza-shop-title h4 fw-bold ps-2 gloabal-color">PIZZASHOP</span>
             </div>
         </div>
-        <div class="row sidebar-items">
+        <div class="row ms-0 me-0 sidebar-items">
             <div class="col  bg-white">
                 <ul class="list-unstyled mt-4">
                     <li class="list-item active">
@@ -17,7 +17,6 @@
                             <span class="sidebar-list-title ms-3">Dashboard</span>
                         </a>
                     </li>
-                    </a>
                     <li class="list-item">
                         <a asp-action="User_ListView" asp-controller="User" class="text-decoration-none text-reset"
                             alt="">
@@ -26,13 +25,14 @@
                         </a>
                     </li>
                     <li class="list-item">
-                        <a asp-action="RoleView" asp-controller="RoleAndPermission" class="text-decoration-none text-reset" alt="">
+                        <a asp-action="RoleView" asp-controller="RoleAndPermission"
+                            class="text-decoration-none text-reset" alt="">
                             <i class="bi bi-person-plus"></i>
                             <span class="sidebar-list-title ms-3">Roles and Permissions</span>
                         </a>
                     </li>
                     <li class="list-item">
-                        <a href="#" onclick="menu()" class="text-decoration-none text-reset" alt="">
+                        <a asp-action="Index" asp-controller="Menu" class="text-decoration-none text-reset" alt="">
                             <i class="bi bi-list"></i>
                             <span class="sidebar-list-title ms-3">Menu</span>
                         </a>
@@ -85,53 +85,53 @@
             </div>
         </div>
         <div class="row sidebar-items">
-            <div class="col">
+            <div class="col bg-white">
                 <ul class="list-unstyled mt-4">
-                    <li class="list-item bg-light">
-                        <a asp-action="Index" asp-controller="AdminDash" class="btn text-decoration-none" alt="">
-                            <i class="bi bi-border-all res-icon"></i>
-                            <span class="sidebar-list-title-res ms-3 fw-bold">Dashboard</span>
+                    <li class="list-item active">
+                        <a asp-action="Index" asp-controller="AdminDash" class="text-decoration-none text-reset" alt="">
+                            <i class="bi bi-border res-icon"></i>
+                            <span class="sidebar-list-title-res ms-3">Dashboard</span>
                         </a>
                     </li>
-                    <li class="list-item bg-white">
-                        <a asp-action="User_ListView" asp-controller="User" class="btn text-decoration-none text-reset" alt="">
+                    <li class="list-item">
+                        <a asp-action="User_ListView" asp-controller="User" class="text-decoration-none text-reset"
+                            alt="">
                             <i class="bi bi-people res-icon"></i>
                             <span class="sidebar-list-title-res ms-3">Users</span>
                         </a>
-
                     </li>
-                    <li class="list-item bg-white">
-                        <a href="#" onclick="roleAndPermissions()" class="btn text-decoration-none text-reset" alt="">
+                    <li class="list-item">
+                        <a asp-action="RoleView" asp-controller="RoleAndPermission" class="text-decoration-none text-reset" alt="">
                             <i class="bi bi-person-plus res-icon"></i>
                             <span class="sidebar-list-title-res ms-3">Roles and Permissions</span>
                         </a>
                     </li>
-                    <li class="list-item bg-white">
-                        <a href="#" class="btn text-decoration-none text-reset" alt="">
+                    <li class="list-item">
+                        <a asp-action="Index" asp-controller="Menu" class="text-decoration-none text-reset" alt="">
                             <i class="bi bi-list res-icon"></i>
                             <span class="sidebar-list-title-res ms-3">Menu</span>
                         </a>
                     </li>
-                    <li class="list-item bg-white">
-                        <a href="#" class="btn text-decoration-none text-reset" alt="">
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none text-reset" alt="">
                             <i class="bi bi-table res-icon"></i>
                             <span class="sidebar-list-title-res ms-3">Table and Sections</span>
                         </a>
                     </li>
-                    <li class="list-item bg-white">
-                        <a href="#" class="btn text-decoration-none text-reset" alt="">
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none text-reset" alt="">
                             <i class="bi bi-receipt res-icon"></i>
                             <span class="sidebar-list-title-res ms-3">Taxes and Fees</span>
                         </a>
                     </li>
-                    <li class="list-item bg-white">
-                        <a href="#" class="btn text-decoration-none text-reset" alt="">
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none text-reset" alt="">
                             <i class="bi bi-box res-icon"></i>
                             <span class="sidebar-list-title-res ms-3">Orders</span>
                         </a>
                     </li>
-                    <li class="list-item bg-white">
-                        <a href="#" class="btn text-decoration-none  text-reset" alt="">
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none  text-reset" alt="">
                             <i class="bi bi-person-circle res-icon"></i>
                             <span class="sidebar-list-title-res ms-3">Customers</span>
                         </a>
@@ -143,13 +143,20 @@
 </div>
 
 <script>
-    $(document).ready(function () {
 
-        $('ul.list-unstyled > li')
-            .click(function (e) {
-                $('ul.list-unstyled > li')
-                    .removeClass('active');
-                $(this).addClass('active');
-            });
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const activeLink = localStorage.getItem('activeLink');
+        if (activeLink) {
+            document.querySelectorAll('.list-item').forEach(item => item.classList.remove('active'));
+            document.querySelector(`a[href="${activeLink}"]`).parentElement.classList.add('active');
+        }
+    });
+
+    document.querySelectorAll('.list-item > a').forEach(anchor => {
+        anchor.addEventListener('click', function () {
+            document.querySelectorAll('.list-item').forEach(item => item.classList.remove('active'));
+            this.parentElement.classList.add('active');
+            localStorage.setItem('activeLink', this.getAttribute('href'));
+        });
     });
 </script>

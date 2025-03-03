@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using PizzaShop.BLL.Helpers;
 using PizzaShop.BLL.Interfaces;
 using PizzaShop.DAL.Models;
 using PizzaShop.DAL.ViewModel;
 
 namespace PizzaShop.Controllers;
 
-[Authorize(Roles = "Admin")]
+[CustomAuthorize(new string[]{"Admin"})]
 public class AdminDashController : Controller
 {
     private readonly IJWTRepository _jwtRepository;

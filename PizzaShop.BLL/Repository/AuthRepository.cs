@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -140,4 +141,6 @@ public class AuthRepository : IAuthRepository
     }
 
     #endregion
+
+
 }

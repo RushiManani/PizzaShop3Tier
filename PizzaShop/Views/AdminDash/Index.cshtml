@@ -2,4 +2,104 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Welcome</h1>
+<div class="container-fluid">
+    <div class="row ms-4 mt-2 ">
+        <div class="col-9">
+            <h1 class="gloabal-color">Dashboard</h1>
+        </div>
+        <div class="col-3 mt-2">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>CurrentMonth</option>
+                <option value="1">PreviousMonth</option>
+                <option value="2">CurrentYear</option>
+                <option value="3">PreviousYear</option>
+            </select>
+        </div>
+    </div>
+    <div class="row ms-4 mt-3">
+        <div class="col-3">
+            <div class="ps-3 pb-1 pt-2 bg-white shadow-lg rounded">
+                <div class="text-end pe-3">
+                    <img src="~/images/icons/total-sales.svg" alt="" class="img-fluid">
+                </div>
+                <h3>$ 1630</h3>
+                <p>Total Sales</p>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="ps-3 pb-1 pt-2 bg-white shadow-lg rounded">
+                <div class="text-end pe-3">
+                    <img src="~/images/icons/total-orders.svg" alt="" class="img-fluid">
+                </div>
+                <h3>1</h3>
+                <p>Total Orders</p>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="ps-3 pb-1 pt-2 bg-white shadow-lg rounded">
+                <div class="text-end pe-3">
+                    <img src="~/images/icons/order-value.svg" alt="" class="img-fluid">
+                </div>
+                <h3>$ 1630</h3>
+                <p>Avg. Order Value</p>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="ps-3 pb-1 pt-2 bg-white shadow-lg rounded">
+                <div class="text-end pe-3">
+                    <img src="~/images/icons/waiting-time.svg" alt="" class="img-fluid">
+                </div>
+                <h3>6.96 mins</h3>
+                <p>Avg. Waiting Time</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ms-4 mt-3">
+        <div class="col-6">
+            <div class="ps-3 pb-1 pt-2 bg-white shadow-lg rounded">
+                <h5>Revenue</h5>
+                <div class="pt-2">
+                    <img src="~/images/revenue.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="ps-3 pb-1 pt-2 bg-white shadow-lg rounded">
+                <h5>Customer Growth</h5>
+                <div class="pt-2">
+                    <img src="~/images/growth.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row ms-4 mt-3">
+        <div class="col-3">
+            <div class="ps-3 pb-1 pt-2 bg-white shadow-lg rounded">
+                <h4>Top Selling Items</h4>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="ps-3 pb-1 pt-2 bg-white shadow-lg rounded">
+                <h4>Least Selling Items</h4>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="ps-3 pb-1 pt-2 bg-white shadow-lg rounded">
+                <div class="text-end pe-3">
+                    <img src="~/images/icons/waiting-list.svg" alt="" class="img-fluid" style="height: 30px;">
+                </div>
+                <h3>5</h3>
+                <p>Waiting List Count</p>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="ps-3 pb-1 pt-2 bg-white shadow-lg rounded">
+                <div class="text-end pe-3">
+                    <img src="~/images/icons/customer.svg" alt="" class="img-fluid" style="height: 30px;">
+                </div>
+                <h3>0</h3>
+                <p>New Customer Count</p>
+            </div>
+        </div>
+    </div>
+</div>

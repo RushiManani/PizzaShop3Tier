@@ -89,6 +89,7 @@
         </div>
     </div>
 </body>
+
 </html>
 
 @section Scripts {
@@ -115,7 +116,14 @@
 
             }
         }
+
+        document.getElementById('email').addEventListener('input', function (event) {
+            var currentValue = event.target.value;
+            console.log(currentValue);
+        })
+        @ViewData["Email"] = currentValue;
+
     </script>
-    
-   
+
+
 }

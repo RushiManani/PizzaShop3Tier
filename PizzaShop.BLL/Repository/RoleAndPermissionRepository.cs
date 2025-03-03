@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using PizzaShop.BLL.Interfaces;
 using PizzaShop.DAL.Data;
 using PizzaShop.DAL.ViewModel;
@@ -33,11 +34,14 @@ public class RoleAndPermissionRepository : IRoleAndPermissionRepository
                            where permissionType.RoleId == roleId
                            select new PermissionTypeViewModel
                            {
+                               permissionId = permission.PermissionId,
+                               permissionTypeId = permissionType.PermissiontypeId,
+                               roleId = role.RoleId,
                                roleName = role.RoleName,
                                permissionName = permission.PermissionName,
-                               canView = permissionType.CanView,
-                               canAddEdit = permissionType.CanAddEdit,
-                               canDelete = permissionType.CanDelete
+                               canView = (bool)permissionType.CanView!,
+                               canAddEdit = (bool)permissionType.CanAddEdit!,
+                               canDelete = (bool)permissionType.CanDelete!
                            }).ToList();
         return permissions;
 
@@ -45,8 +49,24 @@ public class RoleAndPermissionRepository : IRoleAndPermissionRepository
 
     public string GetRoleByRoleIdAsync(int roleId)
     {
-        var roles = _dbContext.Roles.SingleOrDefault(r=>r.RoleId==roleId);
+        var roles = _dbContext.Roles.SingleOrDefault(r => r.RoleId == roleId);
         string roleName = roles.RoleName;
         return roleName;
+    }
+
+    public async Task<bool> UpdatePermsissionAsync(List<PermissionTypeViewModel> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            var permissions = _dbContext.Permissiontypes.FirstOrDefault(pt => pt.PermissiontypeId == list[i].permissionTypeId);
+            permissions.RoleId = list[i].roleId;
+            permissions.PermissionId = list[i].permissionId;
+            permissions.CanView = list[i].canView;
+            permissions.CanAddEdit = list[i].canAddEdit;
+            permissions.CanDelete = list[i].canDelete;
+            _dbContext.Update(permissions);
+            await _dbContext.SaveChangesAsync();
+        }
+        return true;
     }
 }

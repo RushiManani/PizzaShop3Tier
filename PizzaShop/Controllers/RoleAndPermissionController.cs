@@ -27,10 +27,18 @@ public class RoleAndPermissionController : Controller
         return View(list);
     }
 
-    // [HttpPost]
-    // public IActionResult UpdatePermission(List<PermissionTypeViewModel> model)
-    // {
-
-    // }
+    [HttpPost]
+    public async Task<IActionResult> UpdatePermission(IEnumerable<PermissionTypeViewModel> model)
+    {
+        List<PermissionTypeViewModel> list = model.ToList();
+        bool isUpdated = await _roleAndPermissionRepository.UpdatePermsissionAsync(list);
+        if (isUpdated)
+        {
+            TempData["ToastrMessage"] = "Permissions Updated Successfully";
+            TempData["ToastrType"] = "success";
+            return RedirectToAction("Index", "AdminDash");
+        }
+        return View("RoleView");
+    }
 
 }
