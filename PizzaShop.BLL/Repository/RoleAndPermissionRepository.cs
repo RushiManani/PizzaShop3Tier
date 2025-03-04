@@ -69,4 +69,24 @@ public class RoleAndPermissionRepository : IRoleAndPermissionRepository
         }
         return true;
     }
+
+    public List<PermissionTypeViewModel> GetAllPermissionsByRoleName(string RoleName)
+    {
+        var pemissionType = (from pt in _dbContext.Permissiontypes
+                            join r in _dbContext.Roles on pt.RoleId equals r.RoleId
+                            join p in _dbContext.Permissions on pt.PermissionId equals p.PermissionId
+                            where r.RoleName == RoleName
+                             select new PermissionTypeViewModel
+                             {
+                                 permissionId = pt.PermissionId,
+                                 permissionName = p.PermissionName,
+                                 roleId = pt.RoleId,
+                                 roleName = r.RoleName,
+                                 permissionTypeId = pt.PermissiontypeId,
+                                 canView = (bool)pt.CanView,
+                                 canAddEdit = (bool)pt.CanAddEdit,
+                                 canDelete = (bool)pt.CanDelete
+                             }).ToList();
+        return pemissionType;
+    }
 }
