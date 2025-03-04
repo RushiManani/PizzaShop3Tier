@@ -1,8 +1,11 @@
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Data="Menu";
 }
 
-<div class="container-fluid mt-4" id="menu">
+@model PizzaShop.DAL.ViewModel.MenuViewModel
+
+<div class="container-fluid mt-4">
     <div class="row ps-4">
         <div class="col h2 fw-bold gloabal-color">Menu</div>
     </div>
@@ -34,312 +37,11 @@
                         <div class="row">
                             <div class="col ps-0 d-flex">
 
-                                <partial name="_CategoryPartial.cshtml" />
+                                <partial name="_CategoryPartial.cshtml" ,model="Model" />
 
                                 <!-- Menu Right -->
 
-                                <div class="menu-item-body gloabl-border-color">
-                                    <div class="container-fluid">
-                                        <div class="row mt-2">
-                                            <div class="col">
-                                                <a style="text-decoration: none;" data-bs-toggle="offcanvas"
-                                                    href="#offcanvasMenuExample" role="button"
-                                                    aria-controls="offcanvasMenuExample">
-                                                    <span class="h5 gloabal-color">Items</span>
-
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-end">
-                                                <div class="d-flex me-2 bg-white menu-item-search border ">
-                                                    <input type="search" placeholder="Search"
-                                                        class="abc border-0 ps-2 mb-1">
-                                                    <button class="border-0 bg-white">
-                                                        <i class="bi bi-search pe-2 ps-1 pt-1 text-end bg-white "></i>
-                                                    </button>
-                                                </div>
-                                                <div class="width-max"><button class="border"><i
-                                                            class="bi bi-trash h4"></i></button>
-                                                </div>
-                                                <div class="ms-2">
-                                                    <button class="btn btn-add text-center text-white gloabal-bg-color">
-                                                        <i class="bi bi-plus h5"></i>
-                                                        <span class="abc">New Item</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Table -->
-
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="table-responsive">
-                                                    <table class="table text-center">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="">
-                                                                    </div>
-                                                                </th>
-                                                                <th scope="col">Name</th>
-                                                                <th scope="col">Item Type</th>
-                                                                <th scope="col">
-                                                                    Rate
-                                                                </th>
-                                                                <th>Quantity</th>
-                                                                <th scope="col">Availabel</th>
-                                                                <th scope="col">Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody class="table-menu-data ">
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="">
-
-                                                                    </div>
-                                                                </td>
-                                                                <td class="d-flex">
-                                                                    <div><img src="./images/dining-menu.png" alt=""
-                                                                            class="img-fluid h-75 dining-menu-img">
-                                                                    </div>
-                                                                    <div class="align-self-center">Punjabi Tadka
-                                                                        Sandwich
-                                                                    </div>
-                                                                </td>
-                                                                <td><img src="./images/icons/non-veg-icon.svg"
-                                                                        class="menu-itemtype-icon" alt=""></td>
-                                                                <td>200</td>
-                                                                <td>1</td>
-                                                                <td>
-                                                                    <div class="form-check form-switch ms-4">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            checked>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex flex-center">
-                                                                        <button type="button" class="btn pe-2" alt="">
-                                                                            <i class="bi bi-pen h6"></i>
-                                                                        </button>
-                                                                        <button type="button" class="btn ps-2" alt=""
-                                                                            data-bs-toggle="modal"
-                                                                            data-bs-target="#staticBackdrop">
-                                                                            <i class="bi bi-trash h6"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="">
-
-                                                                    </div>
-                                                                </td>
-                                                                <td class="d-flex">
-                                                                    <div><img src="./images/dining-menu.png" alt=""
-                                                                            class="img-fluid h-75 dining-menu-img">
-                                                                    </div>
-                                                                    <div class="align-self-center">Chicken Sandwich
-                                                                    </div>
-                                                                </td>
-                                                                <td><img src="./images/icons/non-veg-icon.svg"
-                                                                        class="menu-itemtype-icon" alt=""></td>
-                                                                <td>200</td>
-                                                                <td>1</td>
-                                                                <td>
-                                                                    <div class="form-check form-switch ms-4">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            checked>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex flex-center">
-                                                                        <button type="button" class="btn pe-2" alt="">
-                                                                            <i class="bi bi-pen h6"></i>
-                                                                        </button>
-                                                                        <button type="button" class="btn ps-2" alt=""
-                                                                            data-bs-toggle="modal"
-                                                                            data-bs-target="#staticBackdrop">
-                                                                            <i class="bi bi-trash h6"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="">
-
-                                                                    </div>
-                                                                </td>
-                                                                <td class="d-flex">
-                                                                    <div><img src="./images/dining-menu.png" alt=""
-                                                                            class="img-fluid h-75 dining-menu-img">
-                                                                    </div>
-                                                                    <div class="align-self-center">Cheese Sandwich
-                                                                    </div>
-                                                                </td>
-                                                                <td><img src="./images/icons/veg-icon.svg"
-                                                                        class="menu-itemtype-icon" alt=""></td>
-                                                                <td>200</td>
-                                                                <td>1</td>
-                                                                <td>
-                                                                    <div class="form-check form-switch ms-4">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            checked>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex flex-center">
-                                                                        <button type="button" class="btn pe-2" alt="">
-                                                                            <i class="bi bi-pen h6"></i>
-                                                                        </button>
-                                                                        <button type="button" class="btn ps-2" alt=""
-                                                                            data-bs-toggle="modal"
-                                                                            data-bs-target="#staticBackdrop">
-                                                                            <i class="bi bi-trash h6"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="">
-
-                                                                    </div>
-                                                                </td>
-                                                                <td class="d-flex">
-                                                                    <div><img src="./images/dining-menu.png" alt=""
-                                                                            class="img-fluid h-75 dining-menu-img">
-                                                                    </div>
-                                                                    <div class="align-self-center">Aloo Sandwich
-                                                                    </div>
-                                                                </td>
-                                                                <td><img src="./images/icons/veg-icon.svg"
-                                                                        class="menu-itemtype-icon" alt=""></td>
-                                                                <td>200</td>
-                                                                <td>1</td>
-                                                                <td>
-                                                                    <div class="form-check form-switch ms-4">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            checked>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex flex-center">
-                                                                        <button type="button" class="btn pe-2" alt="">
-                                                                            <i class="bi bi-pen h6"></i>
-                                                                        </button>
-                                                                        <button type="button" class="btn  ps-2" alt=""
-                                                                            data-bs-toggle="modal"
-                                                                            data-bs-target="#staticBackdrop">
-                                                                            <i class="bi bi-trash h6"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="">
-
-                                                                    </div>
-                                                                </td>
-                                                                <td class="d-flex">
-                                                                    <div><img src="./images/dining-menu.png" alt=""
-                                                                            class="img-fluid h-75 dining-menu-img">
-                                                                    </div>
-                                                                    <div class="align-self-center">Black Bean
-                                                                        Sandwich</div>
-                                                                </td>
-                                                                <td><img src="./images/icons/veg-icon.svg"
-                                                                        class="menu-itemtype-icon" alt=""></td>
-                                                                <td>200</td>
-                                                                <td>1</td>
-                                                                <td>
-                                                                    <div class="form-check form-switch ms-4">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            checked>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex flex-center">
-                                                                        <button type="button" class="btn pe-2" alt="">
-                                                                            <i class="bi bi-pen h6"></i>
-                                                                        </button>
-                                                                        <button type="button" class="btn ps-2" alt=""
-                                                                            data-bs-toggle="modal"
-                                                                            data-bs-target="#staticBackdrop">
-                                                                            <i class="bi bi-trash h6"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="7">
-                                                                    <div class="container">
-                                                                        <div class="row justify-content-end">
-                                                                            <div
-                                                                                class="col-md-12 col-lg-7 mt-2 pagination flex-md-row ">
-                                                                                <span
-                                                                                    class="align-self-center me-2">Items
-                                                                                    Per
-                                                                                    page :</span>
-                                                                                <div class=""><select
-                                                                                        class="form-select h-100"
-                                                                                        aria-label="Default select example">
-                                                                                        <option selected value="1">5
-                                                                                        </option>
-                                                                                        <option value="2">10
-                                                                                        </option>
-                                                                                        <option value="3">15
-                                                                                        </option>
-                                                                                    </select></div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="col-md-12 col-lg-5 mt-2 pagination flex-md-row">
-                                                                                <span
-                                                                                    class="align-self-center ms-2">Showing
-                                                                                    1 -
-                                                                                    5 of 13</span>
-                                                                                <div><button class="btn border ms-2"><i
-                                                                                            class="bi bi-chevron-left"></i></button>
-                                                                                </div>
-                                                                                <div><button class="btn border ms-2"><i
-                                                                                            class="bi bi-chevron-right"></i></button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!-- <nav aria-label="Page navigation example">
-                                                                            <div class="">
-
-                                                                            </div>
-                                                                            <div class="">
-
-                                                                            </div>
-                                                                        </nav> -->
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <partial name="_MenuItemsPartial.cshtml" ,model="Model" />
                             </div>
                         </div>
                     </div>
@@ -358,52 +60,52 @@
 @section Scripts {
     <script>
 
-        @* To Add the Data *@
+        // To Add the Data
 
-            $("#saveBtn").click(function () {
-                console.log("Button clicked..")
-                $.ajax({
-                    type: "GET",
-                    url: '@Url.Action("AddCategory", "Menu")',
-                    data: {
-                        categoryName: $("#categoryName").val(),
-                        categoryDescription: $("#categoryDescription").val()
-                    },
-                    success: function (result) {
-                        if (result.redirectUrl !== undefined) {
-                            window.location.replace(result.redirectUrl);
-                        }
-                    },
-                    error: function () {
-                        console.log("Error.....")
+        $("#saveBtn").click(function () {
+            console.log("Button clicked..")
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("AddCategory", "Menu")',
+                data: {
+                    categoryName: $("#categoryName").val(),
+                    categoryDescription: $("#categoryDescription").val()
+                },
+                success: function (result) {
+                    if (result.redirectUrl !== undefined) {
+                        window.location.replace(result.redirectUrl);
                     }
-                })
+                },
+                error: function () {
+                    console.log("Error.....")
+                }
             })
+        })
 
-        @* When the delete button is clicked, set the user ID in the modal *@
-            $('.delete-category').on('click', function () {
-                var categoryId = $(this).data('id');
-                $('#deleteCategoryId').val(categoryId);
+        // When the delete button is clicked, set the user ID in the modal
+        $('.delete-category').on('click', function () {
+            var categoryId = $(this).data('id');
+            $('#deleteCategoryId').val(categoryId);
+        });
+
+        // Handle the delete confirmation button click
+        $('#confirmDelete').on('click', function () {
+            var categoryId = $('#deleteCategoryId').val();
+            $.ajax({
+                url: '/Menu/DeleteCategory',
+                type: 'POST',
+                data: { id: categoryId },
+                success: function (result) {
+                    location.reload();
+                },
+                error: function (error) {
+                    alert('Error deleting user');
+                }
             });
-
-        @* Handle the delete confirmation button click *@
-            $('#confirmDelete').on('click', function () {
-                var categoryId = $('#deleteCategoryId').val();
-                $.ajax({
-                    url: '/Menu/DeleteCategory',
-                    type: 'POST',
-                    data: { id: categoryId },
-                    success: function (result) {
-                        location.reload();
-                    },
-                    error: function (error) {
-                        alert('Error deleting user');
-                    }
-                });
-            });
+        });
 
 
-        @* Edit Category *@
+        // Edit Category
         document.addEventListener('DOMContentLoaded', function () {
             var editCategoryModal = document.getElementById('editCategory');
             editCategoryModal.addEventListener('show.bs.modal', function (event) {
@@ -412,19 +114,18 @@
                 var categoryName = button.getAttribute('data-name');
                 var categoryDescription = button.getAttribute('data-description');
 
-                console.log(categoryDescription+"111")
+                console.log(categoryDescription + "111")
 
                 var modalTitle = editCategoryModal.querySelector('.modal-title');
                 var modalBodyInputId = editCategoryModal.querySelector('#editCategoryId');
                 var modalBodyInputName = editCategoryModal.querySelector('#categoryNameEdit');
                 var modalBodyInputDescription = editCategoryModal.querySelector('#categoryDescriptionEdit');
 
-                @* modalTitle.textContent = 'Edit Category: ' + categoryName; *@
                 modalBodyInputId.value = categoryId;
                 modalBodyInputName.value = categoryName;
                 modalBodyInputDescription.value = categoryDescription;
 
-                console.log(modalBodyInputDescription.value+"2222222")
+                console.log(modalBodyInputDescription.value + "2222222")
 
             });
 
@@ -432,7 +133,7 @@
                 var categoryId = $('.editCategoryId').val();
                 var categoryName = $('#categoryNameEdit').val();
                 var categoryDescription = $('#categoryDescriptionEdit').val();
-                console.log(categoryDescription+"33333")
+                console.log(categoryDescription + "33333")
                 $.ajax({
                     url: '/Menu/UpdateCategory',
                     type: 'POST',
@@ -452,6 +153,24 @@
 
         });
 
+        $(document).ready(function () {
+            $(".categoryCls").click(function () {
+                var getId = $(this).data('id');
+                console.log(getId);
+                $.ajax({
+                    url: "@Url.Action("Index", "Menu")",
+                    type: "post",
+                    data: { id: getId },
+                    success: function (data) {
+                        $("#menu").html(data);
+                        console.log(data);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
 
     </script>
 }

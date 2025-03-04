@@ -241,6 +241,7 @@ public partial class PizzaShopDbContext : DbContext
             entity.Property(e => e.ItemtypeId).HasColumnName("itemtype_id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.CreatedBy)
                 .HasMaxLength(100)
@@ -248,7 +249,9 @@ public partial class PizzaShopDbContext : DbContext
             entity.Property(e => e.ItemtypeName)
                 .HasMaxLength(100)
                 .HasColumnName("itemtype_name");
-            entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
+            entity.Property(e => e.UpdatedAt)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("updated_at");
             entity.Property(e => e.UpdatedBy)
                 .HasMaxLength(100)
                 .HasColumnName("updated_by");
@@ -380,6 +383,7 @@ public partial class PizzaShopDbContext : DbContext
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.CreatedBy)
                 .HasMaxLength(100)
@@ -387,14 +391,12 @@ public partial class PizzaShopDbContext : DbContext
             entity.Property(e => e.Description)
                 .HasMaxLength(200)
                 .HasColumnName("description");
-            entity.Property(e => e.Isavailable)
-                .HasDefaultValueSql("(1)::bit(1)")
-                .HasColumnType("bit(1)")
-                .HasColumnName("isavailable");
-            entity.Property(e => e.Isdeleted)
-                .HasDefaultValueSql("(0)::bit(1)")
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
+            entity.Property(e => e.IsAvailable)
+                .HasDefaultValueSql("true")
+                .HasColumnName("isAvailable");
+            entity.Property(e => e.IsDeleted)
+                .HasDefaultValueSql("false")
+                .HasColumnName("isDeleted");
             entity.Property(e => e.ItemName)
                 .HasMaxLength(100)
                 .HasColumnName("item_name");
@@ -410,7 +412,9 @@ public partial class PizzaShopDbContext : DbContext
                 .HasColumnName("rate");
             entity.Property(e => e.TaxId).HasColumnName("tax_id");
             entity.Property(e => e.UnitId).HasColumnName("unit_id");
-            entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
+            entity.Property(e => e.UpdatedAt)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("updated_at");
             entity.Property(e => e.UpdatedBy)
                 .HasMaxLength(100)
                 .HasColumnName("updated_by");
@@ -427,7 +431,6 @@ public partial class PizzaShopDbContext : DbContext
 
             entity.HasOne(d => d.Tax).WithMany(p => p.Menuitems)
                 .HasForeignKey(d => d.TaxId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("menuitem_tax_id_fkey");
 
             entity.HasOne(d => d.Unit).WithMany(p => p.Menuitems)

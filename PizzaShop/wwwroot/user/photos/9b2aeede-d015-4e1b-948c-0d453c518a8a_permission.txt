@@ -1,0 +1,166 @@
+<tbody>
+                        <tr class="text-center">
+                            <td class="text-start mx-2">
+                              <input class="form-check-input permission-checkbox me-1" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">Users</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                                <label for="flexSwitchCheckChecked"></label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td class="text-start mx-2"><input class="form-check-input permission-checkbox me-1" type="checkbox" value="">
+                                <label class="form-check-label" for="defaultCheck7">RolesAndPermission</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" disabled>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" disabled>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" disabled>
+                              </div>
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td class="text-start mx-2"><input class="form-check-input permission-checkbox me-1" type="checkbox" value="">
+                                <label class="form-check-label" for="defaultCheck2">Menu</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td class="text-start mx-2"><input class="form-check-input permission-checkbox me-1" type="checkbox" value="" id="defaultCheck3">
+                                <label class="form-check-label" for="defaultCheck3">TableAndSection</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td class="text-start mx-2"><input class="form-check-input permission-checkbox me-1" type="checkbox" value="">
+                                <label class="form-check-label" for="defaultCheck4">TaxAndFee</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td class="text-start mx-2">
+                                <input class="form-check-input permission-checkbox me-1" type="checkbox" value="" >
+                                <label class="form-check-label" for="defaultCheck5">Order</td>
+                            <td>
+                                <div class="form-check form-switch">
+                                  <input class="form-check-input" type="checkbox" checked>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="form-check form-switch">
+                                  <input class="form-check-input" type="checkbox">
+                                </div>
+                              </td>
+                              <td>
+                                <div class="form-check form-switch">
+                                  <input class="form-check-input" type="checkbox">
+                                </div>
+                              </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td class="text-start mx-2"><input class="form-check-input permission-checkbox me-1" type="checkbox" value="">
+                                <label class="form-check-label" for="defaultCheck6">Customers</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+var parentCheckbox = document.getElementById('flexCheckIndeterminate');
+parentCheckbox.addEventListener('change', e => {
+    document.querySelectorAll('.permission-checkbox').forEach(checkbox => {
+        checkbox.checked = e.target.checked;
+    });
+});
+
+document.querySelectorAll('.permission-checkbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        var tbodyCheckbox = document.querySelectorAll('.permission-checkbox').length;
+        var tbodyCheckedbox = document.querySelectorAll('.permission-checkbox:checked').length;
+        if (tbodyCheckbox === tbodyCheckedbox) {
+            // All selected
+            parentCheckbox.indeterminate = false;
+            parentCheckbox.checked = true;
+        } else if (tbodyCheckedbox > 0) {
+            // Some selected
+            parentCheckbox.indeterminate = true;
+            parentCheckbox.checked = false;
+        } else {
+            // None selected
+            parentCheckbox.indeterminate = false;
+            parentCheckbox.checked = false;
+        }
+    });
+});

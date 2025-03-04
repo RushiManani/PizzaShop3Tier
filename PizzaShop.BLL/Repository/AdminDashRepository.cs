@@ -80,19 +80,21 @@ public class AdminDashRepository : IAdminDashRepository
         return _dbContext.Cities.Where(c=>c.StateId==StateId).ToList();
     }
 
-    public async Task UpdatePasswordAsync(string email,string currentPassword,string newPassword)
+    public async Task<bool> UpdatePasswordAsync(string email,string currentPassword,string newPassword)
     {
-        var users = _dbContext.Users.FirstOrDefaultAsync(u=>u.Email==email);
+        var users = _dbContext.Users.FirstOrDefault(u=>u.Email==email);
         if(users!=null)
         {
-            var user = _dbContext.Users.FirstOrDefault(u => u.Password == _authrepository.Encrypt(currentPassword));
-            if(user!=null)
+            if(users.Password==_authrepository.Encrypt(currentPassword))
             {
                 string newPasswordHash = _authrepository.Encrypt(newPassword);
-                user.Password = newPasswordHash;
-                _dbContext.Update(user);
+                users.Password = newPasswordHash;
+                _dbContext.Update(users);
                 await _dbContext.SaveChangesAsync();
+                return true;
             }
+            return false;
         }
+        return false;
     }
 }

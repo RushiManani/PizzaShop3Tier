@@ -9,4 +9,5 @@ public interface IMenuRepository
     Task DeleteCategoryAsync(int categoryId);
     Task<CategoryViewModel> GetCategoryByIdAsync(int categoryId);
     Task<bool> UpdateCategoryAsync(int CategoryId, string CategoryName, string Description);
+    List<ItemListViewModel> GetMenuItemsAsync(int CategoryId);
 }

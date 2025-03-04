@@ -1,5 +1,6 @@
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Active = "User";
 }
 
 @model PizzaShop.DAL.ViewModel.NewUserModel
@@ -23,7 +24,7 @@
                     <div class="row mb-3">
                         <div class="col-lg-6">
                             <div class="form-floating form-floating-user mb-3">
-                                <input type="text" class="form-control ps-2" placeholder="" asp-for="FirstName">
+                                <input type="text" class="form-control ps-2" placeholder="" asp-for="FirstName" required>
                                 <label for="floatingInput" class="p-2 p-3">First Name</label>
                             </div>
                             <div>
@@ -49,13 +50,15 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-floating">
-                                <select class="form-select" aria-label="Default select example" asp-for="RoleId">
-                                    <option selected>Select Role</option>
+                                <select class="form-select" aria-label="Default select example" asp-for="RoleId" required>
+                                    <option value="" selected>Select Role</option>
                                     @foreach (var role in ViewBag.RoleList!)
                                     {
                                         <option value="@role.RoleId">@role.RoleName</option>
                                     }
                                 </select>
+                            </div>
+                            <div>
                                 <span asp-validation-for="RoleId" class="text-danger"></span>
                             </div>
                         </div>

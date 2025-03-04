@@ -1,49 +1,60 @@
-.gloabal-bg-color{
+.gloabal-bg-color {
     background-color: #0565A0 !important;
 }
-.gloabal-color{
+
+.gloabal-color {
     color: #0565A0 !important;
 }
 
-.gloabl-border-color{
+.gloabl-border-color {
     border-left: 2px solid #0565A0;
 }
 
-.menu-itemtype-icon{
+.menu-itemtype-icon {
     height: 15px !important;
 }
 
-.width-max{
+.width-max {
     width: max-content;
 }
 
-.sidebar-menu-res{
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(221,221,221,1) 100%);
+.sidebar-menu-res {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 221, 221, 1) 100%);
 }
 
-.sidebar-border-color{
+.sidebar-border-color {
     border: 1px solid #0565A0 !important;
 }
 
-.user-active{
+.active-sidebar {
+    background-color: aliceblue;
+    color: #0565A0;
+    font-weight: bold;
+}
+
+.active-icon {
+    color: #0565A0;
+}
+
+.user-active {
     background-color: #45d132;
     color: white;
 }
 
-.user-inactive{
+.user-inactive {
     background-color: red;
     color: white;
 }
 
-.user-name{
+.user-name {
     font-size: medium !important;
 }
 
-.my-profile-header-none{
+.my-profile-header-none {
     background-color: #0565A0;
 }
 
-.form-control{
+.form-control {
     padding-left: 15px !important;
 }
 
@@ -56,17 +67,17 @@
 } */
 
 @media only screen and (max-width:992px) {
-    .pagination{
-        justify-content: center;  
+    .pagination {
+        justify-content: center;
         margin-top: 10px;
-    }    
+    }
 }
 
 @media only screen and (min-width:993px) {
-    .pagination{
+    .pagination {
         justify-content: end;
         margin-top: 10px;
-    }    
+    }
 }
 
 .sidebar {
@@ -91,12 +102,13 @@
     color: #0565A0;
 }
 
-.active{
+.active {
     background-color: aliceblue;
 }
 
 /*code to change background color*/
-.list-unstyled>.active>a, .list-unstyled>.active>a>span {
+.list-unstyled>.active>a,
+.list-unstyled>.active>a>span {
     background-color: aliceblue;
     color: #0565A0;
     font-weight: bold;
@@ -148,7 +160,7 @@
     align-items: center;
 }
 
-.btn-add-user i{
+.btn-add-user i {
     margin-right: 8px;
 }
 
@@ -156,9 +168,9 @@
     font-size: medium;
 }
 
-.table-data{
+.table-data {
     font-size: small;
-    
+
 }
 
 .form-floating>.form-select {
@@ -169,7 +181,7 @@
 .form-floating>.form-control,
 .form-floating>.form-control-plaintext,
 .form-floating>.form-select {
-  height: calc(2.3rem + 9px) !important;
+    height: calc(2.3rem + 9px) !important;
 }
 
 .form-floating>label {
@@ -177,14 +189,18 @@
 }
 
 
-.form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label {
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label,
+.form-floating>.form-select~label {
     opacity: 1;
     transform: scale(.85) translateY(-0.20rem) translateX(.55rem) !important;
     /* background-color: white; */
 }
 
 
-.form-floating-user>.form-control:focus~label, .form-floating-user>.form-control:not(:placeholder-shown)~label, .form-floating-user>.form-select~label {
+.form-floating-user>.form-control:focus~label,
+.form-floating-user>.form-control:not(:placeholder-shown)~label,
+.form-floating-user>.form-select~label {
     opacity: 1;
     transform: scale(.85) translateY(-0.35rem) translateX(.15rem) !important;
     /* background-color: white; */
@@ -197,15 +213,16 @@
 
 /* Menu */
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
     border-color: #fff #fff #0565A0 !important;
 }
 
-.list-item-menu{
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(221,221,221,1) 100%);
+.list-item-menu {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 221, 221, 1) 100%);
 }
 
-.sidebar-menu{
+.sidebar-menu {
     float: left;
     width: 400px;
     /* position: sticky; */
@@ -214,11 +231,11 @@
 }
 
 
-.menu-list{
+.menu-list {
     height: 400px;
 }
 
-.menu-item-body{
+.menu-item-body {
     width: inherit;
 }
 
@@ -241,10 +258,10 @@
         width: 100px;
     } */
 
-    .sidebar-menu{
+    .sidebar-menu {
         display: none;
     }
-   
+
 
     .shop-logo-img {
         height: 5vh;
@@ -272,24 +289,25 @@
 
 }
 
-@media only screen and (max-width:992px){
+@media only screen and (max-width:992px) {
     .sidebar {
         display: none;
     }
+
     .sidebar-mobile {
         display: inline-block;
     }
-    
+
 }
 
-@media only screen and (min-width:993px){
-    .sidebar-mobile{
+@media only screen and (min-width:993px) {
+    .sidebar-mobile {
         display: none;
     }
 }
 
 @media only screen and (max-width:720px) {
-    
+
 
 
     .logo-res {
@@ -301,29 +319,31 @@
         left: 10%;
         margin-top: .125rem;
     }
-    
 
-    
+
+
 }
 
-@media only screen and (max-width:700px){
+@media only screen and (max-width:700px) {
+
     /* .dining-menu-img{
         display: none;
     } */
-    .abc{
+    .abc {
         display: none;
     }
 }
 
 @media only screen and (min-width:721px) {
-    
+
 
     .dropdown-menu[data-bs-popper] {
         top: 100%;
         left: 0;
         margin-top: .125rem;
     }
-    .abc{
+
+    .abc {
         display: inline-block;
     }
 }
@@ -332,35 +352,37 @@
     .pizza-shop-title-res {
         display: none;
     }
-    .sidebar-list-title-res{
+
+    .sidebar-list-title-res {
         display: none;
     }
-    
+
     /* .sidebar-res{
         width: 200px !important;
     } */
 }
 
 @media only screen and (min-width:513px) {
+
     /* .sidebar-res{
         width: 300px;
     } */
-    .sidebar-list-title-res{
+    .sidebar-list-title-res {
         display: inline-block;
     }
 }
 
 @media only screen and (max-width:568px) {
-    .user-button-name{
+    .user-button-name {
         display: none;
         width: max-content;
     }
-    
+
 }
 
 @media only screen and (min-width:569px) {
-    .user-button-name{
+    .user-button-name {
         display: inline-block;
     }
-    
+
 }

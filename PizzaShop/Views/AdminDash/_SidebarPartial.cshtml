@@ -11,29 +11,30 @@
         <div class="row ms-0 me-0 sidebar-items">
             <div class="col  bg-white">
                 <ul class="list-unstyled mt-4">
-                    <li class="list-item active">
-                        <a asp-action="Index" asp-controller="AdminDash" class="text-decoration-none text-reset" alt="">
-                            <i class="bi bi-border-all"></i>
+                    <li class="list-item @(ViewBag.Active == "Dashboard"?"active-sidebar":"")">
+                        <a asp-action="Index" asp-controller="AdminDash" class="text-decoration-none text-reset  "
+                            alt="">
+                            <i class="bi bi-border-all @(ViewBag.Active == "Dashboard"?"active-icon":"")"></i>
                             <span class="sidebar-list-title ms-3">Dashboard</span>
                         </a>
                     </li>
-                    <li class="list-item">
+                    <li class="list-item @(ViewBag.Active == "User"?"active-sidebar":"")">
                         <a asp-action="User_ListView" asp-controller="User" class="text-decoration-none text-reset"
                             alt="">
-                            <i class="bi bi-people"></i>
+                            <i class="bi bi-people @(ViewBag.Active == "User"?"active-icon":"")"></i>
                             <span class="sidebar-list-title ms-3">Users</span>
                         </a>
                     </li>
-                    <li class="list-item">
+                    <li class="list-item @(ViewBag.Active == "Role"?"active-sidebar":"")">
                         <a asp-action="RoleView" asp-controller="RoleAndPermission"
-                            class="text-decoration-none text-reset" alt="">
-                            <i class="bi bi-person-plus"></i>
+                            class="text-decoration-none text-reset " alt="">
+                            <i class="bi bi-person-plus @(ViewBag.Active == "Role"?"active-icon":"")"></i>
                             <span class="sidebar-list-title ms-3">Roles and Permissions</span>
                         </a>
                     </li>
-                    <li class="list-item">
+                    <li class="list-item  @(ViewBag.Active == "Menu"?"active-sidebar":"")">
                         <a asp-action="Index" asp-controller="Menu" class="text-decoration-none text-reset" alt="">
-                            <i class="bi bi-list"></i>
+                            <i class="bi bi-list @(ViewBag.Active == "Role"?"active-icon":"")"></i>
                             <span class="sidebar-list-title ms-3">Menu</span>
                         </a>
                     </li>
@@ -87,28 +88,32 @@
         <div class="row sidebar-items">
             <div class="col bg-white">
                 <ul class="list-unstyled mt-4">
-                    <li class="list-item active">
-                        <a asp-action="Index" asp-controller="AdminDash" class="text-decoration-none text-reset" alt="">
-                            <i class="bi bi-border res-icon"></i>
+                    <li class="list-item @(ViewBag.Active == "Dashboard"?"active-sidebar":"")">
+                        <a asp-action="Index" asp-controller="AdminDash"
+                            class=" @(ViewBag.Active == "Dashboard"?"active-sidebar":"")" alt="">
+                            <i class="bi bi-border res-icon @(ViewBag.Active == "Dashboard"?"active-icon":"")"></i>
                             <span class="sidebar-list-title-res ms-3">Dashboard</span>
                         </a>
                     </li>
-                    <li class="list-item">
-                        <a asp-action="User_ListView" asp-controller="User" class="text-decoration-none text-reset"
-                            alt="">
-                            <i class="bi bi-people res-icon"></i>
+                    <li class="list-item @(ViewBag.Active == "User"?"active-sidebar":"")">
+                        <a asp-action="User_ListView" asp-controller="User"
+                            class=" @(ViewBag.Active == "User"?"active-sidebar":"")" alt="">
+                            <i class="bi bi-people res-icon @(ViewBag.Active == "User"?"active-icon":"")"></i>
                             <span class="sidebar-list-title-res ms-3">Users</span>
                         </a>
                     </li>
-                    <li class="list-item">
-                        <a asp-action="RoleView" asp-controller="RoleAndPermission" class="text-decoration-none text-reset" alt="">
-                            <i class="bi bi-person-plus res-icon"></i>
+                    <li class="list-item @(ViewBag.Active == "Role"?"active-sidebar":"")">
+                        <a asp-action="RoleView" asp-controller="RoleAndPermission"
+                            class=" @(ViewBag.Active == "Role"?"active-sidebar":"")" alt="">
+                            <i class="bi bi-person-plus res-icon @(ViewBag.Active == "Role"?"active-icon":"")"></i>
                             <span class="sidebar-list-title-res ms-3">Roles and Permissions</span>
                         </a>
                     </li>
-                    <li class="list-item">
-                        <a asp-action="Index" asp-controller="Menu" class="text-decoration-none text-reset" alt="">
-                            <i class="bi bi-list res-icon"></i>
+                    <li class="list-item @(ViewBag.Data == "Menu"?"active-sidebar":"")">
+                        <a asp-action="Index" asp-controller="Menu"
+                            class="text-decoration-none text-reset @(ViewBag.Data == "Menu"?"active-sidebar":"")"
+                            alt="">
+                            <i class="bi bi-list res-icon @(ViewBag.Data == "Menu"?"active-icon":"")"></i>
                             <span class="sidebar-list-title-res ms-3">Menu</span>
                         </a>
                     </li>
@@ -144,19 +149,19 @@
 
 <script>
 
-    document.addEventListener('DOMContentLoaded', (event) => {
+    @* document.addEventListener('DOMContentLoaded', (event) => {
         const activeLink = localStorage.getItem('activeLink');
         if (activeLink) {
             document.querySelectorAll('.list-item').forEach(item => item.classList.remove('active'));
-            document.querySelector(`a[href="${activeLink}"]`).parentElement.classList.add('active');
+        document.querySelector(`a[href="${activeLink}"]`).parentElement.classList.add('active');
         }
-    });
+        });
 
     document.querySelectorAll('.list-item > a').forEach(anchor => {
         anchor.addEventListener('click', function () {
             document.querySelectorAll('.list-item').forEach(item => item.classList.remove('active'));
-            this.parentElement.classList.add('active');
-            localStorage.setItem('activeLink', this.getAttribute('href'));
+        this.parentElement.classList.add('active');
+        localStorage.setItem('activeLink', this.getAttribute('href'));
         });
-    });
+        }); *@
 </script>

@@ -58,8 +58,9 @@ public class AuthController : Controller
         }
     }
 
-    public IActionResult User_ForgotPassword()
+    public IActionResult User_ForgotPassword(string Email)
     {
+        ViewData["Email"]=Email;
         return View();
     }
 
@@ -117,6 +118,6 @@ public class AuthController : Controller
         Response.Cookies.Delete("UserEmail");
         TempData["ToastrMessage"] = "Logout Successfully";
         TempData["ToastrType"] = "success";
-        return View("User_Login");
+        return RedirectToAction("User_Login");
     }
 }

@@ -15,7 +15,7 @@ public partial class Itemtype
 
     public DateTime? UpdatedAt { get; set; }
 
-    public string UpdatedBy { get; set; } = null!;
+    public string? UpdatedBy { get; set; }
 
     public virtual ICollection<Menuitem> Menuitems { get; } = new List<Menuitem>();
 }

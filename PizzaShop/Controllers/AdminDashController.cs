@@ -1,14 +1,11 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using PizzaShop.BLL.Helpers;
 using PizzaShop.BLL.Interfaces;
-using PizzaShop.DAL.Models;
 using PizzaShop.DAL.ViewModel;
 
 namespace PizzaShop.Controllers;
 
-[CustomAuthorize(new string[]{"Admin"})]
+[CustomAuthorize(new string[] { "Admin" })]
 public class AdminDashController : Controller
 {
     private readonly IJWTRepository _jwtRepository;
@@ -20,6 +17,7 @@ public class AdminDashController : Controller
         _jwtRepository = jWTRepository;
     }
 
+    [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Index()
     {
         List<string> jwtlist = _jwtRepository.ReadJWTToken();
@@ -74,17 +72,24 @@ public class AdminDashController : Controller
         return View();
     }
 
-    public IActionResult UpdatePassword(ChangePassword model)
+    public async Task<IActionResult> UpdatePassword(ChangePassword model)
     {
         if (ModelState.IsValid)
         {
             List<string> jwtlist = _jwtRepository.ReadJWTToken();
             var email = jwtlist[0];
-            _adminDashRepository.UpdatePasswordAsync(email, model.CurrentPassword, model.NewPassword);
-            TempData["ToastrMessage"] = "Password Changed Successfully";
-            TempData["ToastrType"] = "success";
-            return RedirectToAction("Index");
+            bool isUpdated = await _adminDashRepository.UpdatePasswordAsync(email, model.CurrentPassword, model.NewPassword);
+            if (isUpdated)
+            {
+                TempData["ToastrMessage"] = "Password Changed Successfully";
+                TempData["ToastrType"] = "success";
+                return RedirectToAction("User_Login", "Auth");
+            }
+            TempData["ToastrMessage"] = "Failed!, Current Password is Wrong";
+            TempData["ToastrType"] = "error";
+            return RedirectToAction("ChangePassword");
+
         }
-        return RedirectToAction("User_Login","Auth");
+        return RedirectToAction("User_Login", "Auth");
     }
 }

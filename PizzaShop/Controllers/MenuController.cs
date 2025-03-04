@@ -14,10 +14,22 @@ public class MenuController : Controller
         _menuRepository = menuRepository;
     }
 
-    public IActionResult Index()
+    #region Category Crud
+
+    public ActionResult Index(int id)
     {
-        List<CategoryViewModel> list = _menuRepository.GetCategoryAsync();
-        return View(list);
+        MenuViewModel mv = new MenuViewModel();
+        mv.allCategory = GetCategory();
+        id = id == 0 ? mv.allCategory[0].CategoryId : id;
+        mv.allItems = MenuItemList(id);
+        return View(mv);
+    }
+
+    public List<CategoryViewModel> GetCategory()
+    {
+        List<CategoryViewModel> categoryList = new List<CategoryViewModel>();
+        categoryList = _menuRepository.GetCategoryAsync();
+        return categoryList;
     }
 
     public async Task<IActionResult> AddCategory(string categoryName, string categoryDescription)
@@ -32,7 +44,7 @@ public class MenuController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> UpdateCategory(int CategoryId, string CategoryName, string Description="")
+    public async Task<IActionResult> UpdateCategory(int CategoryId, string CategoryName, string Description = "")
     {
         if (ModelState.IsValid)
         {
@@ -63,4 +75,16 @@ public class MenuController : Controller
         }
         return Json(new { redirectUrl = Url.Action("Index", "Menu") });
     }
+
+    #endregion 
+
+    #region  MenuItem Crud
+
+    public List<ItemListViewModel> MenuItemList(int id)
+    {
+        List<ItemListViewModel> list = _menuRepository.GetMenuItemsAsync(id);
+        return list;
+    }
+
+    #endregion
 }

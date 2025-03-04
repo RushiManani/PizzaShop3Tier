@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace PizzaShop.DAL.Models;
@@ -14,8 +13,6 @@ public partial class Menuitem
 
     public int ItemtypeId { get; set; }
 
-    public BitArray Isavailable { get; set; } = null!;
-
     public int UnitId { get; set; }
 
     public decimal Rate { get; set; }
@@ -26,17 +23,19 @@ public partial class Menuitem
 
     public string? ItemPhoto { get; set; }
 
-    public BitArray Isdeleted { get; set; } = null!;
-
     public DateTime CreatedAt { get; set; }
 
     public string CreatedBy { get; set; } = null!;
 
     public DateTime? UpdatedAt { get; set; }
 
-    public string UpdatedBy { get; set; } = null!;
+    public string? UpdatedBy { get; set; }
 
-    public int TaxId { get; set; }
+    public int? TaxId { get; set; }
+
+    public bool? IsAvailable { get; set; }
+
+    public bool? IsDeleted { get; set; }
 
     public virtual Category Category { get; set; } = null!;
 
@@ -46,7 +45,7 @@ public partial class Menuitem
 
     public virtual ICollection<Orderitem> Orderitems { get; } = new List<Orderitem>();
 
-    public virtual Taxandfee Tax { get; set; } = null!;
+    public virtual Taxandfee? Tax { get; set; }
 
     public virtual Unit Unit { get; set; } = null!;
 }

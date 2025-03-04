@@ -24,8 +24,9 @@ public class UserViewModel
 public class NewUserModel
 {
     public int? UserId{get;set;}
-    [Required]
+    [Required(ErrorMessage = "Please Enter the Password")]
     public string? Password{get;set;}
+    [Required(ErrorMessage = "Please Enter the UserName")]
     public string? FirstName{get;set;}
     public string? LastName{get;set;} = null;
     [Required]
@@ -35,6 +36,8 @@ public class NewUserModel
     [Required]
     public string? Email{get;set;}
     public IFormFile? ProfilePicture{get;set;}=null;
+    // [FileExtensions(Extensions ="jpg,jpeg,png")]
+    // public string FileName=>ProfilePicture.FileName;
     public int CountryId{get;set;}
     public int StateId{get;set;}
     public int CityId{get;set;}

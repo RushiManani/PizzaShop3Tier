@@ -28,22 +28,24 @@ public class AuthRepository : IAuthRepository
             if (users != null)
             {
                 var encryptHash = Encrypt(password);
-                users = await _dbContext.Users.FirstOrDefaultAsync(u => u.Password == encryptHash);
-
-                var cookieOptions = new CookieOptions
+                if (users.Password == encryptHash)
                 {
-                    HttpOnly = true,
-                    Secure = true,
-                    SameSite = SameSiteMode.Strict
-                };
-                if (rememberMe)
-                {
-                    var httpContext = _httpContextAccessor.HttpContext;
-                    httpContext!.Response.Cookies.Append("UserEmail", users!.Email, cookieOptions);
-                    cookieOptions.Expires = DateTime.UtcNow.AddDays(30);
+                    var cookieOptions = new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        SameSite = SameSiteMode.Strict
+                    };
+                    if (rememberMe)
+                    {
+                        var httpContext = _httpContextAccessor.HttpContext;
+                        httpContext!.Response.Cookies.Append("UserEmail", users!.Email, cookieOptions);
+                        cookieOptions.Expires = DateTime.UtcNow.AddDays(30);
+                    }
+                    return users;
                 }
             }
-            return users!;
+            return null!;
         }
         return null!;
     }
@@ -77,6 +79,7 @@ public class AuthRepository : IAuthRepository
                 message.Subject = subject;
 
                 var bodyBuilder = new BodyBuilder();
+                // bodyBuilder.HtmlBody = await File.ReadAllTextAsync("/Views/Auth/Emailbody.cshtml");
                 bodyBuilder.HtmlBody = body;
 
                 message.Body = bodyBuilder.ToMessageBody();

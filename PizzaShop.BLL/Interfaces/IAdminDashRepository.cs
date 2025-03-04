@@ -13,5 +13,5 @@ public interface IAdminDashRepository
     List<Country> GetCountries();
     List<State> GetStates(int countryId);
     List<City> GetCities(int stateId);
-    Task UpdatePasswordAsync(string email, string currentPassword, string newPassword);
+    Task<bool> UpdatePasswordAsync(string email, string currentPassword, string newPassword);
 }

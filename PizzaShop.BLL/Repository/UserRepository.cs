@@ -57,7 +57,7 @@ public class UserRepository : IUserRepository
         try
         {
             var userExist = _dbContext.Users.SingleOrDefaultAsync(u => u.Email == model.Email || u.UserName == model.UserName);
-            if (userExist != null)
+            if (userExist.Result != null)
             {
                 return false;
             }

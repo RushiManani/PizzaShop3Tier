@@ -1,4 +1,7 @@
-@model IEnumerable<PizzaShop.DAL.ViewModel.CategoryViewModel>
+@model PizzaShop.DAL.ViewModel.MenuViewModel
+@{
+    ViewBag.Active = "Menu";
+}
 
 <!-- Sidebar Menu -->
 
@@ -16,19 +19,43 @@
         <div class="row sidebar-items">
             <div class="col">
                 <ul class="list-unstyled menu-list mt-4 overflow-auto">
-                    @foreach (var i in Model)
+                    @* @foreach (var i in Model.allCategory)
                     {
+                    <li class="list-item list-item-menu">
+                    <a href="#" class="text-decoration-none categoryCls" id="categoryListName" alt=""
+                    data-id="@i.CategoryId">
+                    <i class="bi bi-grid-3x3-gap-fill gloabal-color"></i>
+                    <span class="sidebar-list-menu-title ms-3 fw-bold gloabal-color">@i.CategoryName</span>
+                    </a>
+                    <input type="hidden" value="@i.CategoryId" name="@i.CategoryId">
+                    <input type="hidden" value="@i.Description" name="@i.Description">
+                    <a href="" alt="" class="text-reset float-end me-3 icon-menu delete-category"
+                    id="delete-category" data-bs-toggle="modal" data-bs-target="#deleteCategory"
+                    data-id="@i.CategoryId"><i class="bi bi-trash"></i></a>
+                    <a href="" alt="" class="text-reset float-end me-3 icon-menu edit-categorybtn" id="editcategory"
+                    data-bs-toggle="modal" data-bs-target="#editCategory" data-id="@i.CategoryId"
+                    data-name="@i.CategoryName" data-description="@i.Description"><i class="bi bi-pen"></i></a>
+                    </li>
+                    } *@
+                    @for (int i = 0; i < Model.allCategory.Count(); i++)
+                    {
+                        var category = Model.allCategory.ElementAt(i);
                         <li class="list-item list-item-menu">
-                            <a href="#" class="text-decoration-none" alt="">
+                            <a href="#" class="text-decoration-none categoryCls" id="categoryListName" alt=""
+                                data-id="@category.CategoryId">
                                 <i class="bi bi-grid-3x3-gap-fill gloabal-color"></i>
-                                <span class="sidebar-list-menu-title ms-3 fw-bold gloabal-color">@i.CategoryName</span>
+                                <span
+                                    class="sidebar-list-menu-title ms-3 fw-bold gloabal-color">@category.CategoryName</span>
                             </a>
+                            <input type="hidden" value="@category.CategoryId" name="@category.CategoryId">
+                            <input type="hidden" value="@category.Description" name="@category.Description">
                             <a href="" alt="" class="text-reset float-end me-3 icon-menu delete-category"
                                 id="delete-category" data-bs-toggle="modal" data-bs-target="#deleteCategory"
-                                data-id="@i.CategoryId"><i class="bi bi-trash"></i></a>
+                                data-id="@category.CategoryId"><i class="bi bi-trash"></i></a>
                             <a href="" alt="" class="text-reset float-end me-3 icon-menu edit-categorybtn" id="editcategory"
-                                data-bs-toggle="modal" data-bs-target="#editCategory" data-id="@i.CategoryId"
-                                data-name="@i.CategoryName" data-description="@i.Description"><i class="bi bi-pen"></i></a>
+                                data-bs-toggle="modal" data-bs-target="#editCategory" data-id="@category.CategoryId"
+                                data-name="@category.CategoryName" data-description="@category.Description"><i
+                                    class="bi bi-pen"></i></a>
                         </li>
                     }
                 </ul>
@@ -58,15 +85,15 @@
         <div class="row sidebar-items">
             <div class="col">
                 <ul class="list-unstyled menu-list mt-4 overflow-auto">
-                    @foreach (var i in Model)
+                    @* @foreach (var i in Model)
                     {
-                        <li class="list-item list-item-menu">
-                            <a href="#" class="text-decoration-none" alt="">
-                                <i class="bi bi-grid-3x3-gap-fill gloabal-color"></i>
-                                <span class="sidebar-list-menu-title ms-3 fw-bold gloabal-color">@i.CategoryName</span>
-                            </a>
-                        </li>
-                    }
+                    <li class="list-item list-item-menu">
+                    <a href="#" class="text-decoration-none" alt="">
+                    <i class="bi bi-grid-3x3-gap-fill gloabal-color"></i>
+                    <span class="sidebar-list-menu-title ms-3 fw-bold gloabal-color">@i.CategoryName</span>
+                    </a>
+                    </li>
+                    } *@
                 </ul>
             </div>
         </div>
@@ -115,7 +142,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input type="hidden" id="editCategoryId" name="editCategoryId" class="editCategoryId"/>
+                <input type="hidden" id="editCategoryId" name="editCategoryId" class="editCategoryId" />
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="categoryNameEdit" name="categoryNameEdit" placeholder=""
                         required>
@@ -158,3 +185,6 @@
     </div>
 </div>
 
+<script>
+    
+</script>

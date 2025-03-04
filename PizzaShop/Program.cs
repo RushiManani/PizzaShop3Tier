@@ -20,37 +20,7 @@ builder.Services.AddScoped<IMenuRepository,MenuRepository>();
 
 builder.Services.AddHttpContextAccessor();
 
-//JWT
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
-        };
-
-        options.Events = new JwtBearerEvents
-        {
-
-            OnMessageReceived = context =>
-            {
-                var token = context.HttpContext.Request.Cookies["JWT"];
-                if (!string.IsNullOrEmpty(token))
-                {
-                    context.Token = token;
-                }
-                return Task.CompletedTask;
-            }
-        };
-    });
-
-builder.Services.AddAuthorization();
+// builder.Services.AddAuthorization();
 
 // Add session services
 builder.Services.AddSession(options =>
@@ -78,7 +48,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseSession();
 
-app.UseMiddleware<JWTExpirationMiddleware>();
+// app.UseMiddleware<JWTExpirationMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

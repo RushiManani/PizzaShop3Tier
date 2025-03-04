@@ -90,19 +90,24 @@ public class UserController : Controller
     [HttpPost]
     public async Task<IActionResult> AddUser([FromForm] NewUserModel model)
     {
-        string subject = "Reset Your Password";
-        string body = $"<p>Email : {model.Email}</p></br><p>Password : {model.Password}</p>;";
-        model.Password = _authRepository.Encrypt(model.Password!);
-        // model.CreatedBy = "Super Admin";
-        bool isAdded = await _userRepository.AddUserAsync(model);
-        if (isAdded)
+        if (ModelState.IsValid)
         {
-            await _authRepository.SendEmailAsync(model.Email!, subject, body);
-            return RedirectToAction("User_ListView");
+            string subject = "Reset Your Password";
+            string body = $"<p>Email : {model.Email}</p></br><p>Password : {model.Password}</p>;";
+            model.Password = _authRepository.Encrypt(model.Password!);
+            // model.CreatedBy = "Super Admin";
+            bool isAdded = await _userRepository.AddUserAsync(model);
+            if (isAdded)
+            {
+                await _authRepository.SendEmailAsync(model.Email!, subject, body);
+                return RedirectToAction("User_ListView");
+            }
+            TempData["ToastrMessage"] = "Account Already Exists with this Email or UserName";
+            TempData["ToastrType"] = "error";
+            // return RedirectToAction("User_AddView");
         }
-        TempData["ToastrMessage"] = "Account Already Exists with this Email";
-        TempData["ToastrType"] = "error";
         return RedirectToAction("User_AddView");
+
 
     }
 
@@ -127,7 +132,7 @@ public class UserController : Controller
             }
             TempData["ToastrMessage"] = "Account Already Exists with this Username";
             TempData["ToastrType"] = "error";
-            return RedirectToAction("User_EditView",new{userID=model.UserId});
+            return RedirectToAction("User_EditView", new { userID = model.UserId });
         }
         return View("User_EditView");
     }
