@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wjuGkiylKWW2D8PkN4fcEIemmUJLCmjas9PujtP/rio=",
+  "Hash": "iO3iC4fL6vKD78IksZBPeNogIozPzDxGTDJa91Wt2G8=",
   "Source": "PizzaShop",
   "BasePath": "_content/PizzaShop",
   "Mode": "Default",
@@ -593,6 +593,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\transperent-pizza.png"
+    },
+    {
+      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\js\\permission.js",
+      "SourceId": "PizzaShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
+      "BasePath": "_content/PizzaShop",
+      "RelativePath": "js/permission.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\permission.js"
     },
     {
       "Identity": "D:\\Project\\PizzaShop\\wwwroot\\js\\site.js",
@@ -1632,6 +1649,23 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\0f83bf4b-a015-403e-b9b2-cfa924f17cc4_dining-menu.png"
     },
     {
+      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\13741b20-fc42-483b-9a23-28cb1879535d_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "SourceId": "PizzaShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
+      "BasePath": "_content/PizzaShop",
+      "RelativePath": "user/photos/13741b20-fc42-483b-9a23-28cb1879535d_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\user\\photos\\13741b20-fc42-483b-9a23-28cb1879535d_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
+    },
+    {
       "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\1e61e27c-9b56-41a2-9500-871e04d1ca3d_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
@@ -1664,6 +1698,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\user\\photos\\433d4aea-7a0d-4279-9d46-69a193868ad7_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250"
+    },
+    {
+      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\4b6abe1d-8f23-41b5-8238-e2ee08c72814_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "SourceId": "PizzaShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
+      "BasePath": "_content/PizzaShop",
+      "RelativePath": "user/photos/4b6abe1d-8f23-41b5-8238-e2ee08c72814_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\user\\photos\\4b6abe1d-8f23-41b5-8238-e2ee08c72814_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
     },
     {
       "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\52780531-ac51-462d-af50-c605476e7e8a_avatar.com_avatar_2c7d99fe281ecd3bcd65ab915bac6dd5_s=250",
@@ -1751,6 +1802,23 @@
       "OriginalItemSpec": "wwwroot\\user\\photos\\806b2066-b5ee-4e93-b8b9-29e0712ebc0a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
     },
     {
+      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\8ccd55da-b2db-46f4-8ef6-02122ac02c89_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "SourceId": "PizzaShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
+      "BasePath": "_content/PizzaShop",
+      "RelativePath": "user/photos/8ccd55da-b2db-46f4-8ef6-02122ac02c89_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\user\\photos\\8ccd55da-b2db-46f4-8ef6-02122ac02c89_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
+    },
+    {
       "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\9b2aeede-d015-4e1b-948c-0d453c518a8a_permission.txt",
       "SourceId": "PizzaShop",
       "SourceType": "Discovered",
@@ -1834,6 +1902,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\user\\photos\\b238473c-e3c7-481c-9680-bbcefbc0285a_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
+    },
+    {
+      "Identity": "D:\\Project\\PizzaShop\\wwwroot\\user\\photos\\fd0a99cb-33cd-492a-bbe0-85727ef32499_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "SourceId": "PizzaShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PizzaShop\\wwwroot\\",
+      "BasePath": "_content/PizzaShop",
+      "RelativePath": "user/photos/fd0a99cb-33cd-492a-bbe0-85727ef32499_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\user\\photos\\fd0a99cb-33cd-492a-bbe0-85727ef32499_vecteezy_cartoon-man-avatar-character-male-avatar-profile_48216750.png"
     }
   ]
 }

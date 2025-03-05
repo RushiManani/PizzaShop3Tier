@@ -60,6 +60,12 @@ public class AuthController : Controller
 
     public IActionResult User_ForgotPassword(string Email)
     {
+        if(Email==null)
+        {
+            TempData["ToastrMessage"] = "Please enter Email Address";
+            TempData["ToastrType"] = "error";
+            return RedirectToAction("User_Login");
+        }
         ViewData["Email"]=Email;
         return View();
     }
@@ -76,7 +82,21 @@ public class AuthController : Controller
                     "User_ResetPassword", "Auth"
                 );
                 string subject = "Reset Your Password";
-                string body = $"<a href='{callbackUrl}'>click  here</a> to reset password.;";
+                string body = $@"
+                <html>
+                    <body style='background-color: #F8F9FA'>
+                    <div style='background-color: #0067a9;display: flex;justify-content: center;align-items: center;height: 100;'>
+                        <img src='https://i.ibb.co/9mk5kMWL/pizzashop-logo.png' alt='img here' height='50'>
+                        <h1 style='color: white;margin-left: 20px;'>PIZZASHOP</h1>
+                    </div>
+                    <p>Pizza Shop,</p>
+                    <p>Please click <a href='{callbackUrl}' style='color: #0067a9;'>here</a> for reset your account Password.</p>
+                    <p>If you encounter any issues or have any question,please do not hesitate to contact our support team.</p>
+                    <p><span style='color: #FFC107'>Important Note:</span>For security reasons,the link wil expire in 24 hours.If you
+                        did not request a password reset, please ignore this email or contact our support team immediately.</p>
+                    </body>
+
+                </html>";
                 Task<bool> linkReset = _authRepository.SendEmailAsync(user.Email, subject, body);
                 TempData["ToastrMessage"] = "Email sent Successfully, Check your Mailbox";
                 TempData["ToastrType"] = "success";

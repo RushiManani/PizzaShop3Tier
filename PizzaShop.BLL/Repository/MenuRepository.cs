@@ -9,10 +9,12 @@ namespace PizzaShop.BLL.Repository;
 public class MenuRepository : IMenuRepository
 {
     private readonly PizzaShopDbContext _dbContext;
+    private readonly IUserRepository _userRepository;
 
-    public MenuRepository(PizzaShopDbContext dbContext)
+    public MenuRepository(PizzaShopDbContext dbContext,IUserRepository userRepository)
     {
         _dbContext = dbContext;
+        _userRepository = userRepository;
     }
 
     #region Category CRUD
@@ -96,15 +98,83 @@ public class MenuRepository : IMenuRepository
                          where menuitem.CategoryId == CategoryId
                          select new ItemListViewModel
                          {
+                             CategoryId = menuitem.CategoryId,
+                             ItemId = menuitem.ItemId,
+                             ItemName = menuitem.ItemName,
+                             ItemType = itemtype.ItemtypeName,
+                             Quantity = menuitem.Quantity,
+                             Rate = menuitem.Rate,
+                             isAvailable = (bool)menuitem.IsAvailable!
+                         }).ToList();
+
+        return menuItems;
+    }
+
+    public List<ItemListViewModel> SearchMenuItemsAsync(int id, string searchText = "")
+    {
+        var menuItem = (from menuitem in _dbContext.Menuitems
+                        join itemtype in _dbContext.Itemtypes
+                        on menuitem.ItemtypeId equals itemtype.ItemtypeId
+                        where menuitem.CategoryId == id && menuitem.ItemName.ToLower().Contains(searchText.ToLower())
+                        select new ItemListViewModel
+                        {
+                            CategoryId = menuitem.CategoryId,
                             ItemId = menuitem.ItemId,
                             ItemName = menuitem.ItemName,
                             ItemType = itemtype.ItemtypeName,
                             Quantity = menuitem.Quantity,
                             Rate = menuitem.Rate,
                             isAvailable = (bool)menuitem.IsAvailable!
-                         }).ToList();
+                        }).ToList();
 
-        return menuItems;
+        if (menuItem.Count == 0)
+        {
+            return new List<ItemListViewModel>();
+        }
+
+        return menuItem;
+    }
+
+    public async Task<bool> AddMenuItemsAsync(List<AddItemListViewModel> list)
+    {
+        if (list.Count() > 0)
+        {
+            Menuitem mt = new Menuitem();
+            mt.CategoryId = list[0].CategoryId;
+            mt.CreatedAt = DateTime.Now;
+            mt.CreatedBy = "Super Admin";
+            mt.Description = list[0].Description;
+            mt.IsAvailable = list[0].IsAvailable;
+            mt.ItemName = list[0].ItemName;
+            mt.ItemPhoto =  list[0].ItemPhoto;
+            mt.ItemtypeId = list[0].ItemtypeId;
+            mt.Quantity = list[0].Quantity;
+            mt.Rate = list[0].Rate;
+            mt.UnitId = list[0].UnitId;
+            _dbContext.Add(mt);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
+
+    #endregion
+
+    #region DropDowns
+
+    public List<Category> CategoryDropdDown()
+    {
+        return _dbContext.Categories.Where(c => c.Isdeleted == false).ToList();
+    }
+
+    public List<Unit> UnitDropdDown()
+    {
+        return _dbContext.Units.ToList();
+    }
+
+    public List<Itemtype> ItemTypeDropdDown()
+    {
+        return _dbContext.Itemtypes.ToList();
     }
 
     #endregion

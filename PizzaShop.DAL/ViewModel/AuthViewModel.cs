@@ -16,7 +16,7 @@ public class AuthViewModel
 public class ForgotPassword
 {
     [Required]
-    public string? Email { get; set; } = null;
+    public string? Email { get; set; }
 }
 
 public class ResetPassword

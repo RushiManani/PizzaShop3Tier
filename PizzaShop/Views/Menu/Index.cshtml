@@ -1,6 +1,6 @@
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    ViewBag.Data="Menu";
+    ViewBag.Data = "Menu";
 }
 
 @model PizzaShop.DAL.ViewModel.MenuViewModel
@@ -33,18 +33,7 @@
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="row mt-2 ps-4">
                 <div class="col bg-white">
-                    <div class="container-fluid p-0 menu-card">
-                        <div class="row">
-                            <div class="col ps-0 d-flex">
-
-                                <partial name="_CategoryPartial.cshtml" ,model="Model" />
-
-                                <!-- Menu Right -->
-
-                                <partial name="_MenuItemsPartial.cshtml" ,model="Model" />
-                            </div>
-                        </div>
-                    </div>
+                    <partial name="_CategoryPartial.cshtml" ,model="Model" />
                 </div>
             </div>
         </div>
@@ -54,7 +43,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 @section Scripts {
@@ -104,7 +92,6 @@
             });
         });
 
-
         // Edit Category
         document.addEventListener('DOMContentLoaded', function () {
             var editCategoryModal = document.getElementById('editCategory');
@@ -153,24 +140,6 @@
 
         });
 
-        $(document).ready(function () {
-            $(".categoryCls").click(function () {
-                var getId = $(this).data('id');
-                console.log(getId);
-                $.ajax({
-                    url: "@Url.Action("Index", "Menu")",
-                    type: "post",
-                    data: { id: getId },
-                    success: function (data) {
-                        $("#menu").html(data);
-                        console.log(data);
-                    },
-                    error: function (error) {
-                        console.log(error);
-                    }
-                });
-            });
-        });
 
     </script>
 }

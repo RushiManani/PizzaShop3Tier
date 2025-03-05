@@ -106,6 +106,7 @@ public class UserController : Controller
             TempData["ToastrType"] = "error";
             // return RedirectToAction("User_AddView");
         }
+        Thread.Sleep(5000);
         return RedirectToAction("User_AddView");
 
 

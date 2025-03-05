@@ -5,60 +5,56 @@
 
 <!-- Sidebar Menu -->
 
-<div class="sidebar-menu d-lg-block sidebar-menu-res">
-    <div class="container-fluid">
-        <div class="row pt-3 mx-auto">
-            <div class="col-12 d-flex justify-content-between align-self-center">
-                <div class="h5 me-4 gloabal-color">Category</div>
-                <div class="width-max"><button class="border sidebar-border-color"><i
-                            class="bi bi-plus h4 gloabal-color" data-bs-toggle="modal"
-                            data-bs-target="#addCategory"></i></button>
+
+<div class="container-fluid p-0 menu-card">
+    <div class="row">
+        <div class="col ps-0 d-flex">
+
+            <div class="sidebar-menu d-lg-block sidebar-menu-res">
+                <div class="container-fluid">
+                    <div class="row pt-3 mx-auto">
+                        <div class="col-12 d-flex justify-content-between align-self-center">
+                            <div class="h5 me-4 gloabal-color">Category</div>
+                            <div class="width-max"><button class="border sidebar-border-color"><i
+                                        class="bi bi-plus h4 gloabal-color" data-bs-toggle="modal"
+                                        data-bs-target="#addCategory"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sidebar-items">
+                        <div class="col">
+                            <ul class="list-unstyled menu-list mt-4 overflow-auto">
+                                @for (int i = 0; i < Model.allCategory.Count(); i++)
+                                {
+                                    var category = Model.allCategory.ElementAt(i);
+                                    <li class="list-item list-item-menu">
+                                        <a href="#" class="text-decoration-none categoryCls" id="categoryListName" alt=""
+                                            data-id="@category.CategoryId" onclick="LoadPartialView(@category.CategoryId)">
+                                            <i class="bi bi-grid-3x3-gap-fill gloabal-color"></i>
+                                            <span
+                                                class="sidebar-list-menu-title ms-3 fw-bold gloabal-color">@category.CategoryName</span>
+                                        </a>
+                                        <input type="hidden" value="@category.CategoryId" name="@category.CategoryId">
+                                        <input type="hidden" value="@category.Description" name="@category.Description">
+                                        <a href="" alt="" class="text-reset float-end me-3 icon-menu delete-category"
+                                            id="delete-category" data-bs-toggle="modal" data-bs-target="#deleteCategory"
+                                            data-id="@category.CategoryId"><i class="bi bi-trash"></i></a>
+                                        <a href="" alt="" class="text-reset float-end me-3 icon-menu edit-categorybtn" id="editcategory"
+                                            data-bs-toggle="modal" data-bs-target="#editCategory" data-id="@category.CategoryId"
+                                            data-name="@category.CategoryName" data-description="@category.Description"><i
+                                                class="bi bi-pen"></i></a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row sidebar-items">
-            <div class="col">
-                <ul class="list-unstyled menu-list mt-4 overflow-auto">
-                    @* @foreach (var i in Model.allCategory)
-                    {
-                    <li class="list-item list-item-menu">
-                    <a href="#" class="text-decoration-none categoryCls" id="categoryListName" alt=""
-                    data-id="@i.CategoryId">
-                    <i class="bi bi-grid-3x3-gap-fill gloabal-color"></i>
-                    <span class="sidebar-list-menu-title ms-3 fw-bold gloabal-color">@i.CategoryName</span>
-                    </a>
-                    <input type="hidden" value="@i.CategoryId" name="@i.CategoryId">
-                    <input type="hidden" value="@i.Description" name="@i.Description">
-                    <a href="" alt="" class="text-reset float-end me-3 icon-menu delete-category"
-                    id="delete-category" data-bs-toggle="modal" data-bs-target="#deleteCategory"
-                    data-id="@i.CategoryId"><i class="bi bi-trash"></i></a>
-                    <a href="" alt="" class="text-reset float-end me-3 icon-menu edit-categorybtn" id="editcategory"
-                    data-bs-toggle="modal" data-bs-target="#editCategory" data-id="@i.CategoryId"
-                    data-name="@i.CategoryName" data-description="@i.Description"><i class="bi bi-pen"></i></a>
-                    </li>
-                    } *@
-                    @for (int i = 0; i < Model.allCategory.Count(); i++)
-                    {
-                        var category = Model.allCategory.ElementAt(i);
-                        <li class="list-item list-item-menu">
-                            <a href="#" class="text-decoration-none categoryCls" id="categoryListName" alt=""
-                                data-id="@category.CategoryId">
-                                <i class="bi bi-grid-3x3-gap-fill gloabal-color"></i>
-                                <span
-                                    class="sidebar-list-menu-title ms-3 fw-bold gloabal-color">@category.CategoryName</span>
-                            </a>
-                            <input type="hidden" value="@category.CategoryId" name="@category.CategoryId">
-                            <input type="hidden" value="@category.Description" name="@category.Description">
-                            <a href="" alt="" class="text-reset float-end me-3 icon-menu delete-category"
-                                id="delete-category" data-bs-toggle="modal" data-bs-target="#deleteCategory"
-                                data-id="@category.CategoryId"><i class="bi bi-trash"></i></a>
-                            <a href="" alt="" class="text-reset float-end me-3 icon-menu edit-categorybtn" id="editcategory"
-                                data-bs-toggle="modal" data-bs-target="#editCategory" data-id="@category.CategoryId"
-                                data-name="@category.CategoryName" data-description="@category.Description"><i
-                                    class="bi bi-pen"></i></a>
-                        </li>
-                    }
-                </ul>
+
+            @* <!-----------------  Menu Item List --------------------------> *@
+
+            <div class="menu-item-body gloabl-border-color" id="itemPartialViewContainer">
+                <partial name="_MenuItemsPartial.cshtml" ,model="Model" />
             </div>
         </div>
     </div>
@@ -185,6 +181,25 @@
     </div>
 </div>
 
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script>
-    
+    function LoadPartialView(id) {
+        $.ajax({
+            url: '@Url.Action("MenuItemList", "Menu")',
+            type: 'GET',
+            data: { id: id },
+            success: function (result) {
+                console.log("Get successfull data....");
+                console.log(result);
+                 $('#itemPartialViewContainer').html(result);
+            },
+            error: function (error) {
+                console.error('Error loading partial view:', error);
+            }
+        })
+    }
 </script>

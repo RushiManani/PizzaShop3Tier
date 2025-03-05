@@ -16,12 +16,14 @@ public class MenuController : Controller
 
     #region Category Crud
 
-    public ActionResult Index(int id)
+    public IActionResult Index()
     {
         MenuViewModel mv = new MenuViewModel();
-        mv.allCategory = GetCategory();
-        id = id == 0 ? mv.allCategory[0].CategoryId : id;
-        mv.allItems = MenuItemList(id);
+        mv.allCategory = _menuRepository.GetCategoryAsync();
+        mv.allItems = _menuRepository.GetMenuItemsAsync(mv.allCategory[0].CategoryId);
+        mv.categoryDropDown = _menuRepository.CategoryDropdDown();
+        mv.unitDropDown = _menuRepository.UnitDropdDown();
+        mv.itemtypeDropDown = _menuRepository.ItemTypeDropdDown();
         return View(mv);
     }
 
@@ -80,10 +82,52 @@ public class MenuController : Controller
 
     #region  MenuItem Crud
 
-    public List<ItemListViewModel> MenuItemList(int id)
+    [HttpGet]
+    public IActionResult MenuItemList(int id)
     {
-        List<ItemListViewModel> list = _menuRepository.GetMenuItemsAsync(id);
-        return list;
+        Console.WriteLine("Hello Get the id");
+        MenuViewModel mv = new MenuViewModel();
+        mv.allItems = _menuRepository.GetMenuItemsAsync(id);
+        mv.categoryDropDown = _menuRepository.CategoryDropdDown();
+        mv.unitDropDown = _menuRepository.UnitDropdDown();
+        mv.itemtypeDropDown = _menuRepository.ItemTypeDropdDown();
+        return PartialView("~/Views/Menu/_MenuItemsPartial.cshtml", mv);
+    }
+
+    public IActionResult MenuItemSearch(int id, string searchText)
+    {
+        MenuViewModel mv = new MenuViewModel();
+        mv.allItems = _menuRepository.SearchMenuItemsAsync(id, searchText) ?? new List<ItemListViewModel>();
+        return PartialView("~/Views/Menu/_MenuItemsPartial.cshtml", mv);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddMenuItem(int CategoryId, string ItemName, int ItemTypeId, decimal Rate, int Quantity, int UnitId, int TaxPercentage, string ShortCode, string Description, string ItemPhoto, bool IsAvailable, bool IsDefaultTax)
+    {
+        List<AddItemListViewModel> list = new List<AddItemListViewModel>();
+        AddItemListViewModel il = new AddItemListViewModel();
+        il.CategoryId = CategoryId;
+        il.ItemName = ItemName;
+        il.Rate = Rate;
+        il.Quantity = Quantity;
+        il.UnitId = UnitId;
+        il.TaxPercentage = TaxPercentage;
+        il.ShortCode = ShortCode;
+        il.Description = Description;
+        il.ItemPhoto = ItemPhoto;
+        il.IsAvailable = IsAvailable;
+        il.ISDefaultTax = IsDefaultTax;
+        il.ItemtypeId = ItemTypeId;
+        list.Add(il);
+        bool isAdded = await _menuRepository.AddMenuItemsAsync(list);
+        // if(isAdded)
+        // {
+        //     TempData["ToastrMessage"] = "Item Added Successfully";
+        //     TempData["ToastrType"] = "success";
+        //     return RedirectToAction("MenuItemList",il.CategoryId);
+        // }
+        // return RedirectToAction("MenuItemList",il.CategoryId);
+        return View("Index");
     }
 
     #endregion

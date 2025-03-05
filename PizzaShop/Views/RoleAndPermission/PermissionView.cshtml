@@ -101,7 +101,8 @@
                                                 <button class="btn text-white gloabal-bg-color" id="saveButton"
                                                     type="submit">
                                                     Save</button>
-                                                <a type="button" asp-action="RoleView" asp-controller="RoleAndPermission" class="btn gloabal-color"
+                                                <a type="button" asp-action="RoleView"
+                                                    asp-controller="RoleAndPermission" class="btn gloabal-color"
                                                     style="background-color: white; border-color: #0565A0;">Cancel</a>
                                             </td>
                                         </tr>
@@ -116,48 +117,4 @@
     </div>
 </div>
 
-@section Scripts {
-    <script>
-        document.querySelector('.main-check').addEventListener('change', function () {
-            const innercheck = document.querySelectorAll('.inner-check');
-            innercheck.forEach(function (check) {
-                const row = check.closest('tr');
-                const switches = row.querySelectorAll('.form-check-input');
-                check.checked = event.target.checked;
-                if (!check.checked) {
-                    switches.forEach(function (input) {
-                        if (!input.classList.contains('inner-check')) {
-                            input.disabled = true;
-                        }
-                    });
-                } else {
-                    switches.forEach(function (input) {
-                        if (!input.classList.contains('inner-check')) {
-                            input.disabled = false;
-                        }
-                    });
-                }
-            });
-        });
-
-        document.querySelectorAll('.inner-check').forEach(function (check) {
-            check.addEventListener('change', function () {
-                const row = check.closest('tr');
-                const switches = row.querySelectorAll('.form-check-input');
-                if (!check.checked) {
-                    switches.forEach(function (input) {
-                        if (!input.classList.contains('inner-check')) {
-                            input.disabled = true;
-                        }
-                    });
-                } else {
-                    switches.forEach(function (input) {
-                        if (!input.classList.contains('inner-check')) {
-                            input.disabled = false;
-                        }
-                    });
-                }
-            });
-        });
-    </script>
-}
+<script src="~/js/permission.js"></script>
