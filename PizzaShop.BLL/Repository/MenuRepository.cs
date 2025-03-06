@@ -11,7 +11,7 @@ public class MenuRepository : IMenuRepository
     private readonly PizzaShopDbContext _dbContext;
     private readonly IUserRepository _userRepository;
 
-    public MenuRepository(PizzaShopDbContext dbContext,IUserRepository userRepository)
+    public MenuRepository(PizzaShopDbContext dbContext, IUserRepository userRepository)
     {
         _dbContext = dbContext;
         _userRepository = userRepository;
@@ -37,14 +37,23 @@ public class MenuRepository : IMenuRepository
     {
         try
         {
-            Category c = new Category();
-            c.CategoryName = categoryName;
-            c.Description = categoryDescription;
-            c.CreatedAt = DateTime.Now;
-            c.CreatedBy = "Super Admin";
-            _dbContext.Add(c);
-            await _dbContext.SaveChangesAsync();
-            return true;
+            var category = _dbContext.Categories.Where(c => c.CategoryName.ToLower() == categoryName.ToLower()).ToList();
+            if (category.Count == 0)
+            {
+                Category c = new Category();
+                c.CategoryName = categoryName;
+                c.Description = categoryDescription;
+                c.CreatedAt = DateTime.Now;
+                c.CreatedBy = "Super Admin";
+                _dbContext.Add(c);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }else{
+                category[0].Isdeleted = false;
+                _dbContext.Update(category[0]);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
         }
         catch (Exception ex)
         {
@@ -89,13 +98,13 @@ public class MenuRepository : IMenuRepository
     #endregion
 
     #region Menu Item CRUD
-
+ 
     public List<ItemListViewModel> GetMenuItemsAsync(int CategoryId)
     {
         var menuItems = (from menuitem in _dbContext.Menuitems
                          join itemtype in _dbContext.Itemtypes
                          on menuitem.ItemtypeId equals itemtype.ItemtypeId
-                         where menuitem.CategoryId == CategoryId
+                         where menuitem.CategoryId == CategoryId && menuitem.IsDeleted == false
                          select new ItemListViewModel
                          {
                              CategoryId = menuitem.CategoryId,
@@ -104,7 +113,8 @@ public class MenuRepository : IMenuRepository
                              ItemType = itemtype.ItemtypeName,
                              Quantity = menuitem.Quantity,
                              Rate = menuitem.Rate,
-                             isAvailable = (bool)menuitem.IsAvailable!
+                             isAvailable = (bool)menuitem.IsAvailable!,
+                             ItemPhoto = menuitem.ItemPhoto!
                          }).ToList();
 
         return menuItems;
@@ -135,6 +145,27 @@ public class MenuRepository : IMenuRepository
         return menuItem;
     }
 
+    public List<AddItemListViewModel> GetMenuItemsByIdAsync(int id)
+    {
+        var items = (from menuitem in _dbContext.Menuitems
+                     join itemtype in _dbContext.Itemtypes
+                     on menuitem.ItemtypeId equals itemtype.ItemtypeId
+                     where menuitem.ItemId == id
+                     select new AddItemListViewModel
+                     {
+                         CategoryId = menuitem.CategoryId,
+                         Description = menuitem.Description!,
+                         ItemName = menuitem.ItemName,
+                         IsAvailable = (bool)menuitem.IsAvailable!,
+                         Quantity = menuitem.Quantity,
+                         Rate = menuitem.Rate,
+                         UnitId = menuitem.UnitId,
+                         ItemId = menuitem.ItemId,
+                         ItemtypeId = menuitem.ItemtypeId
+                     }).ToList();
+        return items;
+    }
+
     public async Task<bool> AddMenuItemsAsync(List<AddItemListViewModel> list)
     {
         if (list.Count() > 0)
@@ -146,7 +177,7 @@ public class MenuRepository : IMenuRepository
             mt.Description = list[0].Description;
             mt.IsAvailable = list[0].IsAvailable;
             mt.ItemName = list[0].ItemName;
-            mt.ItemPhoto =  list[0].ItemPhoto;
+            mt.ItemPhoto = await _userRepository.UploadPhotoAsync(list[0].ItemPhoto);
             mt.ItemtypeId = list[0].ItemtypeId;
             mt.Quantity = list[0].Quantity;
             mt.Rate = list[0].Rate;
@@ -156,6 +187,36 @@ public class MenuRepository : IMenuRepository
             return true;
         }
         return false;
+    }
+
+    public async Task DeleteMenuItemAsync(int itemId)
+    {
+        var item = _dbContext.Menuitems.FirstOrDefault(i => i.ItemId == itemId);
+        if (item != null)
+        {
+            item.IsDeleted = true;
+            _dbContext.Update(item);
+            await _dbContext.SaveChangesAsync();
+        }
+    }
+
+    public async Task<bool> UpdateMenuItemAsync(List<AddItemListViewModel> list)
+    {
+        var menuitem = _dbContext.Menuitems.FirstOrDefault(i => i.ItemId == list[0].ItemId);
+        menuitem!.CategoryId = list[0].CategoryId;
+        menuitem.Description = list[0].Description;
+        menuitem.IsAvailable = list[0].IsAvailable;
+        menuitem.ItemName = list[0].ItemName;
+        menuitem.ItemPhoto = await _userRepository.UploadPhotoAsync(list[0].ItemPhoto);
+        menuitem.ItemtypeId = list[0].ItemtypeId;
+        menuitem.Quantity = list[0].Quantity;
+        menuitem.Rate = list[0].Rate;
+        menuitem.UnitId = list[0].UnitId;
+        menuitem.UpdatedAt = DateTime.Now;
+
+        _dbContext.Update(menuitem);
+        await _dbContext.SaveChangesAsync();
+        return true;
     }
 
     #endregion

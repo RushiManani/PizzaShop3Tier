@@ -41,6 +41,24 @@ public class UserRepository : IUserRepository
         return users;
     }
 
+    public List<UserViewModel> GetUserByNameAsync(string searchString)
+    {
+        List<UserViewModel> users = (from user in _dbContext.Users
+                                     join role in _dbContext.Roles on user.RoleId equals role.RoleId
+                                     where user.Isdeleted == false && user.UserName.ToLower().Contains(searchString.ToLower())
+                                     select new UserViewModel
+                                     {
+                                         Email = user.Email,
+                                         Isactive = user.Isactive,
+                                         MobileNumber = user.MobileNumber,
+                                         RoleName = role.RoleName,
+                                         UserName = user.UserName,
+                                         UserId = user.UserId,
+                                         ProfilePicture = user.ProfilePicture
+                                     }).ToList();
+        return users;
+    }
+
     public async Task DeleteUserAsync(int userId)
     {
         var user = _dbContext.Users.FirstOrDefault(u => u.UserId == userId);
@@ -138,23 +156,23 @@ public class UserRepository : IUserRepository
         // }
         // else
         // {
-            var users = _dbContext.Users.FirstOrDefault(u => u.UserId == model.UserId);
-            users!.FirstName = model.FirstName!;
-            users.LastName = model.LastName;
-            users.UserName = model.UserName!;
-            users.RoleId = model.RoleId;
-            users.Email = model.Email!;
-            users.Isactive = model.Isactive;
-            users.MobileNumber = model.Phone;
-            users.Address = model.Address;
-            users.Zipcode = model.Zipcode;
-            users.CountryId = model.CountryId;
-            users.StateId = model.StateId;
-            users.CityId = model.CityId;
-            users.ProfilePicture = await UploadPhotoAsync(model.ProfilePicture!);
-            _dbContext.Update(users);
-            await _dbContext.SaveChangesAsync();
-            return true;
+        var users = _dbContext.Users.FirstOrDefault(u => u.UserId == model.UserId);
+        users!.FirstName = model.FirstName!;
+        users.LastName = model.LastName;
+        users.UserName = model.UserName!;
+        users.RoleId = model.RoleId;
+        users.Email = model.Email!;
+        users.Isactive = model.Isactive;
+        users.MobileNumber = model.Phone;
+        users.Address = model.Address;
+        users.Zipcode = model.Zipcode;
+        users.CountryId = model.CountryId;
+        users.StateId = model.StateId;
+        users.CityId = model.CityId;
+        users.ProfilePicture = await UploadPhotoAsync(model.ProfilePicture!);
+        _dbContext.Update(users);
+        await _dbContext.SaveChangesAsync();
+        return true;
         // }
     }
 

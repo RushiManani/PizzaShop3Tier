@@ -15,12 +15,6 @@ public class UserViewModel
     public string? ProfilePicture{get;set;}
 }
 
-// public class Role
-// {
-//     public int RoleId{get;set;}
-//     public string? RoleName{get;set;}
-// }
-
 public class NewUserModel
 {
     public int? UserId{get;set;}
@@ -36,12 +30,12 @@ public class NewUserModel
     [Required]
     public string? Email{get;set;}
     public IFormFile? ProfilePicture{get;set;}=null;
-    // [FileExtensions(Extensions ="jpg,jpeg,png")]
-    // public string FileName=>ProfilePicture.FileName;
     public int CountryId{get;set;}
     public int StateId{get;set;}
     public int CityId{get;set;}
     public string? Zipcode{get;set;}=null;
+    [Required]
+    [MinLength(6, ErrorMessage = "Length should be 6"),MaxLength(6, ErrorMessage = "Length should be 6")]
     public string? Phone{get;set;}=null;
     public string? Address{get;set;}=null;
     public bool? Isactive{get;set;}

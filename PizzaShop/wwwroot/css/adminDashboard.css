@@ -239,10 +239,11 @@
     width: inherit;
 }
 
-/* .dining-menu-img{
-    height: 40px !important;
-    width: 30px !important;
-} */
+.dining-menu-img{
+    height: 5vh;
+    float: right;
+    padding-bottom: 5px;
+}
 
 
 /* Media Query */

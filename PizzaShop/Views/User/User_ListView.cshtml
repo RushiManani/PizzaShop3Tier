@@ -20,7 +20,7 @@
             <form asp-action="User_ListView" asp-controller="User" method="get">
                 <div class="input-group h-75" style="width: 300px;">
                     <input type="search" class="form-control border-end-0" value="@ViewData["CurrentFilter"]" name="searchString" placeholder="Search User"
-                        aria-controls="sample_1" id="sample_1">
+                        aria-controls="sample_1" id="searchInput">
                     <button type="submit" class="input-group-text bg-white border-start-0">
                         <i class="bi bi-search"></i>
                     </button>
@@ -163,7 +163,6 @@
                                                     <i class="bi bi-chevron-left"></i>
                                                 </button>
                                             </div>
-
                                             <div>
                                                 <button class="btn border ms-2"
                                                     onclick="navigatePage(@(currentPage + 1), @(pageSize))"
@@ -210,10 +209,12 @@
 <script>
     function changePageSize() {
         var selectedPageSize = document.getElementById("pageSize").value;
+        var searchText = document.getElementById("searchInput").value;
         window.location.href = "?page=1&pageSize=" + selectedPageSize;
     }
 
     function navigatePage(page, pageSize) {
+        var searchText = document.getElementById("searchInput").value;
         window.location.href = `?page=${page}&pageSize=${pageSize}`;
     }
 

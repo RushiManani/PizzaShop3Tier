@@ -24,7 +24,7 @@ public class UserController : Controller
         ViewData["NameSortParm"] = String.IsNullOrEmpty(sortorder) ? "name_desc" : "";
         ViewData["RoleSortParm"] = sortorder == "role" ? "role_desc" : "role";
         ViewData["CurrentSort"] = sortorder;
-        ViewData["CurrentFilter"] = searchString;
+        ViewData["CurrentFilter"] = currentFilter;
 
         List<UserViewModel> users = _userRepository.GetUserAsync(page, pageSize);
         int totalItems = users.Count();
@@ -41,7 +41,11 @@ public class UserController : Controller
 
         if (!String.IsNullOrEmpty(searchString))
         {
-            users = users.Where(s => s.UserName!.Contains(searchString)).ToList();
+            users = _userRepository.GetUserByNameAsync(searchString).ToList();
+            users = users.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+        }
+        else
+        {
             users = users.Skip((page - 1) * pageSize).Take(pageSize).ToList();
         }
 
