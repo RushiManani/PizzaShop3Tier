@@ -28,10 +28,10 @@ public interface IMenuRepository
 
     List<ItemListViewModel> GetMenuItemsAsync(int CategoryId);
     List<ItemListViewModel> SearchMenuItemsAsync(int id,string searchText);
-    Task<bool> AddMenuItemsAsync(List<AddItemListViewModel> list);
+    Task<bool> AddMenuItemsAsync(AddItemListViewModel model);
     Task DeleteMenuItemAsync(int itemId);
     Task<bool> UpdateMenuItemAsync(List<AddItemListViewModel> list);
-    List<AddItemListViewModel> GetMenuItemsByIdAsync(int id);
+    Task<EditItemListViewModel> GetMenuItemsByIdAsync(int id);
 
     #endregion
 }

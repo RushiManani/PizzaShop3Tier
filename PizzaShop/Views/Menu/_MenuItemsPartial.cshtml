@@ -1,4 +1,4 @@
-@* @using PizzaShop.DAL.ViewModel; *@
+
 @model PizzaShop.DAL.ViewModel.MenuViewModel
 @{
     ViewBag.Active = "Menu";
@@ -112,7 +112,7 @@
                                 </td>
                                 <td>
                                     <div class="d-flex flex-center">
-                                        <button type="button" class="btn pe-2 edit-item" alt="" onclick="fetchItemData(@menu.ItemId)" data-bs-toggle="modal" data-bs-target="#editItemModal">
+                                        <button type="button" class="btn pe-2 edit-item" alt="" onclick="fetchItemData(@menu.ItemId)">
                                             <i class="bi bi-pen h6"></i>
                                         </button>
                                         <button type="button" class="btn ps-2 delete-item" alt="" data-bs-toggle="modal"
@@ -176,113 +176,119 @@
         </div>
         <div class="container">
             <div class="row">
+
+                @* MenuItem *@
                 <div class="col-8">
-                    <div class="row mb-3">
-                        <div class="col-6">
-                            <div class="form-floating">
-                                @* <label for="floatingInput" class="p-2 text-secondary">Item type*</label> *@
-                                <select class="form-select" aria-label="Default select example" id="categorydd" style="height:46px;">
-                                    <option value="" selected>Select Category</option>
-                                    @foreach (var category in Model.categoryDropDown!)
+                    <form id="addItemForm" class="addItemForm" enctype="multipart/form-data">
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    @* <label for="floatingInput" class="p-2 text-secondary">Item type*</label> *@
+                                    <select class="form-select" aria-label="Default select example" id="categorydd" name="CategoryId" style="height:46px;">
+                                        <option value="" selected>Select Category</option>
+                                        @foreach (var category in Model.categoryDropDown!)
+                                        {
+                                            <option value="@category.CategoryId">@category.CategoryName</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control ps-2 item-name" style="height: 38px;" name="ItemName" placeholder="" id="itemName">
+                                    <label for="floatingInput" class="p-2 text-secondary">Name*</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <select class="form-select" aria-label="Default select example" id="itemtypedd" style="height:46px;" name="ItemtypeId">
+                                    <option value="" selected>Select a type</option>
+                                    @foreach (var itemType in Model.itemtypeDropDown!)
                                     {
-                                        <option value="@category.CategoryId">@category.CategoryName</option>
+                                        <option value="@itemType.ItemtypeId">@itemType.ItemtypeName</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-floating mb-3">
+                                    <input type="number" step="1" min="0" class="form-control ps-2" name="Rate" style="height: 38px;" placeholder="" value="0" id="rate">
+                                    <label for="floatingInput" class="p-2 text-secondary">Rate*</label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-floating mb-3">
+                                    <input type="number" step="1" min="0" class="form-control ps-2" style="height: 38px;" name="Quantity" placeholder="" value="0" id="quantity">
+                                    <label for="floatingInput" class="p-2 text-secondary">Quantity*</label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <select class="form-select" aria-label="Default select example" id="unitdd" name="UnitId" style="height:46px;">
+                                    <option value="">Select a unit</option>
+                                    @foreach (var unit in Model.unitDropDown!)
+                                    {
+                                        <option value="@unit.UnitId">@unit.UnitName</option>
                                     }
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2 item-name" style="height: 38px;" placeholder="" id="itemName">
-                                <label for="floatingInput" class="p-2 text-secondary">Name*</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <select class="form-select" aria-label="Default select example" id="itemtypedd" style="height:46px;">
-                                <option value="" selected>Select a type</option>
-                                @foreach (var itemType in Model.itemtypeDropDown!)
-                                {
-                                    <option value="@itemType.ItemtypeId">@itemType.ItemtypeName</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2" style="height: 38px;" placeholder="" value="0" id="rate">
-                                <label for="floatingInput" class="p-2 text-secondary">Rate*</label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2" style="height: 38px;" placeholder="" value="0" id="quantity">
-                                <label for="floatingInput" class="p-2 text-secondary">Quantity*</label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <select class="form-select" aria-label="Default select example" id="unitdd" style="height:46px;">
-                                <option value="">Select a unit</option>
-                                @foreach (var unit in Model.unitDropDown!)
-                                {
-                                    <option value="@unit.UnitId">@unit.UnitName</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="form-check form-switch text-center">
-                                <div class="">
-                                    <input type="checkbox" class="form-check-input switch can-view" style="height: 28px; width: 56px;" id="isavailable"/>
-                                    <input type="hidden" value="false" />
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-check form-switch text-center">
+                                    <div class="">
+                                        <input type="checkbox" class="form-check-input switch can-view" name="IsAvailable" style="height: 28px; width: 56px;" id="isavailable"/>
+                                        <input type="hidden" value="false" />
+                                    </div>
+                                    <div class="" style="margin-left: 30px !important;">
+                                        <span class="" style="margin-top: 10px;">Available</span>
+                                    </div>
                                 </div>
-                                <div class="" style="margin-left: 30px !important;">
-                                    <span class="" style="margin-top: 10px;">Available</span>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-check form-switch">
+                                    <div class="">
+                                        <input type="checkbox" class="form-check-input switch can-view" name="ISDefaultTax" style="height: 28px; width: 56px;" id="defaulttax"/>
+                                        <input type="hidden" value="false" />
+                                    </div>
+                                    <div class="" style="margin-left: 30px !important;">
+                                        <span class="" style="margin-top: 10px;">Default tax</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="number" step="0.1" min="0" class="form-control ps-2" name="TaxPercentage" style="height: 38px;" value="0" placeholder="" id="taxpercentage">
+                                    <label for="floatingInput" class="p-2 text-secondary">Tax Percentage</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control ps-2" style="height: 38px;" name="ShortCode" placeholder="" id="shortcode">
+                                    <label for="floatingInput" class="p-2 text-secondary">Short Code</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <div class="form-check form-switch">
-                                <div class="">
-                                    <input type="checkbox" class="form-check-input switch can-view" style="height: 28px; width: 56px;" id="defaulttax"/>
-                                    <input type="hidden" value="false" />
-                                </div>
-                                <div class="" style="margin-left: 30px !important;">
-                                    <span class="" style="margin-top: 10px;">Default tax</span>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a comment here" name="Description" id="description" style="height: 100px !important;"></textarea>
+                                    <label for="floatingTextarea">Description</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2" style="height: 38px;" placeholder="" id="taxpercentage">
-                                <label for="floatingInput" class="p-2 text-secondary">Tax Percentage</label>
+                        <div class="row mt-2">
+                            <div class="col">
+                                Upload Photo
+                                <label for="fileUpload" class="btn w-100 p-4 fileUp" id="profilePicture"
+                                    style=" border: 1px solid #ced4da; border-style: dashed; ">
+                                    <i class="bi bi-cloud-arrow-up h3"></i><br>Browse File
+                                    <input type="file" name="ItemPhoto" id="fileUpload" class="form-control d-none"  >
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control ps-2" style="height: 38px;" placeholder="" id="shortcode">
-                                <label for="floatingInput" class="p-2 text-secondary">Short Code</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="description" style="height: 100px !important;"></textarea>
-                                <label for="floatingTextarea">Description</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col">
-                            Upload Photo
-                            <label for="fileUpload" class="btn w-100 p-4 fileUp" id="profilePicture"
-                                style=" border: 1px solid #ced4da; border-style: dashed; ">
-                                <i class="bi bi-cloud-arrow-up h3"></i><br>Browse File
-                                <input type="file" id="fileUpload" class="form-control d-none"  >
-                        </div>
-                    </div> 
+                        </div> 
+                    </form>
                 </div>
+
+                @* Modifier *@
                 <div class="col-4" style="height: 442px; background-color: rgb(255, 245, 186);">
 
                 </div>
@@ -300,11 +306,17 @@
   </div>
 </div>
 
-<div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <partial name="~/Views/Menu/_EditModalPartial.cshtml" />
+@* Edit Modal Partial View *@
+
+<div>
+
+</div id="editModal">
+    <div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <partial name="~/Views/Menu/_EditModalPartial.cshtml", model="Model"/>
+                </div>
             </div>
         </div>
     </div>
@@ -331,14 +343,9 @@
     </div>
 </div>
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-
-
 <script>
 
+    // Search Menu Items
     $(document).ready(function() {
         var searchData = $('#searchItems');
         var id = @Model.allItems.Count() != 0 ? '@Model.allItems[0].CategoryId' : 0;
@@ -373,36 +380,22 @@
         });
     });
 
+    //Change the color of File Div after upload file in Add MenuItem
+    document.getElementById("fileUpload").addEventListener('change', function () {
+        console.log("called");
+        var container = document.getElementById('profilePicture');
+        if (this.files && this.files.length > 0) {
+            container.style.border = "2px solid #18c04a"
+        }
+    });
+
+    //Add Menu Items
     var filePhoto;
-
     $(document).ready(function() {
-        $("#fileUpload").on('change', function() {
-            var fileInput = document.getElementById('fileUpload');
-            filePhoto = fileInput.files[0];
-            console.log("Selected file: ", filePhoto);
-        });
-
-        $("#addItemBtn").on('click', function() {
-            var isAvailable = $("#isavailable").val() == "on" ? true : false;
-            var isDefaultTax = $("#defaulttax").val() == "on" ? true : false;
-
-            var formData = new FormData();
-            formData.append('CategoryId', $("#categorydd").val());
-            formData.append('ItemName', $("#itemName").val());
-            formData.append('ItemTypeId', $("#itemtypedd").val());
-            formData.append('Rate', $("#rate").val());
-            formData.append('Quantity', $("#quantity").val());
-            formData.append('UnitId', $("#unitdd").val());
-            formData.append('IsAvailable', isAvailable);
-            formData.append('IsDefaultTax', isDefaultTax);
-            formData.append('TaxPercentage', $("#taxpercentage").val());
-            formData.append('ShortCode', $("#shortcode").val());
-            formData.append('Description', $("#description").val());
-
-            if (filePhoto) {
-                formData.append('ItemPhoto', filePhoto);
-            }
-
+        $("#addItemBtn").on('click', function(e) {
+            event.preventDefault();
+            var formElement = document.querySelector(".addItemForm");
+            var formData = new FormData(formElement);
             $.ajax({
                 url: '@Url.Action("AddMenuItem", "Menu")',
                 type: 'POST',
@@ -441,32 +434,23 @@
         });
     });
 
+    // Get MenuItem in Edit Modal
     function fetchItemData(itemId) {
+        console.log(itemId);
         $.ajax({
             url: '/Menu/GetMenuItemByID',
             type: 'Get',
             data: { id: itemId },
             success: function (result) {
-                
                 console.log(result);
-                $('#editItemModal').html(result);
-                @* $('#editItemModal').modal('show'); *@
-                
-                @* @Model.addItemList[0].ItemName = result[0].itemName;
-                console.log(@Model.addItemList[0].ItemName); *@
-
-                @* var itemname = document.getElementById("itemName2"); *@
-                @* @Model.addItemList[0].ItemName=result[0].itemName; *@
-                @* 
-                $("#editItemModal").modal('show');
-                console.log(document.getElementById('itemName2')); *@
+                $('#editItemModal .modal-body').html(result);
+                $('#editItemModal').modal('show');
             },
             error: function (error) {
                 alert('Error deleting user');
             }
         });
     }
-
 
 </script>
 

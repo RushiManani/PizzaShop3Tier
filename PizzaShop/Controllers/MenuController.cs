@@ -102,15 +102,22 @@ public class MenuController : Controller
     }
 
     [HttpGet]
-    public IActionResult GetMenuItemByID([FromQuery] int id)
+    public async Task<IActionResult> GetMenuItemByID([FromQuery] int id)
     {
+        // MenuViewModel mv = new MenuViewModel();
+        // // mv.allItems = _menuRepository.GetMenuItemsAsync(id);
+        // mv.categoryDropDown = _menuRepository.CategoryDropdDown();
+        // mv.unitDropDown = _menuRepository.UnitDropdDown();
+        // mv.itemtypeDropDown = _menuRepository.ItemTypeDropdDown();
+        // mv.addItemList = _menuRepository.GetMenuItemsByIdAsync(id);
+
         MenuViewModel mv = new MenuViewModel();
-        // mv.allItems = _menuRepository.GetMenuItemsAsync(id);
+        mv.EditViewModel = await _menuRepository.GetMenuItemsByIdAsync(id);
         mv.categoryDropDown = _menuRepository.CategoryDropdDown();
         mv.unitDropDown = _menuRepository.UnitDropdDown();
         mv.itemtypeDropDown = _menuRepository.ItemTypeDropdDown();
-        mv.addItemList = _menuRepository.GetMenuItemsByIdAsync(id);
-        if(mv.addItemList==null)
+
+        if(mv.EditViewModel==null)
         {
             return NotFound();
         }
@@ -118,24 +125,9 @@ public class MenuController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddMenuItem(int CategoryId, string ItemName, int ItemTypeId, decimal Rate, int Quantity, int UnitId, int TaxPercentage, string ShortCode, string Description, IFormFile ItemPhoto, bool IsAvailable, bool IsDefaultTax)
+    public async Task<IActionResult> AddMenuItem(AddItemListViewModel model)
     {
-        List<AddItemListViewModel> list = new List<AddItemListViewModel>();
-        AddItemListViewModel il = new AddItemListViewModel();
-        il.CategoryId = CategoryId;
-        il.ItemName = ItemName;
-        il.Rate = Rate;
-        il.Quantity = Quantity;
-        il.UnitId = UnitId;
-        il.TaxPercentage = TaxPercentage;
-        il.ShortCode = ShortCode;
-        il.Description = Description;
-        il.ItemPhoto = ItemPhoto;
-        il.IsAvailable = IsAvailable;
-        il.ISDefaultTax = IsDefaultTax;
-        il.ItemtypeId = ItemTypeId;
-        list.Add(il);
-        bool isAdded = await _menuRepository.AddMenuItemsAsync(list);
+        bool isAdded = await _menuRepository.AddMenuItemsAsync(model);
         if(isAdded)
         {
             TempData["ToastrMessage"] = "Item Added Successfully";

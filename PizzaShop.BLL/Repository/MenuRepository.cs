@@ -145,43 +145,43 @@ public class MenuRepository : IMenuRepository
         return menuItem;
     }
 
-    public List<AddItemListViewModel> GetMenuItemsByIdAsync(int id)
+    public async Task<EditItemListViewModel> GetMenuItemsByIdAsync(int id)
     {
-        var items = (from menuitem in _dbContext.Menuitems
-                     join itemtype in _dbContext.Itemtypes
-                     on menuitem.ItemtypeId equals itemtype.ItemtypeId
-                     where menuitem.ItemId == id
-                     select new AddItemListViewModel
-                     {
-                         CategoryId = menuitem.CategoryId,
-                         Description = menuitem.Description!,
-                         ItemName = menuitem.ItemName,
-                         IsAvailable = (bool)menuitem.IsAvailable!,
-                         Quantity = menuitem.Quantity,
-                         Rate = menuitem.Rate,
-                         UnitId = menuitem.UnitId,
-                         ItemId = menuitem.ItemId,
-                         ItemtypeId = menuitem.ItemtypeId
-                     }).ToList();
-        return items;
+        var items = await _dbContext.Menuitems.SingleOrDefaultAsync(m=>m.ItemId==id);
+        var itemsEdit = new EditItemListViewModel
+        {
+            CategoryId = items.CategoryId,
+            Description = items.Description,
+            ItemName = items.ItemName,
+            IsAvailable = (bool)items.IsAvailable,
+            Quantity = items.Quantity,
+            Rate = items.Rate,
+            UnitId = items.UnitId,
+            ItemId = items.ItemId,
+            ItemtypeId = items.ItemtypeId,
+            categoryDropDown = CategoryDropdDown(),
+            unitDropDown = UnitDropdDown(),
+            itemtypeDropDown = ItemTypeDropdDown()
+        };
+        return itemsEdit;
     }
 
-    public async Task<bool> AddMenuItemsAsync(List<AddItemListViewModel> list)
+    public async Task<bool> AddMenuItemsAsync(AddItemListViewModel model)
     {
-        if (list.Count() > 0)
+        if (model!=null)
         {
             Menuitem mt = new Menuitem();
-            mt.CategoryId = list[0].CategoryId;
+            mt.CategoryId = model.CategoryId;
             mt.CreatedAt = DateTime.Now;
             mt.CreatedBy = "Super Admin";
-            mt.Description = list[0].Description;
-            mt.IsAvailable = list[0].IsAvailable;
-            mt.ItemName = list[0].ItemName;
-            mt.ItemPhoto = await _userRepository.UploadPhotoAsync(list[0].ItemPhoto);
-            mt.ItemtypeId = list[0].ItemtypeId;
-            mt.Quantity = list[0].Quantity;
-            mt.Rate = list[0].Rate;
-            mt.UnitId = list[0].UnitId;
+            mt.Description = model.Description;
+            mt.IsAvailable = model.IsAvailable;
+            mt.ItemName = model.ItemName;
+            mt.ItemPhoto = await _userRepository.UploadPhotoAsync(model.ItemPhoto);
+            mt.ItemtypeId = model.ItemtypeId;
+            mt.Quantity = model.Quantity;
+            mt.Rate = model.Rate;
+            mt.UnitId = model.UnitId;
             _dbContext.Add(mt);
             await _dbContext.SaveChangesAsync();
             return true;

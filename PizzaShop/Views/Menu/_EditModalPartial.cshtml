@@ -11,121 +11,127 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <div class="row mb-3">
-                <div class="col-6">
-                    <div class="form-floating">
-                        @* <label for="floatingInput" class="p-2 text-secondary">Item type*</label> *@
-                        <select class="form-select" aria-label="Default select example" id="categorydd"
-                            style="height:46px;">
-                            <option value="" selected>Select Category</option>
-                            @foreach (var category in Model.categoryDropDown!)
+            <form enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <div class="form-floating">
+                            @* <label for="floatingInput" class="p-2 text-secondary">Item type*</label> *@
+                            <select class="form-select" aria-label="Default select example" id="categorydd"
+                                style="height:46px;" asp-for="@Model.EditViewModel.CategoryId">
+                                <option value="" selected>Select Category</option>
+                                @foreach (var category in Model.categoryDropDown!)
+                                {
+                                    <option value="@category.CategoryId">@category.CategoryName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
+                                id="itemName2" asp-for="@Model.EditViewModel.ItemName">
+                            <label for="floatingInput" class="p-2 text-secondary">Name*</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <select class="form-select" aria-label="Default select example" id="itemtypedd"
+                            style="height:46px;" asp-for="@Model.EditViewModel.ItemtypeId">
+                            <option value="" selected>Select a type</option>
+                            @foreach (var itemType in Model.itemtypeDropDown!)
                             {
-                                <option value="@category.CategoryId">@category.CategoryName</option>
+                                <option value="@itemType.ItemtypeId">@itemType.ItemtypeName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder="" id="rate"
+                                asp-for="@Model.EditViewModel.Rate">
+                            <label for="floatingInput" class="p-2 text-secondary">Rate*</label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
+                                id="quantity" asp-for="@Model.EditViewModel.Quantity">
+                            <label for="floatingInput" class="p-2 text-secondary">Quantity*</label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <select class="form-select" aria-label="Default select example" id="unitdd" style="height:46px;"
+                            asp-for="@Model.EditViewModel.UnitId">
+                            <option value="">Select a unit</option>
+                            @foreach (var unit in Model.unitDropDown!)
+                            {
+                                <option value="@unit.UnitId">@unit.UnitName</option>
                             }
                         </select>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control ps-2" style="height: 38px;" placeholder="" id="itemName2"
-                            value="" asp-for="@Model.addItemList[0].ItemName">
-                        <label for="floatingInput" class="p-2 text-secondary">Name*</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <select class="form-select" aria-label="Default select example" id="itemtypedd"
-                        style="height:46px;">
-                        <option value="" selected>Select a type</option>
-                        @foreach (var itemType in Model.itemtypeDropDown!)
-                        {
-                            <option value="@itemType.ItemtypeId">@itemType.ItemtypeName</option>
-                        }
-                    </select>
-                </div>
-                <div class="col-3">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control ps-2" style="height: 38px;" placeholder="" value="0"
-                            id="rate">
-                        <label for="floatingInput" class="p-2 text-secondary">Rate*</label>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control ps-2" style="height: 38px;" placeholder="" value="0"
-                            id="quantity">
-                        <label for="floatingInput" class="p-2 text-secondary">Quantity*</label>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <select class="form-select" aria-label="Default select example" id="unitdd" style="height:46px;">
-                        <option value="">Select a unit</option>
-                        @foreach (var unit in Model.unitDropDown!)
-                        {
-                            <option value="@unit.UnitId">@unit.UnitName</option>
-                        }
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <div class="form-check form-switch text-center">
-                        <div class="">
-                            <input type="checkbox" class="form-check-input switch can-view"
-                                style="height: 28px; width: 56px;" id="isavailable" />
-                            <input type="hidden" value="false" />
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-check form-switch text-center">
+                            <div class="">
+                                <input type="checkbox" class="form-check-input switch can-view"
+                                    style="height: 28px; width: 56px;" id="isavailable"
+                                    asp-for="@Model.EditViewModel.IsAvailable" />
+                                <input type="hidden" value="false" />
+                            </div>
+                            <div class="" style="margin-left: 30px !important;">
+                                <span class="" style="margin-top: 10px;">Available</span>
+                            </div>
                         </div>
-                        <div class="" style="margin-left: 30px !important;">
-                            <span class="" style="margin-top: 10px;">Available</span>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-check form-switch">
+                            <div class="">
+                                <input type="checkbox" class="form-check-input switch can-view"
+                                    style="height: 28px; width: 56px;" id="defaulttax"
+                                    asp-for="@Model.EditViewModel.ISDefaultTax" />
+                                <input type="hidden" value="false" />
+                            </div>
+                            <div class="" style="margin-left: 30px !important;">
+                                <span class="" style="margin-top: 10px;">Default tax</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
+                                id="taxpercentage" asp-for="@Model.EditViewModel.TaxPercentage">
+                            <label for="floatingInput" class="p-2 text-secondary">Tax Percentage</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
+                                id="shortcode" asp-for="@Model.EditViewModel.ShortCode">
+                            <label for="floatingInput" class="p-2 text-secondary">Short Code</label>
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="form-check form-switch">
-                        <div class="">
-                            <input type="checkbox" class="form-check-input switch can-view"
-                                style="height: 28px; width: 56px;" id="defaulttax" />
-                            <input type="hidden" value="false" />
-                        </div>
-                        <div class="" style="margin-left: 30px !important;">
-                            <span class="" style="margin-top: 10px;">Default tax</span>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="description"
+                                style="height: 100px !important;" asp-for="@Model.EditViewModel.Description"></textarea>
+                            <label for="floatingTextarea">Description</label>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
-                            id="taxpercentage">
-                        <label for="floatingInput" class="p-2 text-secondary">Tax Percentage</label>
+                <div class="row mt-2">
+                    <div class="col">
+                        Upload Photo
+                        <label for="fileUpload" class="btn w-100 p-4 fileUp" id="profilePicture"
+                            style=" border: 1px solid #ced4da; border-style: dashed; ">
+                            <i class="bi bi-cloud-arrow-up h3"></i><br>Browse File
+                            <input type="file" id="fileUpload" class="form-control d-none"
+                                asp-for="@Model.EditViewModel.ItemPhoto">
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control ps-2" style="height: 38px;" placeholder=""
-                            id="shortcode">
-                        <label for="floatingInput" class="p-2 text-secondary">Short Code</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="description"
-                            style="height: 100px !important;" asp-for="@Model.addItemList[0].Description"></textarea>
-                        <label for="floatingTextarea">Description</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col">
-                    Upload Photo
-                    <label for="fileUpload" class="btn w-100 p-4 fileUp" id="profilePicture"
-                        style=" border: 1px solid #ced4da; border-style: dashed; ">
-                        <i class="bi bi-cloud-arrow-up h3"></i><br>Browse File
-                        <input type="file" id="fileUpload" class="form-control d-none">
-                </div>
-            </div>
+            </form>
         </div>
         <div class="col-4" style="height: 442px; background-color: rgb(255, 245, 186);">
 

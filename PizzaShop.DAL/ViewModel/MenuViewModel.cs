@@ -11,7 +11,8 @@ public class MenuViewModel
     public List<Category>? categoryDropDown { get; set; }
     public List<Unit>? unitDropDown { get; set; }
     public List<Itemtype>? itemtypeDropDown { get; set; }
-    public List<AddItemListViewModel>? addItemList { get; set; }
+    public EditItemListViewModel? EditViewModel { get; set; }
+    // public List<AddItemListViewModel>? addItemList { get; set; }
     // public EditItemListViewModel editItemListViewModel{get;set;}
 }
 
@@ -31,9 +32,9 @@ public class ItemListViewModel
     public int Quantity { get; set; }
     public bool isAvailable { get; set; }
     public string ItemType { get; set; }
-    public string ItemPhoto{get;set;}
+    public string ItemPhoto { get; set; }
 }
- 
+
 public class AddItemListViewModel
 {
     [Required]
@@ -59,11 +60,13 @@ public class AddItemListViewModel
     public bool IsAvailable { get; set; }
     public decimal TaxPercentage { get; set; }
     public string ShortCode { get; set; }
+    public List<Category>? categoryDropDown { get; set; }
+    public List<Unit>? unitDropDown { get; set; }
+    public List<Itemtype>? itemtypeDropDown { get; set; }
 }
 
 public class EditItemListViewModel
 {
-
     public int CategoryId { get; set; }
     public int ItemId { get; set; }
 
@@ -85,4 +88,7 @@ public class EditItemListViewModel
     public bool IsAvailable { get; set; }
     public decimal TaxPercentage { get; set; }
     public string ShortCode { get; set; }
+    public List<Category>? categoryDropDown { get; set; }
+    public List<Unit>? unitDropDown { get; set; }
+    public List<Itemtype>? itemtypeDropDown { get; set; }
 }
