@@ -17,6 +17,7 @@ public class AuthController : Controller
 
     public IActionResult User_Login()
     {
+
         string req_cookie = Request.Cookies["UserEmail"]!;
         if (!string.IsNullOrEmpty(req_cookie))
         {
@@ -41,7 +42,7 @@ public class AuthController : Controller
                 else
                 {
                     string role = await _authRepository.GetRoleAsync(user.RoleId);
-                    var token = _jwtRepository.GenerateJwtToken(user.UserName, user.Email, role);
+                    var token = _jwtRepository.GenerateJwtToken(user.UserName, user.Email, role, DateTime.Now.AddDays(1));
                     Response.Cookies.Append("JWT", token);
                     TempData["ToastrMessage"] = "Login Successfull";
                     TempData["ToastrType"] = "success";
@@ -58,15 +59,15 @@ public class AuthController : Controller
         }
     }
 
-    public IActionResult User_ForgotPassword(string Email)
+    public IActionResult User_ForgotPassword(string? Email)
     {
-        if(Email==null)
+        if (Email == null)
         {
             TempData["ToastrMessage"] = "Please enter Email Address";
             TempData["ToastrType"] = "error";
             return RedirectToAction("User_Login");
         }
-        ViewData["Email"]=Email;
+        ViewData["Email"] = Email;
         return View();
     }
 
@@ -78,15 +79,18 @@ public class AuthController : Controller
             if (user != null)
             {
                 TempData["Email"] = user.Email;
+                string role = await _authRepository.GetRoleAsync(user.RoleId);
+                string resetToken = _jwtRepository.GenerateExpiryToken(user.Email, role, Response);
+
                 var callbackUrl = Url.ActionLink(
-                    "User_ResetPassword", "Auth"
+                    "User_ResetPassword", "Auth", new { token = resetToken }
                 );
                 string subject = "Reset Your Password";
                 string body = $@"
                 <html>
                     <body style='background-color: #F8F9FA'>
                     <div style='background-color: #0067a9;display: flex;justify-content: center;align-items: center;height: 100;'>
-                        <img src='https://i.ibb.co/9mk5kMWL/pizzashop-logo.png' alt='img here' height='50'>
+                        <img src='https://i.ibb.co/9mk5kMWL/pizzashop-logo.png' alt='img here' height='20 !important'>
                         <h1 style='color: white;margin-left: 20px;'>PIZZASHOP</h1>
                     </div>
                     <p>Pizza Shop,</p>
@@ -112,24 +116,37 @@ public class AuthController : Controller
         }
     }
 
-    public IActionResult User_ResetPassword()
+    public IActionResult User_ResetPassword(string token)
     {
+        ViewData["ResetToken"] = token;
         return View();
     }
 
-    public IActionResult ResetPassword(ResetPassword model)
+    public async Task<IActionResult> ResetPassword(ResetPassword model)
     {
-        if (ModelState.IsValid)
+        var token = model.Token;
+        bool validate = await _jwtRepository.ValidateToken(token, model);
+
+        if (!validate)
         {
-            if (model.NewPassword == model.ConfirmPassword)
-            {
-                string email = TempData["Email"]!.ToString()!;
-                _authRepository.ResetPasswordAsync(email, model.NewPassword);
-                TempData["ToastrMessage"] = "Reset Password Successfully";
-                TempData["ToastrType"] = "success";
-            }
+            TempData["ToastrMessage"] = "Reset Password Link Expired";
+            TempData["ToastrType"] = "error";
+            return RedirectToAction("User_ForgotPassword");
         }
-        return View("User_Login");
+        else
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.NewPassword == model.ConfirmPassword)
+                {
+                    string email = TempData["Email"]!.ToString()!;
+                    _authRepository.ResetPasswordAsync(email, model.NewPassword);
+                    TempData["ToastrMessage"] = "Reset Password Successfully";
+                    TempData["ToastrType"] = "success";
+                }
+            }
+            return RedirectToAction("User_Login");
+        }
     }
 
     public IActionResult Logout()
