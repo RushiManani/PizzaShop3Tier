@@ -50,6 +50,10 @@
     font-size: medium !important;
 }
 
+.searchbox{
+    width: 270px;
+}
+
 .my-profile-header-none {
     background-color: #0565A0;
 }
@@ -140,6 +144,10 @@
     padding-bottom: 5px;
 }
 
+.change-password-body{
+    width: 600px;
+}
+
 .dropdown {
     position: relative;
     right: 0;
@@ -158,6 +166,7 @@
 .btn-add-user {
     display: flex;
     align-items: center;
+    width: 130px;
 }
 
 .btn-add-user i {
@@ -309,7 +318,9 @@
 
 @media only screen and (max-width:720px) {
 
-
+    .change-password-body{
+        width: 350px;
+    }
 
     .logo-res {
         float: left;

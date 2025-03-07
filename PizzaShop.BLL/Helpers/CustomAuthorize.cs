@@ -54,7 +54,7 @@ public class CustomAuthorize : Attribute, IAuthorizationFilter
                 context.Result = new RedirectToRouteResult(new { Controller = "Auth", action = "AccessDenied" });
             }
         }
-        catch (Exception ex)
+        catch
         {
             context.Result = new RedirectToRouteResult(new { controller = "Auth", action = "User_Login" });
         }

@@ -20,11 +20,11 @@
                 <input type="hidden" asp-for="Email">
                 <input type="hidden" asp-for="UserId">
                 <div class="row mt-2">
-                    <div class="col-xl-1 col-lg-2 col-md-4 align-self-center">
+                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-3 align-self-center">
                         <img src="@Url.Content(Model.ProfilePicture)" alt="" class="myprofile-img ms-4"
                             style="position: absolute; top: 30px; height: 85px;">
                     </div>
-                    <div class="col-xl-8 col-lg-7 col-md-4">
+                    <div class="col-xl-8 col-lg-7 col-md-4 col-sm-7">
                         <div class="row">
                             <div class="col"><span class="h4">@ViewData["UserName"]</span></div>
                         </div>
@@ -32,7 +32,7 @@
                             <div class="col"><span class="">@ViewData["RoleName"]</span></div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-2 col-md-4 text-end">@ViewData["UserEmail"]</div>
+                    <div class="col-xl-3 col-lg-2 col-md-4 col-sm-2 text-end">@ViewData["UserEmail"]</div>
                 </div>
 
                 <div class="row mt-3 ms-0">
