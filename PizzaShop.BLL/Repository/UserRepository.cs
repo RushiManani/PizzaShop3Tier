@@ -21,24 +21,58 @@ public class UserRepository : IUserRepository
         _webHostEnvironment = webHostEnvironment;
     }
 
-    public List<UserViewModel> GetUserAsync(int page = 1, int pageSize = 5)
+    public async Task<(List<UserViewModel> UserList, int Count, int PageSize, int PageNumber, string SortBy, string SortOrder, string SearchKey)> GetUserAsync(int PageSize, int PageNumber, string sortBy, string sortOrder, string SearchKey)
     {
-        List<UserViewModel> users = (from user in _dbContext.Users
-                                     join role in _dbContext.Roles on user.RoleId equals role.RoleId
-                                     where user.Isdeleted == false
-                                     select new UserViewModel
-                                     {
-                                         Email = user.Email,
-                                         Isactive = user.Isactive,
-                                         MobileNumber = user.MobileNumber,
-                                         RoleName = role.RoleName,
-                                         UserName = user.UserName,
-                                         UserId = user.UserId,
-                                         ProfilePicture = user.ProfilePicture
-                                     }).ToList();
+        var userslist = from user in _dbContext.Users
+                        join role in _dbContext.Roles on user.RoleId equals role.RoleId
+                        where user.Isdeleted == false && (
+                        user.UserName.ToLower().Contains(SearchKey))
+                        select new UserViewModel
+                        {
+                            UserId = user.UserId,
+                            Email = user.Email,
+                            UserName = user.UserName,
+                            MobileNumber = user.MobileNumber,
+                            RoleName = role.RoleName,
+                            Isactive = user.Isactive,
+                            ProfilePicture = user.ProfilePicture,
+                        };
 
-        users = users.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-        return users;
+        switch (sortBy)
+        {
+            case "name":
+                userslist = (sortOrder == "asc") ? userslist.OrderBy(u => u.UserName) : userslist.OrderByDescending(u => u.UserName);
+                break;
+            case "role":
+                userslist = (sortOrder == "asc") ? userslist.OrderBy(u => u.RoleName) : userslist.OrderByDescending(u => u.RoleName);
+                break;
+            default:
+                userslist = userslist.OrderBy(u => u.UserName);
+                break;
+        }
+
+        var count = await userslist.CountAsync();
+
+        if (PageNumber < 1)
+        {
+            PageNumber = 1;
+        }
+
+        var totalPages = (int)Math.Ceiling((double)count / PageSize);
+
+        if (PageNumber > totalPages)
+        {
+            PageNumber = totalPages;
+        }
+
+        if (PageNumber < 1)
+        {
+            PageNumber = 1;
+        }
+
+        var userList = await userslist.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToListAsync();
+
+        return (userList, count, PageSize, PageNumber, sortBy, sortOrder, SearchKey);
     }
 
     public List<UserViewModel> GetUserByNameAsync(string searchString)
@@ -58,6 +92,11 @@ public class UserRepository : IUserRepository
                                      }).ToList();
         return users;
     }
+
+    public User GetUserByEmail(string email)
+    {
+        return _dbContext.Users.SingleOrDefault(u => u.Email == email);
+    } 
 
     public async Task DeleteUserAsync(int userId)
     {

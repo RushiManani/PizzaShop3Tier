@@ -10,62 +10,41 @@ public class UserController : Controller
     private readonly IUserRepository _userRepository;
     private readonly IAdminDashRepository _adminDashRepository;
     private readonly IAuthRepository _authRepository;
+    private readonly IJWTRepository _jwtRepository;
 
-    public UserController(IUserRepository userRepository, IAdminDashRepository adminDashRepository, IAuthRepository authRepository)
+    public UserController(IUserRepository userRepository, IAdminDashRepository adminDashRepository, IAuthRepository authRepository,IJWTRepository jWTRepository)
     {
         _userRepository = userRepository;
         _adminDashRepository = adminDashRepository;
         _authRepository = authRepository;
-    }
+        _jwtRepository = jWTRepository;
+    } 
 
-    public IActionResult User_ListView(string? sortorder, string searchString, string currentFilter, int page = 1, int pageSize = 5)
+    [HttpGet]
+    public async Task<IActionResult> User_ListView(int PageSize = 5, int PageNumber = 1, string sortBy = "name", string sortOrder = "asc", string SearchKey = "")
     {
 
-        ViewData["NameSortParm"] = String.IsNullOrEmpty(sortorder) ? "name_desc" : "";
-        ViewData["RoleSortParm"] = sortorder == "role" ? "role_desc" : "role";
-        ViewData["CurrentSort"] = sortorder;
-        ViewData["CurrentFilter"] = currentFilter;
+        List<string> jwtlist = _jwtRepository.ReadJWTToken();
+        ViewData["UserEmail"] = jwtlist[0];
+        ViewData["UserName"] = jwtlist[1];
+        ViewData["RoleName"] = jwtlist[2];
 
-        List<UserViewModel> users = _userRepository.GetUserAsync(page, pageSize);
-        int totalItems = users.Count();
-        int totalPages = (int)System.Math.Ceiling((double)totalItems / pageSize);
-        ViewBag.TotalRecord = totalItems;
-        ViewBag.CurrentPage = page;
-        ViewBag.TotalPages = totalPages;
-        ViewBag.PageSize = pageSize;
-        ViewBag.StartCount = (page - 1) * pageSize + 1;
-        ViewBag.EndCount = page * pageSize;
+        // Get data from repository (returns a tuple)
+        var (users, count, pageSize, pageNumber, sortColumn, sortDirection, searchKey) = await _userRepository.GetUserAsync(PageSize, PageNumber, sortBy, sortOrder, SearchKey);
 
-        page = page < 1 ? 1 : page;
-        page = page > totalPages ? totalPages : page;
-
-        if (!String.IsNullOrEmpty(searchString))
+        // Store metadata in ViewData (converted to correct types)
+        ViewData["sortBy"] = sortColumn;
+        ViewData["sortOrder"] = sortDirection;
+        ViewData["PageSize"] = pageSize;
+        ViewData["PageNumber"] = pageNumber;
+        ViewData["SearchKey"] = searchKey;
+        ViewData["Count"] = count;  // Total user count for pagination
+        if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
         {
-            users = _userRepository.GetUserByNameAsync(searchString).ToList();
-            users = users.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            // Thread.Sleep(3000);
+            return PartialView("~/Views/User/_UserListPartial.cshtml", users); // Return partial view for AJAX
         }
-        else
-        {
-            users = users.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-        }
-
-        switch (sortorder)
-        {
-            case "name_desc":
-                users = users.OrderByDescending(u => u.UserName).ToList();
-                break;
-            case "role":
-                users = users.OrderBy(u => u.RoleName).ToList();
-                break;
-            case "role_desc":
-                users = users.OrderByDescending(u => u.RoleName).ToList();
-                break;
-
-            default:
-                users = users.OrderBy(u => u.UserName).ToList();
-                break;
-        }
-
+        // Pass only the user list (List<UserListViewModel>) to the View
         return View(users);
     }
 
